@@ -66,7 +66,7 @@ export function assessFit(facts: EffectiveFacts, miles: number, profile: Profile
   }
 
   // Distance from the yard.
-  if (miles > profile.radius) add("distance", "Distance", "caution", `${miles} miles from the yard. You travel up to ${profile.radius}.`);
+  if (miles > profile.radius) add("distance", "Distance", "caution", `${miles} miles from the yard. You travel up to ${profile.radius} miles.`);
   else add("distance", "Distance", "ok", `${miles} miles from the yard.`);
 
   // A meeting that had to be attended and has already been held.

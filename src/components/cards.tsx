@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { fmtWhen } from "@/lib/calendar";
+import { fmtWhen, isPast } from "@/lib/calendar";
 import { fmtEstimate } from "@/lib/fit";
-import { nextDate } from "@/lib/keydates";
+import { dueLabel, nextDate } from "@/lib/keydates";
 import type { Row } from "@/server/queries";
 import { ReasonList, Stamp, StatusChip, VerdictChip } from "./ui";
 
@@ -48,7 +48,7 @@ export function MatchCard({ row, day }: { row: Row; day: number }) {
           )}
         </div>
       </div>
-      <Stamp due={row.eff.facts.due?.value} day={day} />
+      <Stamp due={row.eff.facts.due?.value} day={day} label={dueLabel(row.doc.type)} />
     </li>
   );
 }
@@ -58,6 +58,8 @@ export function PipelineCard({ row, day }: { row: Row; day: number }) {
   const next = nextDate(row.eff.facts, day);
   const done = row.eff.checklist.filter((item) => row.checked.includes(item.id)).length;
   const total = row.eff.checklist.length;
+  const due = row.eff.facts.due?.value;
+  const missed = due !== undefined && isPast(due, day) && (row.status === "bidding" || row.status === "watching");
   return (
     <li className="panel flex flex-col gap-4 p-4 sm:flex-row sm:p-5">
       <div className="min-w-0 flex-1">
@@ -86,6 +88,7 @@ export function PipelineCard({ row, day }: { row: Row; day: number }) {
             </div>
           </div>
         )}
+        {missed && <p className="mt-3 text-sm font-semibold text-flag">{row.status === "bidding" ? "The deadline passed before this bid was handed in." : "The deadline has passed."}</p>}
         {row.status === "passed" && row.reason && <p className="mt-3 text-sm">Passed because: {row.reason}</p>}
         {(row.status === "bidding" || row.status === "watching") && next && next.key !== "due" && (
           <p className="mt-3 text-sm">
@@ -95,7 +98,7 @@ export function PipelineCard({ row, day }: { row: Row; day: number }) {
           </p>
         )}
       </div>
-      {row.status !== "passed" && <Stamp due={row.eff.facts.due?.value} day={day} />}
+      {row.status !== "passed" && <Stamp due={row.eff.facts.due?.value} day={day} label={dueLabel(row.doc.type)} />}
     </li>
   );
 }

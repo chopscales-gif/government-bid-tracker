@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Public_Sans } from "next/font/google";
 import { DemoBar } from "@/components/demo-bar";
 import { SiteHeader } from "@/components/site";
-import { MAX_DAY, fmtLongDay } from "@/lib/calendar";
+import { MAX_DAY, ZONE, fmtLongDay } from "@/lib/calendar";
 import { getCtx, sandboxIdOrNull } from "@/server/session";
 import { loadSandbox } from "@/server/workflow";
 import "./globals.css";
@@ -24,7 +24,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${publicSans.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
-        <DemoBar today={day === null ? null : fmtLongDay(day)} canAdvance={day !== null && day < MAX_DAY} />
+        <DemoBar zone={ZONE.name} today={day === null ? null : fmtLongDay(day)} canAdvance={day !== null && day < MAX_DAY} />
         <SiteHeader />
         {children}
       </body>

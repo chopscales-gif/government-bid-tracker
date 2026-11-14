@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MatchCard, hrefOf } from "@/components/cards";
 import { ReasonList, Stamp, StatusChip } from "@/components/ui";
 import { daysUntil, fmtLongDay, fmtShortDay, isPast } from "@/lib/calendar";
+import { dueLabel } from "@/lib/keydates";
 import { board, type Row } from "@/server/queries";
 import { getCtx } from "@/server/session";
 
@@ -64,7 +65,7 @@ export default async function Today() {
                     </Link>
                   </p>
                 </div>
-                <Stamp due={row.eff.facts.due!.value} day={day} />
+                <Stamp due={row.eff.facts.due!.value} day={day} label={dueLabel(row.doc.type)} />
               </li>
             ))}
           </ul>
@@ -130,7 +131,7 @@ function ChangedCard({ row, day }: { row: Row; day: number }) {
           <h3 className="mt-2 text-xl font-extrabold leading-snug tracking-tight">{row.doc.title}</h3>
           <p className="mt-1 text-muted">{row.doc.agency}</p>
         </div>
-        <Stamp due={row.eff.facts.due?.value} day={day} />
+        <Stamp due={row.eff.facts.due?.value} day={day} label={dueLabel(row.doc.type)} />
       </div>
       {row.unseen.map((addendum) => (
         <div key={addendum.key} className="border-t border-line p-4 sm:p-5">
@@ -200,7 +201,7 @@ function Guide({ day, rows }: { day: number; rows: Row[] }) {
           <strong className="font-bold">2. Catch an addendum.</strong>{" "}
           {day === 0 || !boiler ? (
             <>
-              Press <em>Skip to next morning</em> in the bar at the top. Overnight, the school district changes a bid you are halfway through.
+              Press <em>Skip to next morning</em> in the bar at the top. Overnight, a school district changes a bid you have already started.
             </>
           ) : (
             <>
@@ -217,7 +218,7 @@ function Guide({ day, rows }: { day: number; rows: Row[] }) {
           <Link href="/profile" className={link}>
             Company profile
           </Link>
-          , widen how far you travel or add a certification, and watch a filtered job become one you could bid.
+          , widen how far you travel or add a certification. The list beside the form shows which jobs come out differently before you save.
         </li>
       </ol>
     </section>

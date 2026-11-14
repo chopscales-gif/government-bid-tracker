@@ -38,6 +38,8 @@ describe("the demo calendar", () => {
   it("writes dates the way a person would", () => {
     expect(fmtWhen("2027-03-18T14:00")).toBe("Thu, Mar 18 at 2:00 PM");
     expect(fmtWhen("2027-03-18")).toBe("Thu, Mar 18");
-    expect(stampParts("2027-03-18T14:00")).toEqual({ date: "Mar 18", time: "Thu, 2:00 PM" });
+    expect(stampParts("2027-03-18T14:00")).toEqual({ date: "Mar 18", time: "Thu, 2:00 PM MT" });
+    expect(fmtWhen("2027-03-05T12:00")).toBe("Fri, Mar 5 at noon");
+    expect(stampParts("2027-03-05T12:00")).toEqual({ date: "Mar 5", time: "Fri, noon MT" });
   });
 });

@@ -13,14 +13,22 @@ export type KeyDate = {
   mandatory?: boolean;
 };
 
-export function keyDates(facts: EffectiveFacts): KeyDate[] {
+/** What the agency calls the thing that is due: a bid, a quote, a proposal or an offer. */
+export function dueLabel(type: string): string {
+  if (/quotation/i.test(type)) return "Quotes due";
+  if (/proposal/i.test(type)) return "Proposals due";
+  if (/synopsis/i.test(type)) return "Offers due";
+  return "Bids due";
+}
+
+export function keyDates(facts: EffectiveFacts, type = ""): KeyDate[] {
   const dates: KeyDate[] = [];
   const { questions_due: questions, prebid, due } = facts;
   if (questions) dates.push({ key: "questions", label: "Questions due", when: questions.value, was: questions.was, addendum: questions.addendum, source: questions.source });
   if (prebid) {
     dates.push({ key: "prebid", label: "Pre-bid meeting", when: prebid.value.when, was: prebid.was?.when, addendum: prebid.addendum, source: prebid.source, mandatory: prebid.value.mandatory });
   }
-  if (due) dates.push({ key: "due", label: "Bids due", when: due.value, was: due.was, addendum: due.addendum, source: due.source });
+  if (due) dates.push({ key: "due", label: dueLabel(type), when: due.value, was: due.was, addendum: due.addendum, source: due.source });
   return dates.sort((a, b) => a.when.localeCompare(b.when));
 }
 

@@ -10,7 +10,7 @@ import { NextMorningButton } from "./next-morning";
  * that belongs to the demo rather than to the fictional company's product,
  * and it holds the demo's calendar.
  */
-export function DemoBar({ today, canAdvance }: { today: string | null; canAdvance: boolean }) {
+export function DemoBar({ today, zone, canAdvance }: { today: string | null; zone: string; canAdvance: boolean }) {
   return (
     <div className="demo-chrome bg-ink text-sm text-white">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-5 gap-y-2 px-4 py-2 sm:px-6">
@@ -31,7 +31,7 @@ export function DemoBar({ today, canAdvance }: { today: string | null; canAdvanc
         <div className="border-t border-white/15 bg-white/5">
           <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2 sm:px-6">
             <p className="min-w-0 flex-1 basis-64">
-              <span className="text-white/75">In the demo it is 7:00 AM on</span> <strong className="font-bold">{today}</strong>
+              <span className="text-white/75">In the demo it is 7:00 AM {zone} on</span> <strong className="font-bold">{today}</strong>
             </p>
             {canAdvance ? (
               <NextMorningButton className="cursor-pointer rounded bg-white px-3 py-1.5 font-bold text-ink hover:bg-white/85 disabled:opacity-60" />

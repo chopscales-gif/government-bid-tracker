@@ -46,6 +46,15 @@ const SHORT = fmt({ weekday: "short", month: "short", day: "numeric" });
 const LONG = fmt({ weekday: "long", month: "long", day: "numeric", year: "numeric" });
 const TIME = fmt({ hour: "numeric", minute: "2-digit" });
 
+/**
+ * Every agency in the demo is in Utah and gives its deadlines in local time,
+ * so one zone covers them all. A real build reads the zone from each solicitation.
+ */
+export const ZONE = { name: "Mountain Time", short: "MT" };
+
+/** "2:00 PM", or "noon" for twelve o'clock, which is how solicitations write it. */
+const fmtTime = (date: Date) => (date.getUTCHours() === 12 && date.getUTCMinutes() === 0 ? "noon" : TIME.format(date));
+
 /** "Monday, March 1, 2027" */
 export const fmtLongDay = (day: number) => LONG.format(dateOfDay(day));
 /** "Mon, Mar 1" */
@@ -54,7 +63,7 @@ export const fmtShortDay = (day: number) => SHORT.format(dateOfDay(day));
 /** "Thu, Mar 18 at 2:00 PM", or "Thu, Mar 18" when the solicitation gave no time. */
 export function fmtWhen(when: string): string {
   const date = parseWhen(when);
-  return hasTime(when) ? `${SHORT.format(date)} at ${TIME.format(date)}` : SHORT.format(date);
+  return hasTime(when) ? `${SHORT.format(date)} at ${fmtTime(date)}` : SHORT.format(date);
 }
 
 /** How long is left, in the words a person would use. */
@@ -69,8 +78,8 @@ export function countdown(when: string, day: number): string {
 const MONTH_DAY = fmt({ month: "short", day: "numeric" });
 const WEEKDAY = fmt({ weekday: "short" });
 
-/** The two lines of a deadline stamp: "Mar 18" and "Thu, 2:00 PM". */
+/** The two lines of a deadline stamp: "Mar 18" and "Thu, 2:00 PM MT". */
 export function stampParts(when: string): { date: string; time: string } {
   const date = parseWhen(when);
-  return { date: MONTH_DAY.format(date), time: hasTime(when) ? `${WEEKDAY.format(date)}, ${TIME.format(date)}` : WEEKDAY.format(date) };
+  return { date: MONTH_DAY.format(date), time: hasTime(when) ? `${WEEKDAY.format(date)}, ${fmtTime(date)} ${ZONE.short}` : WEEKDAY.format(date) };
 }

@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { useEffect, useOptimistic, useRef, useState, useTransition } from "react";
 import type { SolicitationDoc } from "@/data/documents";
-import { fmtShortDay, fmtWhen, isPast } from "@/lib/calendar";
-import type { Addendum, Source } from "@/lib/effective";
+import { ZONE, fmtShortDay, fmtWhen, isPast } from "@/lib/calendar";
+import type { Addendum, ChecklistItem, EffectiveFacts, Source } from "@/lib/effective";
 import { fmtEstimate } from "@/lib/fit";
-import { keyDates } from "@/lib/keydates";
+import { dueLabel, keyDates } from "@/lib/keydates";
 import { CERT_OPTIONS } from "@/lib/profile";
 import { acknowledgeAction, passAction, reopenBidAction, resultAction, startBidAction, submitAction, tickAction, watchAction } from "@/server/actions";
 import type { Row } from "@/server/queries";
@@ -53,7 +53,7 @@ export function Solicitation({ row, day, documents, events }: Props) {
     );
   };
 
-  const dates = keyDates(facts);
+  const dates = keyDates(facts, doc.type);
   const essentials: { label: string; value: string; source: Source | null; addendum: number | null }[] = [
     { label: "Estimate", value: facts.estimated_value ? fmtEstimate(facts.estimated_value.value) : "Not stated", source: facts.estimated_value?.source ?? null, addendum: facts.estimated_value?.addendum ?? null },
     { label: "Who may bid", value: facts.set_aside ? SET_ASIDE_LABEL[facts.set_aside.value] : "Not stated", source: facts.set_aside?.source ?? null, addendum: facts.set_aside?.addendum ?? null },
@@ -92,7 +92,7 @@ export function Solicitation({ row, day, documents, events }: Props) {
             {doc.agency}. {row.feed.place}, {row.feed.miles} miles from the yard.
           </p>
         </div>
-        <Stamp due={due} day={day} />
+        <Stamp due={due} day={day} label={dueLabel(doc.type)} />
       </header>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
@@ -114,6 +114,12 @@ export function Solicitation({ row, day, documents, events }: Props) {
               What it is
             </h2>
             <p className="mt-2 leading-relaxed">{eff.summary}</p>
+            {eff.addenda.length > 0 && (
+              <p className="mt-2 text-sm font-semibold text-due">
+                That summary is of the solicitation as first issued. {eff.addenda.length === 1 ? `Addendum ${eff.addenda[0].number} has` : `${eff.addenda.length} addenda have`} changed it since. The dates, checklist and essentials below are up to
+                date.
+              </p>
+            )}
             <p className="mt-3 text-sm text-muted">
               Read by AI, recorded for this demo. Click any item below to see the words it came from{" "}
               <span className="hidden lg:inline">in the solicitation on the right.</span>
@@ -166,6 +172,7 @@ export function Solicitation({ row, day, documents, events }: Props) {
             ) : (
               <p className="mt-2 text-muted">The reading found no dates in this solicitation.</p>
             )}
+            {dates.length > 0 && <p className="mt-2 text-sm text-muted">Times are local to the agency: {ZONE.name}.</p>}
           </section>
 
           <Checklist row={row} sourced={sourced} />
@@ -213,6 +220,19 @@ export function Solicitation({ row, day, documents, events }: Props) {
               </h2>
               <p className="mt-1 text-sm text-muted">What the AI flagged while reading: contradictions, unusual conditions, and places it had to choose how to read something.</p>
               <ul className="mt-2">
+                {eff.addenda.flatMap((addendum) =>
+                  addendum.settles.map((note, index) => (
+                    <li key={`${addendum.key}:${index}`}>
+                      {sourced(
+                        { doc: note.doc, section: note.section, quote: "" },
+                        <>
+                          <span className="mr-2 rounded bg-due-tint px-1.5 py-0.5 text-xs font-bold whitespace-nowrap text-due">Settled by Addendum {addendum.number}</span>
+                          {note.text}
+                        </>,
+                      )}
+                    </li>
+                  )),
+                )}
                 {eff.notes.slice(0, 3).map((note, index) => (
                   <li key={index}>{sourced({ doc: note.doc, section: note.section, quote: "" }, note.text)}</li>
                 ))}
@@ -317,6 +337,16 @@ function AddendumPanel({ addendum, day, sourced, unread = false, children }: { a
   );
 }
 
+/** What to say under an original checklist item whose words an addendum has replaced. */
+function changedNote(item: ChecklistItem, facts: EffectiveFacts): string {
+  const { addendum, fact } = item.changed!;
+  const lead = `Changed by Addendum ${addendum}.`;
+  if (fact === "due" && facts.due) return `${lead} Now due ${fmtWhen(facts.due.value)}.`;
+  if (fact === "questions_due" && facts.questions_due) return `${lead} Questions are now due ${fmtWhen(facts.questions_due.value)}.`;
+  if (fact === "prebid" && facts.prebid) return `${lead} The meeting is now ${fmtWhen(facts.prebid.value.when)}${facts.prebid.value.mandatory ? " and is mandatory" : ""}.`;
+  return `${lead} See the essentials below for what holds now.`;
+}
+
 /** Everything the bid needs. While a bid is under way each item can be ticked off. */
 function Checklist({ row, sourced }: { row: Row; sourced: Sourced }) {
   const [checked, setOptimistic] = useOptimistic(row.checked, (current: string[], change: { item: string; done: boolean }) =>
@@ -376,6 +406,7 @@ function Checklist({ row, sourced }: { row: Row; sourced: Sourced }) {
                     {item.addendum !== null && <span className="ml-2 rounded bg-due-tint px-1.5 py-0.5 text-xs font-bold whitespace-nowrap text-due">Added by Addendum {item.addendum}</span>}
                   </>,
                 )}
+                {item.changed && <p className="pb-1.5 text-sm font-semibold text-due">{changedNote(item, row.eff.facts)}</p>}
               </div>
             </li>
           );

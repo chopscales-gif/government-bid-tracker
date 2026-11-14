@@ -29,7 +29,7 @@ Three things worth clicking first:
 
 1. Open the **rooftop unit job** from the guide at the top of Today and click anything under **What the bid needs**. The sentence it came from lights up in the solicitation.
 2. Press **Skip to next morning** in the bar at the top. Overnight, a school district has moved a deadline three days earlier and added a bond on a bid that is already in progress. Open it and try to mark the bid as handed in.
-3. Open **Company profile** and tick **Woman-owned small business** or widen how far you travel. The list beside the form shows which jobs come out differently before you save.
+3. Open **Company profile** and widen how far you travel or tick **Service-disabled veteran-owned small business**. The list beside the form shows which jobs come out differently before you save.
 
 **Reset demo** in the top bar puts everything back.
 

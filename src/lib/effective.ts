@@ -20,7 +20,13 @@ type ValueOf<K extends FactKey> = NonNullable<Facts[K]>["value"];
 export type Fact<T> = { value: T; source: Source; addendum: number | null; was?: T };
 export type EffectiveFacts = { [K in FactKey]: Fact<ValueOf<K>> | null };
 
-export type ChecklistItem = { id: string; text: string; source: Source; addendum: number | null };
+/**
+ * `addendum` is the number of the addendum that added the item, or null if it
+ * was in the solicitation as issued. `changed` is set on an original item that
+ * was read from the same words as a fact an addendum has since replaced, so
+ * the screen can say that what the item states no longer holds.
+ */
+export type ChecklistItem = { id: string; text: string; source: Source; addendum: number | null; changed?: { addendum: number; fact: FactKey } };
 export type Note = { text: string; doc: string; section: string };
 export type Change = { what: string; before: string; after: string; source: Source };
 export type Addendum = { number: number; key: string; day: number; summary: string; changes: Change[]; settles: Note[] };
@@ -53,7 +59,15 @@ export function effective(key: string, day: number): Effective {
     const added = ADDENDUM_READINGS[issued.key];
     for (const name of Object.keys(added.facts) as FactKey[]) {
       const fact = added.facts[name];
-      if (fact) facts[name] = { value: fact.value, source: source(issued.key, fact), addendum: number, was: facts[name]?.value };
+      if (!fact) continue;
+      // An original item read from the very words this addendum replaces is out of date.
+      const replaced = reading.facts[name];
+      if (replaced) {
+        for (const item of checklist) {
+          if (item.addendum === null && item.source.section === replaced.section && item.source.quote === replaced.quote) item.changed = { addendum: number, fact: name };
+        }
+      }
+      facts[name] = { value: fact.value, source: source(issued.key, fact), addendum: number, was: facts[name]?.value };
     }
     added.checklist_added.forEach((item, at) => checklist.push({ id: `a${number}:${at}`, text: item.text, source: source(issued.key, item), addendum: number }));
     notes.push(...added.notes.map((note) => ({ ...note, doc: issued.key })));
