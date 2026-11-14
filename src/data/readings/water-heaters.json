@@ -1,0 +1,118 @@
+{
+  "summary": "The Town of Quarry Bend is asking for written quotations to replace two 100-gallon gas commercial water heaters and the recirculation pump at the Quarry Bend Recreation Center in Quarry Bend, Utah. The Town expects the cost to be about $48,000, the work must be done April 12 to April 23, 2027, and only small businesses may quote. Quotations are due by email by 5:00 p.m. on Tuesday, March 16, 2027.",
+  "facts": {
+    "naics": {
+      "value": "238220",
+      "section": "3. Requirements",
+      "quote": "NAICS code: 238220."
+    },
+    "set_aside": {
+      "value": "small_business",
+      "section": "2. Small business limitation",
+      "quote": "Under the Town's Small Purchase Policy, purchases under $75,000 are limited to small businesses."
+    },
+    "estimated_value": {
+      "value": { "low": 48000, "high": 48000 },
+      "section": "1. Request",
+      "quote": "The Town expects the cost to be about $48,000."
+    },
+    "due": {
+      "value": "2027-03-16T17:00",
+      "section": "4. Due date",
+      "quote": "Quotations are due by 5:00 p.m. on Tuesday, March 16, 2027, by email to the Town Clerk."
+    },
+    "questions_due": null,
+    "prebid": null,
+    "bid_bond": {
+      "value": { "required": false, "detail": "Not required" },
+      "section": "3. Requirements",
+      "quote": "No bonds are required."
+    },
+    "performance_bond": {
+      "value": { "required": false, "detail": "Not required" },
+      "section": "3. Requirements",
+      "quote": "No bonds are required."
+    },
+    "licences": {
+      "value": { "codes": ["S210", "S350"], "need": "any" },
+      "section": "3. Requirements",
+      "quote": "The firm must hold a Utah S210 General Plumbing Contractor license or a Utah S350 HVAC Contractor license."
+    },
+    "submission": {
+      "value": "On the Town's Quotation Form, by email to the Town Clerk",
+      "section": "4. Due date",
+      "quote": "Quotations are due by 5:00 p.m. on Tuesday, March 16, 2027, by email to the Town Clerk."
+    }
+  },
+  "checklist": [
+    {
+      "text": "Check that you hold a Utah S210 General Plumbing Contractor license or a Utah S350 HVAC Contractor license.",
+      "section": "3. Requirements",
+      "quote": "The firm must hold a Utah S210 General Plumbing Contractor license or a Utah S350 HVAC Contractor license."
+    },
+    {
+      "text": "Write your quotation on the Town's Quotation Form.",
+      "section": "3. Requirements",
+      "quote": "Quotations must be submitted on the Town's Quotation Form"
+    },
+    {
+      "text": "Certify on the Quotation Form that you are a small business, meaning fewer than 100 employees.",
+      "section": "2. Small business limitation",
+      "quote": "a firm must certify on the Quotation Form that it is a small business, meaning that it has fewer than 100 employees"
+    },
+    {
+      "text": "Include the make and model of the water heaters you propose.",
+      "section": "3. Requirements",
+      "quote": "must include the make and model of the proposed water heaters"
+    },
+    {
+      "text": "Include the length of the manufacturer's warranty.",
+      "section": "3. Requirements",
+      "quote": "the length of the manufacturer's warranty"
+    },
+    {
+      "text": "Email the quotation to the Town Clerk by 5:00 p.m. on Tuesday, March 16, 2027.",
+      "section": "4. Due date",
+      "quote": "Quotations are due by 5:00 p.m. on Tuesday, March 16, 2027, by email to the Town Clerk."
+    }
+  ],
+  "after_award": [
+    {
+      "text": "Provide proof of liability insurance before starting work.",
+      "section": "3. Requirements",
+      "quote": "The selected firm must provide proof of liability insurance and workers' compensation coverage before starting work."
+    },
+    {
+      "text": "Provide proof of workers' compensation coverage before starting work.",
+      "section": "3. Requirements",
+      "quote": "The selected firm must provide proof of liability insurance and workers' compensation coverage before starting work."
+    },
+    {
+      "text": "Do the work while the pool is closed for annual maintenance, April 12 to April 23, 2027.",
+      "section": "1. Request",
+      "quote": "The work must be done while the pool is closed for its annual maintenance, April 12 to April 23, 2027."
+    }
+  ],
+  "notes": [
+    {
+      "text": "Only small businesses may quote, and the Town uses its own definition: fewer than 100 employees. A firm must certify this on the Quotation Form to be considered.",
+      "section": "2. Small business limitation"
+    },
+    {
+      "text": "The work must be done between April 12 and April 23, 2027, while the pool is closed. Quotations are due March 16, 2027, less than four weeks before that window opens, and the text does not say when the award will be made.",
+      "section": "1. Request"
+    },
+    {
+      "text": "There is no scheduled site visit and no deadline for questions. A firm that wants to see the mechanical room before quoting can call the Recreation Center manager at (801) 555-0119. This reading treats that as optional.",
+      "section": "4. Due date"
+    },
+    {
+      "text": "Either licence is enough: Utah S210 General Plumbing Contractor or Utah S350 HVAC Contractor. The text does not ask for proof of the licence with the quotation. The text says \"No bonds are required\", read here as meaning neither a bid bond nor a performance bond. Proof of insurance is needed before starting work, not with the quotation.",
+      "section": "3. Requirements"
+    },
+    {
+      "text": "Quotations go by email to the Town Clerk, but this section gives no email address. Section 5 lists the Town Clerk at clerk@quarrybend.example. The Town will award to the lowest quotation that meets the requirements.",
+      "section": "4. Due date"
+    }
+  ]
+}

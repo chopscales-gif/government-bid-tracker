@@ -1,0 +1,38 @@
+{
+  "summary": "Red Mesa County School District wants proposals from mechanical contractors to replace the heating and cooling systems in the 1978 classroom building at Red Mesa High School: 38 unit ventilators, the heating water boilers and pumps, and a new building automation system. The construction budget is $900,000 to $1,100,000 and the winner is chosen on best value, not lowest price. A site visit on March 17, 2027 is mandatory, and proposals are due Friday, April 2, 2027 at 2:00 p.m.",
+  "facts": {
+    "naics": { "value": "238220", "section": "1. Summary", "quote": "NAICS 238220." },
+    "set_aside": { "value": "none", "section": "1. Summary", "quote": "The District welcomes proposals from all qualified contractors." },
+    "estimated_value": { "value": { "low": 900000, "high": 1100000 }, "section": "1. Summary", "quote": "The construction budget is $900,000 to $1,100,000." },
+    "due": { "value": "2027-04-02T14:00", "section": "5. Dates", "quote": "Proposals due: Friday, April 2, 2027, 2:00 p.m., District Office, 45 North Main Street, Red Mesa." },
+    "questions_due": { "value": "2027-03-22", "section": "5. Dates", "quote": "Questions due: Monday, March 22, 2027." },
+    "prebid": { "value": { "when": "2027-03-17T13:00", "mandatory": true }, "section": "3. Mandatory site visit", "quote": "A mandatory pre-proposal meeting and site visit will be held at the high school on Wednesday, March 17, 2027 at 1:00 p.m." },
+    "bid_bond": { "value": { "required": true, "detail": "Proposal bond of 5 percent of the proposed price" }, "section": "4. Proposal requirements", "quote": "A proposal bond of 5 percent of the proposed price is required." },
+    "performance_bond": null,
+    "licences": { "value": { "codes": ["S350"], "need": "all" }, "section": "4. Proposal requirements", "quote": "The firm must hold a Utah S350 HVAC Contractor license." },
+    "submission": { "value": "One original and four copies plus one electronic copy on a USB drive, with the Cost Proposal Form in a separate sealed envelope, to the District Office, 45 North Main Street, Red Mesa", "section": "4. Proposal requirements", "quote": "Submit one original and four copies, plus one electronic copy on a USB drive." }
+  },
+  "checklist": [
+    { "text": "Confirm the firm holds a Utah S350 HVAC Contractor license.", "section": "4. Proposal requirements", "quote": "The firm must hold a Utah S350 HVAC Contractor license." },
+    { "text": "Attend the mandatory pre-proposal meeting and site visit at the high school on Wednesday, March 17, 2027 at 1:00 p.m.", "section": "3. Mandatory site visit", "quote": "Proposals will be accepted only from firms that attend." },
+    { "text": "Write a management plan.", "section": "4. Proposal requirements", "quote": "The proposal must include a management plan, a schedule" },
+    { "text": "Prepare a project schedule.", "section": "4. Proposal requirements", "quote": "The proposal must include a management plan, a schedule" },
+    { "text": "Include resumes for the project manager and the superintendent.", "section": "4. Proposal requirements", "quote": "resumes for the project manager and superintendent" },
+    { "text": "Include a list of school projects completed since 2020.", "section": "4. Proposal requirements", "quote": "a list of school projects completed since 2020" },
+    { "text": "Get a statement of bonding capacity from the firm's surety and include it.", "section": "4. Proposal requirements", "quote": "a statement of bonding capacity from the firm's surety" },
+    { "text": "Complete the Cost Proposal Form and put it in a separate sealed envelope.", "section": "4. Proposal requirements", "quote": "the Cost Proposal Form in a separate sealed envelope" },
+    { "text": "Include a proposal bond of 5 percent of the proposed price.", "section": "4. Proposal requirements", "quote": "A proposal bond of 5 percent of the proposed price is required." },
+    { "text": "Make up one original and four copies of the proposal, plus one electronic copy on a USB drive.", "section": "4. Proposal requirements", "quote": "Submit one original and four copies, plus one electronic copy on a USB drive." },
+    { "text": "Get the proposal to the District Office, 45 North Main Street, Red Mesa, by 2:00 p.m. on Friday, April 2, 2027.", "section": "5. Dates", "quote": "Proposals due: Friday, April 2, 2027, 2:00 p.m., District Office, 45 North Main Street, Red Mesa." }
+  ],
+  "after_award": [
+    { "text": "Arrange lodging for the crews; the District has no housing to offer.", "section": "6. Housing", "quote": "Contractors are responsible for lodging for their crews." }
+  ],
+  "notes": [
+    { "text": "The site visit is a hard gate. The text says proposals will be accepted only from firms that attend the meeting on Wednesday, March 17, 2027 at 1:00 p.m., so missing it means you cannot propose at all.", "section": "3. Mandatory site visit" },
+    { "text": "This is not a low-bid award. Price is 40 percent of the score; the schedule and plan for working in an occupied school is 25 percent, the experience of the project manager and superintendent 20 percent, and past performance on school projects 15 percent.", "section": "2. Selection" },
+    { "text": "Performance and payment bonds are not mentioned anywhere, although the proposal must include a statement of bonding capacity from your surety. I read this as the text being silent, not as bonds being waived; ask before pricing.", "section": "4. Proposal requirements" },
+    { "text": "The text gives the District Office as where proposals are due but does not say how they must arrive. Because it asks for paper copies, a USB drive and a sealed envelope, I read it as physical delivery. The questions deadline gives a date with no time and does not say how or to whom questions are sent.", "section": "5. Dates" },
+    { "text": "Red Mesa is described as a remote community, the District has no housing to offer, and crew lodging is the contractor's responsibility. That cost belongs in your price.", "section": "6. Housing" }
+  ]
+}

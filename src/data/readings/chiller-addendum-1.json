@@ -1,0 +1,135 @@
+{
+  "summary": "The pre-bid conference is now mandatory and has moved a day earlier, to Monday, March 8, 2027 at 9:00 a.m.; a firm that does not sign the attendance sheet will not have its bid opened, and attendee names must be sent in by noon on Friday, March 5. Each bid must now also include a crane and lift plan and acknowledge this addendum, the bid time is confirmed as 2:00 p.m. on March 25, and the questions deadline moves to March 16.",
+  "changes": [
+    {
+      "what": "Pre-bid conference attendance",
+      "before": "Not mandatory. Bidders were encouraged to attend.",
+      "after": "Mandatory. A bid from a firm that did not sign the attendance sheet will not be opened.",
+      "section": "1. Pre-bid conference is now mandatory and has moved",
+      "quote": "The pre-bid conference described in Section 2 is now mandatory."
+    },
+    {
+      "what": "Pre-bid conference date and time",
+      "before": "Tuesday, March 9, 2027 at 10:00 a.m.",
+      "after": "Monday, March 8, 2027 at 9:00 a.m., in the lobby of the Justice Center",
+      "section": "1. Pre-bid conference is now mandatory and has moved",
+      "quote": "It is moved from Tuesday, March 9, 2027 at 10:00 a.m. to Monday, March 8, 2027 at 9:00 a.m."
+    },
+    {
+      "what": "Number of roof visits",
+      "before": "Not mentioned",
+      "after": "The County will allow only one roof visit.",
+      "section": "1. Pre-bid conference is now mandatory and has moved",
+      "quote": "the County will allow only one roof visit"
+    },
+    {
+      "what": "Number of people each firm may bring to the pre-bid conference",
+      "before": "Not mentioned",
+      "after": "No more than two people per firm",
+      "section": "1. Pre-bid conference is now mandatory and has moved",
+      "quote": "Each firm may bring no more than two people."
+    },
+    {
+      "what": "Sending attendee names ahead for security clearance",
+      "before": "Not mentioned",
+      "after": "Names must be sent to the Facilities Director by noon on Friday, March 5, 2027.",
+      "section": "1. Pre-bid conference is now mandatory and has moved",
+      "quote": "Names must be sent to the Facilities Director by noon on Friday, March 5, 2027 so that security clearance can be arranged."
+    },
+    {
+      "what": "Crane and lift plan in the bid",
+      "before": "Not required",
+      "after": "Each bid must include a written crane and lift plan showing where the crane will be set up on Court Street, the weight of the heaviest lift, and the proposed date and hours of the street closure.",
+      "section": "2. Crane and lift plan",
+      "quote": "Each bid must now include a written crane and lift plan"
+    },
+    {
+      "what": "Time bids are due",
+      "before": "The Notice said 3:00 p.m.; Section 4 said 2:00 p.m.",
+      "after": "2:00 p.m. on Thursday, March 25, 2027. The 3:00 p.m. in the Notice was an error.",
+      "section": "3. Time of bid opening",
+      "quote": "Bids are due at 2:00 p.m. on Thursday, March 25, 2027, as stated in Section 4."
+    },
+    {
+      "what": "Deadline for written questions",
+      "before": "Friday, March 12, 2027",
+      "after": "Tuesday, March 16, 2027",
+      "section": "4. Questions",
+      "quote": "The deadline for written questions is extended to Tuesday, March 16, 2027."
+    },
+    {
+      "what": "Acknowledging the addendum",
+      "before": "Not mentioned",
+      "after": "This addendum must be acknowledged on the Bid Proposal Form.",
+      "section": "4. Questions",
+      "quote": "This addendum must be acknowledged on the Bid Proposal Form."
+    }
+  ],
+  "facts": {
+    "prebid": {
+      "value": { "when": "2027-03-08T09:00", "mandatory": true },
+      "section": "1. Pre-bid conference is now mandatory and has moved",
+      "quote": "It is moved from Tuesday, March 9, 2027 at 10:00 a.m. to Monday, March 8, 2027 at 9:00 a.m."
+    },
+    "questions_due": {
+      "value": "2027-03-16",
+      "section": "4. Questions",
+      "quote": "The deadline for written questions is extended to Tuesday, March 16, 2027."
+    }
+  },
+  "checklist_added": [
+    {
+      "text": "Send the names of the people who will attend the pre-bid conference (no more than two per firm) to the Facilities Director by noon on Friday, March 5, 2027.",
+      "section": "1. Pre-bid conference is now mandatory and has moved",
+      "quote": "Names must be sent to the Facilities Director by noon on Friday, March 5, 2027 so that security clearance can be arranged."
+    },
+    {
+      "text": "Attend the mandatory pre-bid conference on Monday, March 8, 2027 at 9:00 a.m. in the lobby of the Justice Center.",
+      "section": "1. Pre-bid conference is now mandatory and has moved",
+      "quote": "The pre-bid conference described in Section 2 is now mandatory."
+    },
+    {
+      "text": "Sign the attendance sheet at the pre-bid conference.",
+      "section": "1. Pre-bid conference is now mandatory and has moved",
+      "quote": "A bid from a firm that did not sign the attendance sheet will not be opened."
+    },
+    {
+      "text": "Write a crane and lift plan showing where the crane will be set up on Court Street, the weight of the heaviest lift, and the proposed date and hours of the street closure, and include it in the bid.",
+      "section": "2. Crane and lift plan",
+      "quote": "Each bid must now include a written crane and lift plan"
+    },
+    {
+      "text": "Acknowledge Addendum 1 on the Bid Proposal Form.",
+      "section": "4. Questions",
+      "quote": "This addendum must be acknowledged on the Bid Proposal Form."
+    }
+  ],
+  "settles": [
+    {
+      "text": "The original gave two times for bids on March 25, 2027: 3:00 p.m. in the Notice and 2:00 p.m. in Section 4. The addendum says the 3:00 p.m. was an error and bids are due at 2:00 p.m.",
+      "section": "3. Time of bid opening"
+    }
+  ],
+  "notes": [
+    {
+      "text": "Missing the pre-bid conference now rules a firm out: a bid from a firm that did not sign the attendance sheet will not be opened. The County will allow only one roof visit, so there is no second chance.",
+      "section": "1. Pre-bid conference is now mandatory and has moved"
+    },
+    {
+      "text": "Names of the people attending (no more than two per firm) must reach the Facilities Director by noon on Friday, March 5, 2027, three days after this addendum was issued. The addendum does not say how to send the names or what happens if they are late. The original said those attending must bring government-issued photo identification; now that attendance is mandatory, that applies to every bidder.",
+      "section": "1. Pre-bid conference is now mandatory and has moved"
+    },
+    {
+      "text": "The crane and lift plan must give a proposed date and hours for closing Court Street, so a bidder has to name a lift date in the bid. The addendum does not say who arranges or approves the street closure.",
+      "section": "2. Crane and lift plan"
+    },
+    {
+      "text": "The requirement to acknowledge this addendum on the Bid Proposal Form is a single line at the very end, under the Questions heading, and is easy to miss. The addendum does not say what happens to a bid that leaves it out.",
+      "section": "4. Questions"
+    },
+    {
+      "text": "The heading says \"Time of bid opening\" but the text under it is about the time bids are due, which it confirms as 2:00 p.m. on Thursday, March 25, 2027. Neither the original nor the addendum gives a separate time for opening bids.",
+      "section": "3. Time of bid opening"
+    }
+  ]
+}

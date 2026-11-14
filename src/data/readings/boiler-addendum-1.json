@@ -1,0 +1,71 @@
+{
+  "summary": "Addendum No. 1 moves the bid due date three days earlier, to Monday, March 15, 2027 at 2:00 p.m., and now requires bid security of 5 percent of the bid price with every bid. It also says boilers from another manufacturer will be considered if a written request for approval is received by 5:00 p.m. on Monday, March 8, 2027, and it must be acknowledged on the Bid Form.",
+  "changes": [
+    {
+      "what": "Bid due date",
+      "before": "Thursday, March 18, 2027, 2:00 p.m.",
+      "after": "Monday, March 15, 2027, 2:00 p.m., at the same place",
+      "section": "2. Change to the bid due date",
+      "quote": "is changed from Thursday, March 18, 2027 to Monday, March 15, 2027"
+    },
+    {
+      "what": "Bid security",
+      "before": "Not required",
+      "after": "Required with each bid: 5 percent of the bid price, as a bid bond from a surety licensed in Utah or a cashier's check payable to Cedar Bench School District. A bid without it will be rejected.",
+      "section": "3. Bid security now required",
+      "quote": "Each bid must be accompanied by bid security in the amount of 5 percent of the bid price"
+    }
+  ],
+  "facts": {
+    "due": {
+      "value": "2027-03-15T14:00",
+      "section": "2. Change to the bid due date",
+      "quote": "is changed from Thursday, March 18, 2027 to Monday, March 15, 2027"
+    },
+    "bid_bond": {
+      "value": { "required": true, "detail": "5 percent of the bid price, as a bid bond from a surety licensed in Utah or a cashier's check payable to Cedar Bench School District" },
+      "section": "3. Bid security now required",
+      "quote": "Each bid must be accompanied by bid security in the amount of 5 percent of the bid price"
+    }
+  },
+  "checklist_added": [
+    {
+      "text": "Include bid security for 5 percent of the bid price with the bid, either a bid bond from a surety licensed in Utah or a cashier's check payable to Cedar Bench School District.",
+      "section": "3. Bid security now required",
+      "quote": "in the form of a bid bond from a surety licensed in Utah or a cashier's check payable to Cedar Bench School District"
+    },
+    {
+      "text": "Acknowledge Addendum No. 1 on the Bid Form.",
+      "section": "1. Purpose",
+      "quote": "Bidders must acknowledge it on the Bid Form."
+    }
+  ],
+  "settles": [
+    {
+      "text": "The original did not say whether boilers from a manufacturer other than the one named in the specifications would be accepted. The addendum says they will be considered if a written request for approval of an equal, with product data, is received by the Purchasing Office by 5:00 p.m. on Monday, March 8, 2027.",
+      "section": "4. Clarification"
+    }
+  ],
+  "notes": [
+    {
+      "text": "The due date moves earlier, not later: bids are now due three days sooner. The deadline for written questions stays at 5:00 p.m. on Wednesday, March 10, 2027, which is now five calendar days before bids are due.",
+      "section": "2. Change to the bid due date"
+    },
+    {
+      "text": "A bid submitted without bid security will be rejected. Only the first sentence of Section 5 is replaced, so the performance and payment bonds and the certificate of insurance required of the successful bidder still apply.",
+      "section": "3. Bid security now required"
+    },
+    {
+      "text": "Asking to use a boiler from a different manufacturer is optional, but it has its own deadline: the written request, with product data, must be received by 5:00 p.m. on Monday, March 8, 2027, two days before the questions deadline. The addendum does not say when or how the District will answer.",
+      "section": "4. Clarification"
+    },
+    {
+      "text": "A bid that does not acknowledge this addendum on the Bid Form may be rejected.",
+      "section": "1. Purpose"
+    },
+    {
+      "text": "The addendum says the Board moved its March meeting forward by one week, but the bid date moves by three days, not seven. The two statements do not conflict; I read March 15 as the date that holds.",
+      "section": "2. Change to the bid due date"
+    }
+  ]
+}

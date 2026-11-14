@@ -1,0 +1,33 @@
+{
+  "summary": "The City of Marlow Springs needs an urgent quotation to remove the failed 120,000 BTU gas furnace serving the living quarters at Fire Station 2 and install a new furnace of the same capacity with a new flue and thermostat. The City expects the cost to be under $30,000. Quotations are due by email by 12:00 noon on Friday, March 5, 2027, and the work must be finished within ten days of the purchase order.",
+  "facts": {
+    "naics": null,
+    "set_aside": null,
+    "estimated_value": { "value": { "low": null, "high": 30000 }, "section": "1. What is needed", "quote": "The City expects the cost to be under $30,000." },
+    "due": { "value": "2027-03-05T12:00", "section": "2. Deadline", "quote": "Quotations must be received by email by 12:00 noon on Friday, March 5, 2027." },
+    "questions_due": null,
+    "prebid": null,
+    "bid_bond": { "value": { "required": false, "detail": "Not required" }, "section": "3. Requirements", "quote": "No bonds are required." },
+    "performance_bond": { "value": { "required": false, "detail": "Not required" }, "section": "3. Requirements", "quote": "No bonds are required." },
+    "licences": { "value": { "codes": ["S350"], "need": "all" }, "section": "3. Requirements", "quote": "The contractor must hold a Utah S350 HVAC Contractor license." },
+    "submission": { "value": "By email", "section": "2. Deadline", "quote": "Quotations must be received by email by 12:00 noon on Friday, March 5, 2027." }
+  },
+  "checklist": [
+    { "text": "Confirm the firm holds a Utah S350 HVAC Contractor license.", "section": "3. Requirements", "quote": "The contractor must hold a Utah S350 HVAC Contractor license." },
+    { "text": "State a fixed price in the quotation.", "section": "3. Requirements", "quote": "The quotation must state a fixed price, the make and model of the furnace, and the date the contractor can start." },
+    { "text": "State the make and model of the furnace offered.", "section": "3. Requirements", "quote": "The quotation must state a fixed price, the make and model of the furnace, and the date the contractor can start." },
+    { "text": "State the date the firm can start.", "section": "3. Requirements", "quote": "The quotation must state a fixed price, the make and model of the furnace, and the date the contractor can start." },
+    { "text": "Email the quotation so it is received by 12:00 noon on Friday, March 5, 2027.", "section": "2. Deadline", "quote": "Quotations must be received by email by 12:00 noon on Friday, March 5, 2027." }
+  ],
+  "after_award": [
+    { "text": "Have a certificate of insurance on file with the City before starting work.", "section": "3. Requirements", "quote": "A certificate of insurance must be on file with the City before work starts." },
+    { "text": "Finish the work within ten days of the purchase order.", "section": "2. Deadline", "quote": "Work must be complete within ten days of the purchase order." }
+  ],
+  "notes": [
+    { "text": "The timetable is very short: quotations are due at noon on Friday, March 5, 2027, the City intends to issue the purchase order the same afternoon, and the work must be complete within ten days of it. The text does not say whether those are calendar days or working days.", "section": "2. Deadline" },
+    { "text": "The only figure given is that the City expects the cost to be under $30,000. I read that as an upper limit, not an estimate; the text gives no lower figure.", "section": "1. What is needed" },
+    { "text": "Quotations must be received by email, but the text does not say which address to send them to. The only email address in the text is the one listed under Contact, and nothing says that is where quotations go. Confirm before sending.", "section": "2. Deadline" },
+    { "text": "There is no scheduled site visit. The text says contractors may visit the station any day between 8:00 a.m. and 5:00 p.m. and should ask for the duty captain. I read that as an open, optional invitation, not a meeting you must attend.", "section": "3. Requirements" },
+    { "text": "The text says \"No bonds are required\", which I read as covering both a bid bond and a performance bond. A certificate of insurance must be on file with the City before work starts; the text does not say what coverage or limits are needed.", "section": "3. Requirements" }
+  ]
+}

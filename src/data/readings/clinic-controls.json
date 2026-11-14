@@ -1,0 +1,34 @@
+{
+  "summary": "The Federal Facilities Service, Mountain Region, intends to award one firm-fixed-price contract to replace the pneumatic HVAC controls at the Ridgeview Outpatient Clinic in Ridgeview, Utah with a direct digital control system. The job is between $250,000 and $500,000 and is set aside entirely for service-disabled veteran-owned small businesses. Offers are due by email by 2:00 p.m. Mountain Time on Tuesday, March 30, 2027.",
+  "facts": {
+    "naics": { "value": "238220", "section": "2. Set-aside", "quote": "The NAICS code is 238220 and the small business size standard is $19 million." },
+    "set_aside": { "value": "sdvosb", "section": "2. Set-aside", "quote": "This acquisition is set aside 100 percent for service-disabled veteran-owned small businesses." },
+    "estimated_value": { "value": { "low": 250000, "high": 500000 }, "section": "1. General information", "quote": "The magnitude of construction is between $250,000 and $500,000." },
+    "due": { "value": "2027-03-30T14:00", "section": "4. Offers", "quote": "Offers are due by 2:00 p.m. Mountain Time on Tuesday, March 30, 2027 and must be submitted by email to the Contracting Officer." },
+    "questions_due": { "value": "2027-03-16T16:00", "section": "3. Site visit", "quote": "Requests for information are due by Tuesday, March 16, 2027 at 4:00 p.m. Mountain Time." },
+    "prebid": { "value": { "when": "2027-03-11T09:00", "mandatory": false }, "section": "3. Site visit", "quote": "One organized site visit will be held on Thursday, March 11, 2027 at 9:00 a.m." },
+    "bid_bond": { "value": { "required": true, "detail": "Bid guarantee of 20 percent of the offered price" }, "section": "4. Offers", "quote": "a bid guarantee of 20 percent of the offered price" },
+    "performance_bond": { "value": { "required": true, "detail": "Performance and payment bonds within ten days of award; amount not stated" }, "section": "4. Offers", "quote": "Performance and payment bonds are required within ten days of award." },
+    "licences": null,
+    "submission": { "value": "By email to the Contracting Officer", "section": "4. Offers", "quote": "must be submitted by email to the Contracting Officer" }
+  },
+  "checklist": [
+    { "text": "Confirm the firm is a certified service-disabled veteran-owned small business; offers from other firms will not be considered.", "section": "2. Set-aside", "quote": "Offers from firms that are not certified service-disabled veteran-owned small businesses will not be considered." },
+    { "text": "Complete the price schedule.", "section": "4. Offers", "quote": "An offer must include the completed price schedule" },
+    { "text": "Obtain a bid guarantee of 20 percent of the offered price and include it.", "section": "4. Offers", "quote": "a bid guarantee of 20 percent of the offered price" },
+    { "text": "Include three past performance references for controls projects.", "section": "4. Offers", "quote": "three past performance references for controls projects" },
+    { "text": "Complete the representations and certifications and include them.", "section": "4. Offers", "quote": "the completed representations and certifications" },
+    { "text": "Email the offer to the Contracting Officer by 2:00 p.m. Mountain Time on Tuesday, March 30, 2027.", "section": "4. Offers", "quote": "Offers are due by 2:00 p.m. Mountain Time on Tuesday, March 30, 2027 and must be submitted by email to the Contracting Officer." }
+  ],
+  "after_award": [
+    { "text": "Provide performance and payment bonds within ten days of award.", "section": "4. Offers", "quote": "Performance and payment bonds are required within ten days of award." },
+    { "text": "Complete the work within 150 days of the notice to proceed.", "section": "4. Offers", "quote": "The period of performance is 150 days from the notice to proceed." }
+  ],
+  "notes": [
+    { "text": "Only certified service-disabled veteran-owned small businesses can be considered. The text says offers from any other firm will not be considered, so a firm without that certification cannot bid this as the prime.", "section": "2. Set-aside" },
+    { "text": "The bid guarantee is stated as 20 percent of the offered price. That is what the text says, and it is an unusually large amount. Offers must also be sent by email, and the text does not say how or in what form the guarantee is to be delivered. Confirm both with the Contracting Officer.", "section": "4. Offers" },
+    { "text": "The deadline for questions (Tuesday, March 16, 2027 at 4:00 p.m. Mountain Time) appears under the site visit heading, not with the offer instructions, and is easy to miss. The text does not say how or to whom questions are sent.", "section": "3. Site visit" },
+    { "text": "There is one site visit, on Thursday, March 11, 2027 at 9:00 a.m. The text says offerors are \"urged to attend\", which I read as not mandatory. It does not say where to meet, and the time is given without a time zone while the other deadlines say Mountain Time.", "section": "3. Site visit" },
+    { "text": "Performance and payment bonds are required within ten days of award, but the amount is not stated. No state contractor licence is named anywhere in the text.", "section": "4. Offers" }
+  ]
+}

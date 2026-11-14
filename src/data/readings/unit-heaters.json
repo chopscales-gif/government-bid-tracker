@@ -1,0 +1,121 @@
+{
+  "summary": "Bonneville Valley Transit District wants a contractor to remove fourteen gas-fired unit heaters in the bus bays of its North Maintenance Garage in Fallon Heights, Utah, and install fourteen new separated-combustion unit heaters with thermostats, venting and gas connections. The estimated cost is $140,000. Bids are due at the District Procurement Office at 2:00 p.m. on Thursday, February 25, 2027.",
+  "facts": {
+    "naics": {
+      "value": "238220",
+      "section": "1. Scope",
+      "quote": "NAICS code 238220 applies."
+    },
+    "set_aside": {
+      "value": "none",
+      "section": "1. Scope",
+      "quote": "This solicitation is not set aside."
+    },
+    "estimated_value": {
+      "value": { "low": 140000, "high": 140000 },
+      "section": "1. Scope",
+      "quote": "The estimated cost is $140,000."
+    },
+    "due": {
+      "value": "2027-02-25T14:00",
+      "section": "2. Schedule",
+      "quote": "Bids are due Thursday, February 25, 2027 at 2:00 p.m. at the District Procurement Office, 2250 Depot Street, Fallon Heights."
+    },
+    "questions_due": {
+      "value": "2027-02-12",
+      "section": "2. Schedule",
+      "quote": "Questions are due Friday, February 12, 2027."
+    },
+    "prebid": {
+      "value": { "when": "2027-02-09T09:00", "mandatory": false },
+      "section": "2. Schedule",
+      "quote": "A site visit will be held Tuesday, February 9, 2027 at 9:00 a.m. Attendance is optional."
+    },
+    "bid_bond": {
+      "value": { "required": true, "detail": "Bid bond for 5 percent of the bid price, included with the bid" },
+      "section": "3. Requirements",
+      "quote": "a bid bond for 5 percent of the bid price"
+    },
+    "performance_bond": {
+      "value": { "required": true, "detail": "Performance and payment bonds for the full contract price; no deadline stated" },
+      "section": "3. Requirements",
+      "quote": "The successful bidder must provide performance and payment bonds for the full contract price."
+    },
+    "licences": {
+      "value": { "codes": ["S350"], "need": "all" },
+      "section": "3. Requirements",
+      "quote": "The bidder must hold a Utah S350 HVAC Contractor license."
+    },
+    "submission": {
+      "value": "Due at the District Procurement Office, 2250 Depot Street, Fallon Heights. The text does not say how the bid must be packaged or delivered.",
+      "section": "2. Schedule",
+      "quote": "at the District Procurement Office, 2250 Depot Street, Fallon Heights"
+    }
+  },
+  "checklist": [
+    {
+      "text": "Make sure you hold a Utah S350 HVAC Contractor license.",
+      "section": "3. Requirements",
+      "quote": "The bidder must hold a Utah S350 HVAC Contractor license."
+    },
+    {
+      "text": "Fill in the Bid Form.",
+      "section": "3. Requirements",
+      "quote": "Each bid must include the Bid Form"
+    },
+    {
+      "text": "Get a bid bond for 5 percent of the bid price and include it.",
+      "section": "3. Requirements",
+      "quote": "a bid bond for 5 percent of the bid price"
+    },
+    {
+      "text": "Complete the Non-Collusion Affidavit and include it.",
+      "section": "3. Requirements",
+      "quote": "the Non-Collusion Affidavit"
+    },
+    {
+      "text": "Include the manufacturer's data sheets for the heaters you propose to install.",
+      "section": "3. Requirements",
+      "quote": "manufacturer's data sheets for the proposed heaters"
+    },
+    {
+      "text": "Get the bid to the District Procurement Office, 2250 Depot Street, Fallon Heights, by 2:00 p.m. on Thursday, February 25, 2027.",
+      "section": "2. Schedule",
+      "quote": "Bids are due Thursday, February 25, 2027 at 2:00 p.m. at the District Procurement Office, 2250 Depot Street, Fallon Heights."
+    }
+  ],
+  "after_award": [
+    {
+      "text": "Provide performance and payment bonds for the full contract price.",
+      "section": "3. Requirements",
+      "quote": "The successful bidder must provide performance and payment bonds for the full contract price."
+    },
+    {
+      "text": "Do the work one bay at a time and finish within 60 calendar days of the notice to proceed.",
+      "section": "2. Schedule",
+      "quote": "Work must be done one bay at a time and completed within 60 calendar days of the notice to proceed."
+    }
+  ],
+  "notes": [
+    {
+      "text": "The text says only where and when bids are due. It says nothing about a sealed envelope, how to mark it, how many copies, or whether email is allowed. I read it as delivery to the District Procurement Office and nothing more; ask before assuming a method.",
+      "section": "2. Schedule"
+    },
+    {
+      "text": "The garage operates 24 hours a day and the work must be done one bay at a time, with all fourteen heaters finished within 60 calendar days of the notice to proceed. The text does not say when the notice to proceed is expected, what working hours are allowed, or what happens if the 60 days are missed.",
+      "section": "2. Schedule"
+    },
+    {
+      "text": "No deadline is given for the performance and payment bonds, and the text says nothing about insurance. The bid security must be a bid bond for 5 percent of the bid price; no other form is mentioned.",
+      "section": "3. Requirements"
+    },
+    {
+      "text": "The question deadline, Friday, February 12, 2027, has no time of day, and the text does not say how questions must be sent; the only contact given is procurement@bvtransit.example. The site visit has a date and time but no meeting place. The garage and the District Procurement Office are given the same street address, 2250 Depot Street.",
+      "section": "2. Schedule"
+    },
+    {
+      "text": "The text says the bidder must hold a Utah S350 HVAC Contractor license but does not say by when, and does not ask for a copy in the bid. I read it as something you need in order to bid.",
+      "section": "3. Requirements"
+    }
+  ]
+}

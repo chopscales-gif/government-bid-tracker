@@ -1,0 +1,131 @@
+{
+  "summary": "Great Basin Technical College wants a mechanical contractor, acting as prime contractor, to replace its campus central heating and cooling plant in Tanner Flat, Utah: two 400-ton chillers, cooling towers, three hot water boilers, pumps, controls, electrical service upgrades and temporary heating and cooling. The estimated construction cost is $4,200,000 to $4,800,000. Only prequalified bidders may bid; the prequalification statement is due March 12, 2027, a mandatory pre-bid meeting is on March 16, 2027, and bids are due Thursday, April 8, 2027 at 2:00 p.m.",
+  "facts": {
+    "naics": {
+      "value": "238220",
+      "section": "1. Project",
+      "quote": "NAICS 238220."
+    },
+    "set_aside": {
+      "value": "none",
+      "section": "1. Project",
+      "quote": "The solicitation is open to all bidders."
+    },
+    "estimated_value": {
+      "value": { "low": 4200000, "high": 4800000 },
+      "section": "1. Project",
+      "quote": "The estimated construction cost is $4,200,000 to $4,800,000."
+    },
+    "due": {
+      "value": "2027-04-08T14:00",
+      "section": "3. Schedule",
+      "quote": "Bids due: Thursday, April 8, 2027, 2:00 p.m., Purchasing Office."
+    },
+    "questions_due": {
+      "value": "2027-03-24",
+      "section": "3. Schedule",
+      "quote": "Questions due: Wednesday, March 24, 2027."
+    },
+    "prebid": {
+      "value": { "when": "2027-03-16T10:00", "mandatory": true },
+      "section": "3. Schedule",
+      "quote": "Mandatory pre-bid meeting: Tuesday, March 16, 2027, 10:00 a.m., Facilities Building."
+    },
+    "bid_bond": {
+      "value": { "required": true, "detail": "5 percent bid bond, included with the bid" },
+      "section": "4. Bids",
+      "quote": "Bids must include the Bid Form, a 5 percent bid bond"
+    },
+    "performance_bond": {
+      "value": { "required": true, "detail": "Performance and payment bonds for 100 percent of the contract price" },
+      "section": "5. Bonds",
+      "quote": "Performance and payment bonds for 100 percent of the contract price are required."
+    },
+    "licences": {
+      "value": { "codes": ["S350"], "need": "all" },
+      "section": "4. Bids",
+      "quote": "The bidder must hold a Utah S350 HVAC Contractor license."
+    },
+    "submission": {
+      "value": "Due at the Purchasing Office; the text does not say how bids are to be delivered or packaged",
+      "section": "3. Schedule",
+      "quote": "Bids due: Thursday, April 8, 2027, 2:00 p.m., Purchasing Office."
+    }
+  },
+  "checklist": [
+    {
+      "text": "Get a letter from your surety confirming you can be bonded for a single project of at least $5,000,000.",
+      "section": "2. Prequalification",
+      "quote": "a letter from the bidder's surety confirming that the bidder can be bonded for a single project of at least $5,000,000"
+    },
+    {
+      "text": "Submit a prequalification statement, including the surety letter, by Friday, March 12, 2027. Only prequalified bidders may bid.",
+      "section": "2. Prequalification",
+      "quote": "Only bidders prequalified by the College may bid."
+    },
+    {
+      "text": "Attend the mandatory pre-bid meeting on Tuesday, March 16, 2027 at 10:00 a.m. in the Facilities Building.",
+      "section": "3. Schedule",
+      "quote": "Mandatory pre-bid meeting: Tuesday, March 16, 2027, 10:00 a.m., Facilities Building."
+    },
+    {
+      "text": "Hold a Utah S350 HVAC Contractor license.",
+      "section": "4. Bids",
+      "quote": "The bidder must hold a Utah S350 HVAC Contractor license."
+    },
+    {
+      "text": "Fill in the Bid Form.",
+      "section": "4. Bids",
+      "quote": "Bids must include the Bid Form"
+    },
+    {
+      "text": "Include a 5 percent bid bond.",
+      "section": "4. Bids",
+      "quote": "a 5 percent bid bond"
+    },
+    {
+      "text": "Include a list of your proposed subcontractors for the electrical and controls work.",
+      "section": "4. Bids",
+      "quote": "a list of proposed subcontractors for electrical and controls work"
+    },
+    {
+      "text": "Include the project manager's resume.",
+      "section": "4. Bids",
+      "quote": "and the project manager's resume"
+    },
+    {
+      "text": "Hand in the bid at the Purchasing Office by 2:00 p.m. on Thursday, April 8, 2027.",
+      "section": "3. Schedule",
+      "quote": "Bids due: Thursday, April 8, 2027, 2:00 p.m., Purchasing Office."
+    }
+  ],
+  "after_award": [
+    {
+      "text": "Provide performance and payment bonds for 100 percent of the contract price.",
+      "section": "5. Bonds",
+      "quote": "Performance and payment bonds for 100 percent of the contract price are required."
+    }
+  ],
+  "notes": [
+    {
+      "text": "Only bidders the College has prequalified may bid, and the prequalification statement is due Friday, March 12, 2027. That is before the mandatory pre-bid meeting (March 16) and almost four weeks before bids are due (April 8). A contractor who first looks at this after March 12 cannot bid.",
+      "section": "2. Prequalification"
+    },
+    {
+      "text": "Your surety must confirm in a letter that you can be bonded for a single project of at least $5,000,000. That is more than the top of the estimated cost range ($4,800,000). The text does not say what else the prequalification statement must contain, where to send it, or a time of day for the deadline.",
+      "section": "2. Prequalification"
+    },
+    {
+      "text": "The text says the solicitation is open to all bidders, and also that only prequalified bidders may bid. I read 'open to all' as meaning there is no set-aside for any class of business, not that prequalification can be skipped.",
+      "section": "1. Project"
+    },
+    {
+      "text": "The bid bond is given only as '5 percent'; the text does not say 5 percent of what. The text also does not say when the performance and payment bonds must be delivered.",
+      "section": "4. Bids"
+    },
+    {
+      "text": "The text names the Purchasing Office as the place bids are due but does not say whether bids are sealed, on paper or electronic. The questions deadline has a date but no time, and the text does not say where to send questions.",
+      "section": "3. Schedule"
+    }
+  ]
+}

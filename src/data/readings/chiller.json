@@ -1,0 +1,131 @@
+{
+  "summary": "Hollis County is taking sealed bids to replace one 200-ton air-cooled chiller on the roof of the Hollis County Justice Center in Hollis, Utah, a building that includes the county jail and stays in operation at all times. The engineer's estimate is $620,000 to $700,000. Bids are due Thursday, March 25, 2027, but the text gives two different times: 3:00 p.m. in the Notice and 2:00 p.m. in Section 4.",
+  "facts": {
+    "naics": {
+      "value": "238220",
+      "section": "Notice",
+      "quote": "NAICS 238220."
+    },
+    "set_aside": {
+      "value": "none",
+      "section": "5. Award",
+      "quote": "The county is open to all bidders and applies no preference or set-aside."
+    },
+    "estimated_value": {
+      "value": { "low": 620000, "high": 700000 },
+      "section": "Notice",
+      "quote": "Engineer's estimate: $620,000 to $700,000."
+    },
+    "due": {
+      "value": "2027-03-25T14:00",
+      "section": "4. Submission of bids",
+      "quote": "no later than 2:00 p.m. on Thursday, March 25, 2027"
+    },
+    "questions_due": {
+      "value": "2027-03-12",
+      "section": "3. Questions",
+      "quote": "Questions must be submitted in writing by Friday, March 12, 2027."
+    },
+    "prebid": {
+      "value": { "when": "2027-03-09T10:00", "mandatory": false },
+      "section": "2. Pre-bid conference",
+      "quote": "A pre-bid conference and roof visit will be held on Tuesday, March 9, 2027 at 10:00 a.m."
+    },
+    "bid_bond": {
+      "value": { "required": true, "detail": "Bid security of 5 percent of the total bid, as a bid bond or certified check" },
+      "section": "4. Submission of bids",
+      "quote": "bid security of 5 percent of the total bid, as a bid bond or certified check;"
+    },
+    "performance_bond": {
+      "value": { "required": true, "detail": "Performance and payment bonds of 100 percent of the contract amount, within 14 days of award" },
+      "section": "5. Award",
+      "quote": "must furnish performance and payment bonds of 100 percent of the contract amount and proof of insurance within 14 days of award"
+    },
+    "licences": {
+      "value": { "codes": ["S350"], "need": "all" },
+      "section": "4. Submission of bids",
+      "quote": "proof of a Utah S350 HVAC Contractor license;"
+    },
+    "submission": {
+      "value": "Sealed bid, delivered to the Hollis County Clerk, 75 Court Street, Room 104, Hollis",
+      "section": "4. Submission of bids",
+      "quote": "Sealed bids must be delivered to the Hollis County Clerk, 75 Court Street, Room 104, Hollis"
+    }
+  },
+  "checklist": [
+    {
+      "text": "Fill in the Bid Proposal Form.",
+      "section": "4. Submission of bids",
+      "quote": "the Bid Proposal Form;"
+    },
+    {
+      "text": "Get bid security for 5 percent of your total bid, as a bid bond or a certified check, and include it.",
+      "section": "4. Submission of bids",
+      "quote": "bid security of 5 percent of the total bid, as a bid bond or certified check;"
+    },
+    {
+      "text": "Fill in the Statement of Bidder's Qualifications, showing at least two chiller replacements of 150 tons or larger completed in the last five years.",
+      "section": "4. Submission of bids",
+      "quote": "showing at least two chiller replacements of 150 tons or larger completed in the last five years;"
+    },
+    {
+      "text": "Include proof of your Utah S350 HVAC Contractor license.",
+      "section": "4. Submission of bids",
+      "quote": "proof of a Utah S350 HVAC Contractor license;"
+    },
+    {
+      "text": "Sign the acknowledgment of the Jail Security Rules in Appendix C and include it.",
+      "section": "4. Submission of bids",
+      "quote": "a signed acknowledgment of the Jail Security Rules in Appendix C."
+    },
+    {
+      "text": "Deliver the sealed bid to the Hollis County Clerk, 75 Court Street, Room 104, Hollis, no later than 2:00 p.m. on Thursday, March 25, 2027 (the Notice says 3:00 p.m.; see notes).",
+      "section": "4. Submission of bids",
+      "quote": "Sealed bids must be delivered to the Hollis County Clerk, 75 Court Street, Room 104, Hollis"
+    }
+  ],
+  "after_award": [
+    {
+      "text": "Furnish performance and payment bonds of 100 percent of the contract amount within 14 days of award.",
+      "section": "5. Award",
+      "quote": "must furnish performance and payment bonds of 100 percent of the contract amount and proof of insurance within 14 days of award"
+    },
+    {
+      "text": "Furnish proof of insurance within 14 days of award.",
+      "section": "5. Award",
+      "quote": "proof of insurance within 14 days of award"
+    },
+    {
+      "text": "Have the new chiller operating by May 28, 2027.",
+      "section": "6. Time for completion",
+      "quote": "The new chiller must be operating by May 28, 2027."
+    },
+    {
+      "text": "Keep the total interruption of cooling to no more than 48 hours.",
+      "section": "1. Description of work",
+      "quote": "Cooling may be interrupted for no more than 48 hours in total."
+    }
+  ],
+  "notes": [
+    {
+      "text": "The text gives two different times for bids on Thursday, March 25, 2027. The Notice says bids are due at 3:00 p.m. Section 4 says they must be delivered no later than 2:00 p.m. The text does not say which one is right. This reading uses 2:00 p.m., the earlier time, taken from the section on submitting bids. Confirm the time with the County.",
+      "section": "4. Submission of bids"
+    },
+    {
+      "text": "The bid must show at least two chiller replacements of 150 tons or larger completed in the last five years. This sits inside the list of things to include and is easy to miss.",
+      "section": "4. Submission of bids"
+    },
+    {
+      "text": "The building includes the county jail and courtrooms and stays in operation at all times. Cooling may be interrupted for no more than 48 hours in total, and the new chiller must be operating by May 28, 2027, about nine weeks after bids are due. The text does not say when the award will be made.",
+      "section": "1. Description of work"
+    },
+    {
+      "text": "The bid must include a signed acknowledgment of the Jail Security Rules in Appendix C. Appendix C was not part of the text that was read, so what those rules require is not known.",
+      "section": "4. Submission of bids"
+    },
+    {
+      "text": "The pre-bid conference and roof visit is not required; the text says bidders are encouraged to attend. Anyone who does attend must bring government-issued photo identification. Questions must be in writing by March 12, 2027, but the text gives no time of day and does not say who to send them to.",
+      "section": "2. Pre-bid conference"
+    }
+  ]
+}

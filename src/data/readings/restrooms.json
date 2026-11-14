@@ -1,0 +1,127 @@
+{
+  "summary": "The Town of Quarry Bend wants the plumbing fixtures replaced in the public restrooms at Town Hall and the Quarry Bend Library: 14 toilets, 6 urinals and 12 sinks, with sensor-operated flush valves and faucets, new stop valves and repair of disturbed finishes. The Town's estimate is $65,000 and the work must be finished by May 28, 2027. Bids are due by 2:00 p.m. on Wednesday, March 24, 2027 at the Town Clerk's office, delivered or by email.",
+  "facts": {
+    "naics": {
+      "value": "238220",
+      "section": "1. Work",
+      "quote": "NAICS code 238220."
+    },
+    "set_aside": {
+      "value": "small_business",
+      "section": "2. Who may bid",
+      "quote": "purchases under $75,000 are limited to small businesses with fewer than 100 employees"
+    },
+    "estimated_value": {
+      "value": { "low": 65000, "high": 65000 },
+      "section": "1. Work",
+      "quote": "The Town's estimate is $65,000."
+    },
+    "due": {
+      "value": "2027-03-24T14:00",
+      "section": "3. Dates",
+      "quote": "Bids are due by 2:00 p.m. on Wednesday, March 24, 2027 at the Town Clerk's office, 10 Granary Road."
+    },
+    "questions_due": {
+      "value": "2027-03-17",
+      "section": "3. Dates",
+      "quote": "Questions are due by Wednesday, March 17, 2027."
+    },
+    "prebid": null,
+    "bid_bond": {
+      "value": { "required": false, "detail": "Not required" },
+      "section": "4. Bid contents",
+      "quote": "No bid security is required."
+    },
+    "performance_bond": {
+      "value": { "required": true, "detail": "Required only if the contract price is more than $50,000. The Town's estimate is $65,000." },
+      "section": "4. Bid contents",
+      "quote": "A performance bond is required only if the contract price is more than $50,000."
+    },
+    "licences": {
+      "value": { "codes": ["S210"], "need": "all" },
+      "section": "2. Who may bid",
+      "quote": "The bidder must hold a Utah S210 General Plumbing Contractor license."
+    },
+    "submission": {
+      "value": "Delivered to the Town Clerk's office, 10 Granary Road, or sent by email",
+      "section": "3. Dates",
+      "quote": "Bids may be delivered or sent by email."
+    }
+  },
+  "checklist": [
+    {
+      "text": "Hold a Utah S210 General Plumbing Contractor license.",
+      "section": "2. Who may bid",
+      "quote": "The bidder must hold a Utah S210 General Plumbing Contractor license."
+    },
+    {
+      "text": "Be a small business with fewer than 100 employees.",
+      "section": "2. Who may bid",
+      "quote": "purchases under $75,000 are limited to small businesses with fewer than 100 employees"
+    },
+    {
+      "text": "Fill in the Bid Form with a separate price for each building.",
+      "section": "4. Bid contents",
+      "quote": "The Bid Form with a price for each building"
+    },
+    {
+      "text": "Include the fixture schedule showing the make and model of each fixture you are offering.",
+      "section": "4. Bid contents",
+      "quote": "the fixture schedule showing the make and model of each fixture offered"
+    },
+    {
+      "text": "Include a copy of your contractor license.",
+      "section": "4. Bid contents",
+      "quote": "a copy of the contractor license"
+    },
+    {
+      "text": "Complete the small business certification on the Bid Form.",
+      "section": "4. Bid contents",
+      "quote": "and the small business certification on the Bid Form"
+    },
+    {
+      "text": "Deliver or email the bid to the Town Clerk's office, 10 Granary Road, by 2:00 p.m. on Wednesday, March 24, 2027.",
+      "section": "3. Dates",
+      "quote": "Bids are due by 2:00 p.m. on Wednesday, March 24, 2027 at the Town Clerk's office, 10 Granary Road."
+    }
+  ],
+  "after_award": [
+    {
+      "text": "Provide a performance bond if the contract price is more than $50,000.",
+      "section": "4. Bid contents",
+      "quote": "A performance bond is required only if the contract price is more than $50,000."
+    },
+    {
+      "text": "Do the work one restroom at a time so each building always has a restroom in service.",
+      "section": "3. Dates",
+      "quote": "The work must be done one restroom at a time so that each building always has a restroom in service"
+    },
+    {
+      "text": "Finish the work by May 28, 2027.",
+      "section": "3. Dates",
+      "quote": "and must be finished by May 28, 2027"
+    }
+  ],
+  "notes": [
+    {
+      "text": "The text never says outright that this job is reserved for small businesses. It says the Town's Small Purchase Policy limits purchases under $75,000 to small businesses with fewer than 100 employees, the Town's estimate is $65,000, and the bid must carry a small business certification. I read that as meaning only small businesses, by the Town's definition of fewer than 100 employees, may bid. The text does not say what happens if bids come in at $75,000 or more.",
+      "section": "2. Who may bid"
+    },
+    {
+      "text": "A performance bond is required only if the contract price is more than $50,000. The Town's estimate is $65,000, so I read the bond as required for a bid near the estimate; a bid of $50,000 or less would not need one. The text does not give the bond amount or a deadline for it, and does not mention a payment bond.",
+      "section": "4. Bid contents"
+    },
+    {
+      "text": "Bids may be delivered or sent by email, but the text gives no email address for bids; the only address is the Town Clerk's in the contact section. The questions deadline has a date but no time, and the text does not say where to send questions.",
+      "section": "3. Dates"
+    },
+    {
+      "text": "The work must be done one restroom at a time so that each building always has a restroom in service, and must be finished by May 28, 2027. The text does not say how many restrooms each building has.",
+      "section": "3. Dates"
+    },
+    {
+      "text": "The fixture counts (14 toilets, 6 urinals, 12 sinks) are totals for both buildings and are not split by building, although the Bid Form asks for a price for each building. There is no organized site visit; the buildings may be visited during business hours without an appointment.",
+      "section": "1. Work"
+    }
+  ]
+}

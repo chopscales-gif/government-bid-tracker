@@ -1,0 +1,142 @@
+{
+  "summary": "The City of Marlow Springs wants a mechanical service contractor to do scheduled preventive maintenance and on-call repair of HVAC equipment at eleven city buildings for three years from July 1, 2027, with up to two one-year renewals. The City has budgeted about $95,000 per year. Proposals must be uploaded to the City's bid portal as a single PDF by 4:00 p.m. on Thursday, March 11, 2027.",
+  "facts": {
+    "naics": {
+      "value": "238220",
+      "section": "1. Overview",
+      "quote": "The applicable NAICS code is 238220."
+    },
+    "set_aside": {
+      "value": "none",
+      "section": "1. Overview",
+      "quote": "Any qualified firm may submit a proposal."
+    },
+    "estimated_value": {
+      "value": { "low": 95000, "high": 95000 },
+      "section": "1. Overview",
+      "quote": "The City has budgeted approximately $95,000 per year for this service."
+    },
+    "due": {
+      "value": "2027-03-11T16:00",
+      "section": "6. Dates and submission",
+      "quote": "by 4:00 p.m. on Thursday, March 11, 2027"
+    },
+    "questions_due": {
+      "value": "2027-03-04T12:00",
+      "section": "6. Dates and submission",
+      "quote": "Questions are due by email by noon on Thursday, March 4, 2027."
+    },
+    "prebid": null,
+    "bid_bond": {
+      "value": { "required": false, "detail": "Not required" },
+      "section": "6. Dates and submission",
+      "quote": "No bid bond or performance bond is required for this contract."
+    },
+    "performance_bond": {
+      "value": { "required": false, "detail": "Not required" },
+      "section": "6. Dates and submission",
+      "quote": "No bid bond or performance bond is required for this contract."
+    },
+    "licences": {
+      "value": { "codes": ["S350"], "need": "all" },
+      "section": "3. Service requirements",
+      "quote": "The contractor must hold a Utah S350 HVAC Contractor license."
+    },
+    "submission": {
+      "value": "Uploaded as a single PDF file to the City's bid portal. Paper proposals are not accepted.",
+      "section": "6. Dates and submission",
+      "quote": "Proposals must be uploaded as a single PDF file to the City's bid portal"
+    }
+  },
+  "checklist": [
+    {
+      "text": "Keep the proposal to 20 pages or fewer, not counting resumes and required forms.",
+      "section": "4. Proposal contents",
+      "quote": "Proposals must not be longer than 20 pages, not counting resumes and required forms, and must include:"
+    },
+    {
+      "text": "Write a cover letter and have it signed by a person authorized to commit the firm.",
+      "section": "4. Proposal contents",
+      "quote": "1. a cover letter signed by a person authorized to commit the firm;"
+    },
+    {
+      "text": "Describe the firm and the service team, and include a resume for the proposed lead technician.",
+      "section": "4. Proposal contents",
+      "quote": "2. a description of the firm and of the service team, with a resume for the proposed lead technician;"
+    },
+    {
+      "text": "Give three references from public agencies or commercial property owners for maintenance contracts held in the last three years, each with a contact name and telephone number.",
+      "section": "4. Proposal contents",
+      "quote": "with a contact name and telephone number for each;"
+    },
+    {
+      "text": "Fill in the Price Form (Exhibit C) with an annual price for preventive maintenance and hourly rates for repair work.",
+      "section": "4. Proposal contents",
+      "quote": "4. the Price Form (Exhibit C), giving an annual price for preventive maintenance and hourly rates for repair work;"
+    },
+    {
+      "text": "Include a sample preventive maintenance report from a current customer.",
+      "section": "4. Proposal contents",
+      "quote": "5. a sample preventive maintenance report from a current customer;"
+    },
+    {
+      "text": "Include a certificate of insurance showing the coverage set out in the sample contract, Exhibit D.",
+      "section": "4. Proposal contents",
+      "quote": "6. a certificate of insurance. The required coverage is set out in the sample contract, Exhibit D."
+    },
+    {
+      "text": "Combine the whole proposal into a single PDF file.",
+      "section": "6. Dates and submission",
+      "quote": "Proposals must be uploaded as a single PDF file to the City's bid portal"
+    },
+    {
+      "text": "Upload the PDF to the City's bid portal by 4:00 p.m. on Thursday, March 11, 2027. The portal does not accept late files and paper is not accepted.",
+      "section": "6. Dates and submission",
+      "quote": "by 4:00 p.m. on Thursday, March 11, 2027"
+    }
+  ],
+  "after_award": [
+    {
+      "text": "Hold a Utah S350 HVAC Contractor license.",
+      "section": "3. Service requirements",
+      "quote": "The contractor must hold a Utah S350 HVAC Contractor license."
+    },
+    {
+      "text": "Assign only technicians who hold EPA Section 608 certification.",
+      "section": "3. Service requirements",
+      "quote": "All technicians assigned to the contract must hold EPA Section 608 certification."
+    },
+    {
+      "text": "Perform preventive maintenance on each item of equipment four times per year, following Exhibit B.",
+      "section": "3. Service requirements",
+      "quote": "The contractor must perform preventive maintenance on each item of equipment four times per year, following Exhibit B."
+    },
+    {
+      "text": "For on-call repairs, have a technician on site within four hours of a call during business hours and within eight hours at other times, every day of the year.",
+      "section": "3. Service requirements",
+      "quote": "within four hours of a call during business hours, and within eight hours at other times, every day of the year"
+    }
+  ],
+  "notes": [
+    {
+      "text": "The $95,000 is an approximate budget per year, not the value of the whole contract. The term is three years, and the City may renew for up to two more one-year terms, so the contract could run three to five years.",
+      "section": "1. Overview"
+    },
+    {
+      "text": "The text says the contractor must hold a Utah S350 HVAC Contractor license but does not say whether it must be held when the proposal goes in or only when the contract starts, and it does not ask for a copy in the proposal. I read it as a requirement on the firm that wins; a firm without the license should ask before proposing. Every technician assigned to the contract must also hold EPA Section 608 certification.",
+      "section": "3. Service requirements"
+    },
+    {
+      "text": "A certificate of insurance must be in the proposal itself, not only after award. The required coverage is set out in Exhibit D, which is not part of the text I was given, so I cannot say what the amounts are. Exhibits A, B and C are also referred to but not included.",
+      "section": "4. Proposal contents"
+    },
+    {
+      "text": "On-call repair response is required every day of the year: a technician on site within four hours during business hours and within eight hours at other times. The text does not define business hours.",
+      "section": "3. Service requirements"
+    },
+    {
+      "text": "The text says any qualified firm may submit a proposal; I read that as open to all with no set-aside, though it does not use those words. It says there is no pre-proposal meeting; site visits may be arranged by appointment, but it does not say with whom or by when. Questions are due by email, yet this section gives no address; the only one in the text is bids@marlowsprings.example in the contact section. The address of the bid portal is not given.",
+      "section": "6. Dates and submission"
+    }
+  ]
+}

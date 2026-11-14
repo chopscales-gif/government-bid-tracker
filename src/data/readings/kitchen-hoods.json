@@ -1,0 +1,136 @@
+{
+  "summary": "Cedar Bench School District wants the kitchen exhaust hoods, exhaust fans and gas-fired make-up air units replaced in the kitchens of three schools, including connection to the existing fire suppression systems by a licensed fire suppression subcontractor. The engineer's estimate is $180,000 and the work must be done between June 7 and July 23, 2027. Sealed bids are due at the District Purchasing Office by 2:00 p.m. on Tuesday, March 30, 2027.",
+  "facts": {
+    "naics": {
+      "value": "238220",
+      "section": "1. Project",
+      "quote": "NAICS code 238220."
+    },
+    "set_aside": {
+      "value": "none",
+      "section": "1. Project",
+      "quote": "There is no set-aside."
+    },
+    "estimated_value": {
+      "value": { "low": 180000, "high": 180000 },
+      "section": "1. Project",
+      "quote": "The engineer's estimate is $180,000."
+    },
+    "due": {
+      "value": "2027-03-30T14:00",
+      "section": "2. Schedule",
+      "quote": "no later than 2:00 p.m. on Tuesday, March 30, 2027."
+    },
+    "questions_due": {
+      "value": "2027-03-22T17:00",
+      "section": "2. Schedule",
+      "quote": "Written questions are due by 5:00 p.m. on Monday, March 22, 2027."
+    },
+    "prebid": {
+      "value": { "when": "2027-03-16T15:30", "mandatory": false },
+      "section": "2. Schedule",
+      "quote": "A walk-through of all three kitchens will start at Larkmoor Elementary at 3:30 p.m. on Tuesday, March 16, 2027."
+    },
+    "bid_bond": {
+      "value": { "required": true, "detail": "Bid security of 5 percent of the bid price" },
+      "section": "4. What to submit",
+      "quote": "bid security of 5 percent of the bid price"
+    },
+    "performance_bond": {
+      "value": { "required": true, "detail": "Performance and payment bonds for 100 percent of the contract price, within ten days of the notice of award" },
+      "section": "5. Bonds and insurance",
+      "quote": "The successful bidder must furnish performance and payment bonds for 100 percent of the contract price"
+    },
+    "licences": {
+      "value": { "codes": ["S350"], "need": "all" },
+      "section": "3. Bidder qualifications",
+      "quote": "The bidder must hold a current Utah S350 HVAC Contractor license."
+    },
+    "submission": {
+      "value": "Sealed bid, delivered to the District Purchasing Office, 1200 Bench Road, Cedar Bench",
+      "section": "2. Schedule",
+      "quote": "Sealed bids are due at the District Purchasing Office, 1200 Bench Road, Cedar Bench"
+    }
+  },
+  "checklist": [
+    {
+      "text": "Hold a current Utah S350 HVAC Contractor license.",
+      "section": "3. Bidder qualifications",
+      "quote": "The bidder must hold a current Utah S350 HVAC Contractor license."
+    },
+    {
+      "text": "Line up a licensed fire suppression subcontractor and name it on the Bid Form.",
+      "section": "3. Bidder qualifications",
+      "quote": "The bidder must name its fire suppression subcontractor on the Bid Form."
+    },
+    {
+      "text": "Fill in the Bid Form and have it signed by an officer of the company.",
+      "section": "4. What to submit",
+      "quote": "The Bid Form signed by an officer of the company"
+    },
+    {
+      "text": "Include bid security of 5 percent of the bid price.",
+      "section": "4. What to submit",
+      "quote": "bid security of 5 percent of the bid price"
+    },
+    {
+      "text": "Include a copy of your Utah contractor license.",
+      "section": "4. What to submit",
+      "quote": "a copy of the bidder's Utah contractor license"
+    },
+    {
+      "text": "Acknowledge every addendum.",
+      "section": "4. What to submit",
+      "quote": "and acknowledgment of every addendum"
+    },
+    {
+      "text": "Deliver the sealed bid to the District Purchasing Office, 1200 Bench Road, Cedar Bench, no later than 2:00 p.m. on Tuesday, March 30, 2027.",
+      "section": "2. Schedule",
+      "quote": "Sealed bids are due at the District Purchasing Office, 1200 Bench Road, Cedar Bench, no later than 2:00 p.m. on Tuesday, March 30, 2027."
+    }
+  ],
+  "after_award": [
+    {
+      "text": "Furnish performance and payment bonds for 100 percent of the contract price within ten days of the notice of award.",
+      "section": "5. Bonds and insurance",
+      "quote": "The successful bidder must furnish performance and payment bonds for 100 percent of the contract price"
+    },
+    {
+      "text": "Furnish a certificate of insurance within ten days of the notice of award.",
+      "section": "5. Bonds and insurance",
+      "quote": "a certificate of insurance within ten days of the notice of award"
+    },
+    {
+      "text": "Have every worker who will be on school property pass a background check under District Policy 3120.",
+      "section": "5. Bonds and insurance",
+      "quote": "All workers on school property must pass a background check under District Policy 3120."
+    },
+    {
+      "text": "Do the work between June 7 and July 23, 2027.",
+      "section": "2. Schedule",
+      "quote": "Work must be done between June 7 and July 23, 2027."
+    }
+  ],
+  "notes": [
+    {
+      "text": "All the work at three schools must be done inside a fixed window, June 7 to July 23, 2027. The text gives no dates for award or for when work may start being planned on site.",
+      "section": "2. Schedule"
+    },
+    {
+      "text": "The connection to the existing fire suppression systems must be made by a licensed fire suppression subcontractor, and you must name that subcontractor on the Bid Form. The text does not say which licence the subcontractor must hold; the only licence it names is the bidder's S350.",
+      "section": "1. Project"
+    },
+    {
+      "text": "The text says the winner must furnish the bonds 'and a certificate of insurance within ten days of the notice of award'. I read the ten days as applying to the bonds as well as the certificate, but the wording could mean the certificate only.",
+      "section": "5. Bonds and insurance"
+    },
+    {
+      "text": "All workers on school property must pass a background check under District Policy 3120. As written that would include the subcontractor's workers. The text does not say when the checks must be done or who pays for them.",
+      "section": "5. Bonds and insurance"
+    },
+    {
+      "text": "The text does not say what form the bid security must take (bond, check or other), and does not state the insurance types or amounts required. The walk-through on March 16 is not required.",
+      "section": "4. What to submit"
+    }
+  ]
+}

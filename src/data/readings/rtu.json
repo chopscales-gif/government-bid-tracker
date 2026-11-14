@@ -1,0 +1,141 @@
+{
+  "summary": "Alder Fork School District is taking sealed bids to replace six packaged gas/electric rooftop units, from 7.5 to 15 tons, on the classroom wings of Sego Ridge Middle School in Alder Fork, Utah. The estimated construction cost is $210,000 to $260,000, with the work to be done June 1 to July 30, 2027. Bids are due Tuesday, March 23, 2027 at 1:00 p.m. at the District Office.",
+  "facts": {
+    "naics": {
+      "value": "238220",
+      "section": "1. Work",
+      "quote": "NAICS 238220."
+    },
+    "set_aside": {
+      "value": "none",
+      "section": "1. Work",
+      "quote": "Open competition, no set-aside."
+    },
+    "estimated_value": {
+      "value": { "low": 210000, "high": 260000 },
+      "section": "1. Work",
+      "quote": "Estimated construction cost: $210,000 to $260,000."
+    },
+    "due": {
+      "value": "2027-03-23T13:00",
+      "section": "2. Key dates",
+      "quote": "Bids due: Tuesday, March 23, 2027, 1:00 p.m., District Office, 300 Main Street, Alder Fork."
+    },
+    "questions_due": {
+      "value": "2027-03-15",
+      "section": "2. Key dates",
+      "quote": "Last day for questions: Monday, March 15, 2027."
+    },
+    "prebid": {
+      "value": { "when": "2027-03-10T15:30", "mandatory": false },
+      "section": "2. Key dates",
+      "quote": "Optional site visit: Wednesday, March 10, 2027, 3:30 p.m., after school dismissal."
+    },
+    "bid_bond": {
+      "value": { "required": true, "detail": "Bid bond or cashier's check for 5 percent of the bid" },
+      "section": "4. Bid package",
+      "quote": "a bid bond or cashier's check for 5 percent of the bid"
+    },
+    "performance_bond": {
+      "value": { "required": true, "detail": "Performance and payment bonds for 100 percent of the contract, before the contract is signed" },
+      "section": "5. After award",
+      "quote": "The contractor must supply performance and payment bonds for 100 percent of the contract"
+    },
+    "licences": {
+      "value": { "codes": ["S350"], "need": "all" },
+      "section": "3. Who may bid",
+      "quote": "Bidders must hold a Utah S350 HVAC Contractor license"
+    },
+    "submission": {
+      "value": "Sealed bid, due at the District Office, 300 Main Street, Alder Fork. The text does not say how it is to be delivered.",
+      "section": "2. Key dates",
+      "quote": "Bids due: Tuesday, March 23, 2027, 1:00 p.m., District Office, 300 Main Street, Alder Fork."
+    }
+  },
+  "checklist": [
+    {
+      "text": "Check that you hold a Utah S350 HVAC Contractor license.",
+      "section": "3. Who may bid",
+      "quote": "Bidders must hold a Utah S350 HVAC Contractor license"
+    },
+    {
+      "text": "Check that you have carried out rooftop unit replacements at two or more schools or similar public buildings in the past four years.",
+      "section": "3. Who may bid",
+      "quote": "must have carried out rooftop unit replacements at two or more schools or similar public buildings in the past four years"
+    },
+    {
+      "text": "Fill in the Bid Form.",
+      "section": "4. Bid package",
+      "quote": "A complete bid consists of: the Bid Form;"
+    },
+    {
+      "text": "Get a bid bond or cashier's check for 5 percent of your bid and include it.",
+      "section": "4. Bid package",
+      "quote": "a bid bond or cashier's check for 5 percent of the bid"
+    },
+    {
+      "text": "Fill in the Reference Sheet, listing the projects that meet the experience requirement in Section 3.",
+      "section": "4. Bid package",
+      "quote": "the Reference Sheet listing the projects that meet Section 3"
+    },
+    {
+      "text": "Include a copy of your contractor license.",
+      "section": "4. Bid package",
+      "quote": "a copy of the contractor license"
+    },
+    {
+      "text": "Sign the Addenda Acknowledgment and include it.",
+      "section": "4. Bid package",
+      "quote": "the signed Addenda Acknowledgment"
+    },
+    {
+      "text": "Hand in the sealed bid at the District Office, 300 Main Street, Alder Fork, by 1:00 p.m. on Tuesday, March 23, 2027.",
+      "section": "2. Key dates",
+      "quote": "Bids due: Tuesday, March 23, 2027, 1:00 p.m., District Office, 300 Main Street, Alder Fork."
+    }
+  ],
+  "after_award": [
+    {
+      "text": "Supply performance and payment bonds for 100 percent of the contract before the contract is signed.",
+      "section": "5. After award",
+      "quote": "The contractor must supply performance and payment bonds for 100 percent of the contract"
+    },
+    {
+      "text": "Supply a certificate of insurance before the contract is signed.",
+      "section": "5. After award",
+      "quote": "a certificate of insurance before the contract is signed"
+    },
+    {
+      "text": "Have all workers complete the District's background check.",
+      "section": "5. After award",
+      "quote": "All workers must complete the District's background check."
+    },
+    {
+      "text": "Carry out the work in the work period, June 1 to July 30, 2027.",
+      "section": "2. Key dates",
+      "quote": "Work period: June 1 to July 30, 2027."
+    }
+  ],
+  "notes": [
+    {
+      "text": "The equipment schedule names an approved manufacturer, but the schedule was not part of the text that was read. To price another manufacturer, a written request must be made at least seven days before the bid date. With bids due March 23, 2027, that is read here as March 16, 2027; the text does not state the date itself or say who the request goes to.",
+      "section": "4. Bid package"
+    },
+    {
+      "text": "Only firms that have carried out rooftop unit replacements at two or more schools or similar public buildings in the past four years may bid. The text does not say what counts as a similar public building.",
+      "section": "3. Who may bid"
+    },
+    {
+      "text": "The bid must include a signed Addenda Acknowledgment. No addenda were part of the text that was read, and the text does not say whether the form is still needed if none are issued. This reading treats it as required.",
+      "section": "4. Bid package"
+    },
+    {
+      "text": "The text asks for sealed bids and gives the District Office, 300 Main Street, with the due time, but does not say outright how bids are to be delivered. This reading takes it that bids are handed in at the District Office. The last day for questions is March 15, 2027, with no time of day and no word on who to send them to.",
+      "section": "2. Key dates"
+    },
+    {
+      "text": "Bonds and the certificate of insurance are due before the contract is signed, with no number of days given. All workers must complete the District's background check; the text does not say when. The text also does not say how the winner will be chosen.",
+      "section": "5. After award"
+    }
+  ]
+}

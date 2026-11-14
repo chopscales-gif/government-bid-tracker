@@ -1,0 +1,745 @@
+{
+  "boiler-addendum-1": {
+    "key": "boiler-addendum-1",
+    "title": "Addendum No. 1 to IFB 27-014, Boiler Replacement, Larkmoor Elementary School",
+    "agency": "Cedar Bench School District",
+    "number": "IFB 27-014, Addendum No. 1",
+    "type": "Addendum",
+    "issued": "March 1, 2027",
+    "sections": [
+      {
+        "heading": "1. Purpose",
+        "lines": [
+          "This addendum changes the Invitation for Bids issued on February 16, 2027. It forms part of the bid documents. Bidders must acknowledge it on the Bid Form. A bid that does not acknowledge this addendum may be rejected."
+        ]
+      },
+      {
+        "heading": "2. Change to the bid due date",
+        "lines": [
+          "The Board of Education has moved its March meeting forward by one week. To allow the award to be considered at that meeting, the date in Section 2 for receipt of sealed bids is changed from Thursday, March 18, 2027 to Monday, March 15, 2027. The time, 2:00 p.m., and the place are unchanged.",
+          "The deadline for written questions is not changed."
+        ]
+      },
+      {
+        "heading": "3. Bid security now required",
+        "lines": [
+          "The first sentence of Section 5 is deleted and replaced with the following: Each bid must be accompanied by bid security in the amount of 5 percent of the bid price, in the form of a bid bond from a surety licensed in Utah or a cashier's check payable to Cedar Bench School District. A bid submitted without bid security will be rejected."
+        ]
+      },
+      {
+        "heading": "4. Clarification",
+        "lines": [
+          "In response to a question from a bidder: boilers from a manufacturer other than the one named in the specifications will be considered if a written request for approval of an equal, with product data, is received by the Purchasing Office by 5:00 p.m. on Monday, March 8, 2027.",
+          "All other terms of the Invitation for Bids remain the same."
+        ]
+      }
+    ]
+  },
+  "boiler": {
+    "key": "boiler",
+    "title": "Boiler Replacement, Larkmoor Elementary School",
+    "agency": "Cedar Bench School District",
+    "number": "IFB 27-014",
+    "type": "Invitation for Bids",
+    "issued": "February 16, 2027",
+    "sections": [
+      {
+        "heading": "1. Project",
+        "lines": [
+          "Cedar Bench School District invites sealed bids from qualified mechanical contractors to remove two existing cast iron hot water boilers at Larkmoor Elementary School, 410 Orchard Lane, Cedar Bench, Utah, and to furnish and install two high-efficiency condensing boilers with new primary pumps, venting, gas piping and controls, as shown in the drawings and specifications.",
+          "The engineer's estimate for this work is $380,000 to $450,000. This procurement falls under NAICS code 238220, Plumbing, Heating, and Air-Conditioning Contractors. It is open to all qualified bidders. There is no set-aside."
+        ]
+      },
+      {
+        "heading": "2. Schedule",
+        "lines": [
+          "A pre-bid walk-through of the boiler room will be held on Thursday, March 4, 2027 at 10:00 a.m. at the school's main office. Attendance is encouraged but is not required.",
+          "Written questions must be received by the Purchasing Office by 5:00 p.m. on Wednesday, March 10, 2027. Questions received after that time will not be answered.",
+          "Sealed bids are due at the District Purchasing Office, 1200 Bench Road, Cedar Bench, no later than 2:00 p.m. on Thursday, March 18, 2027. Bids will be opened and read aloud at that time. Late bids will be returned unopened.",
+          "All work must take place during the summer recess. Work may begin on June 7, 2027 and must reach substantial completion by August 6, 2027. Liquidated damages of $500 per calendar day apply after that date."
+        ]
+      },
+      {
+        "heading": "3. Bidder qualifications",
+        "lines": [
+          "The bidder must hold a current Utah S350 HVAC Contractor license at the time of bid. The bidder must have completed at least three boiler replacement projects of similar size in occupied public buildings within the last five years, and must list them on the Bidder Experience Form."
+        ]
+      },
+      {
+        "heading": "4. What to submit",
+        "lines": [
+          "Each bid must be submitted in a sealed envelope marked with the bidder's name and \"IFB 27-014 Boiler Replacement\" and must contain:",
+          "(a) the Bid Form, signed by an officer of the company, with the lump sum price written in both words and figures;",
+          "(b) the Bidder Experience Form;",
+          "(c) a copy of the bidder's Utah contractor license;",
+          "(d) acknowledgment of every addendum issued, in the space provided on the Bid Form.",
+          "Bids sent by fax or email will not be accepted. The apparent low bidder must provide a list of all subcontractors within 24 hours of the bid opening."
+        ]
+      },
+      {
+        "heading": "5. Bonds and insurance",
+        "lines": [
+          "Bid security is not required for this project. The successful bidder must furnish performance and payment bonds, each for 100 percent of the contract price, within ten days of the notice of award, together with a certificate of insurance showing commercial general liability coverage of at least $2,000,000 per occurrence."
+        ]
+      },
+      {
+        "heading": "6. Other conditions",
+        "lines": [
+          "Removal of asbestos-containing insulation on the existing boilers will be completed by the District under a separate contract before June 7 and is not part of this work. All workers on school property must pass a background check under District Policy 3120 before starting work."
+        ]
+      },
+      {
+        "heading": "7. Contact",
+        "lines": [
+          "Direct all questions in writing to Imogen Tavares, Purchasing Agent, at purchasing@cedarbench.example. Bidders may not contact the engineer or school staff about this solicitation."
+        ]
+      }
+    ]
+  },
+  "central-plant": {
+    "key": "central-plant",
+    "title": "Central Heating and Cooling Plant Replacement",
+    "agency": "Great Basin Technical College",
+    "number": "IFB GB-27-005",
+    "type": "Invitation for Bids",
+    "issued": "February 22, 2027",
+    "sections": [
+      {
+        "heading": "1. Project",
+        "lines": [
+          "Great Basin Technical College invites bids from mechanical contractors, acting as prime contractor, for the replacement of the campus central plant at 1500 College Way, Tanner Flat, Utah. The project includes two 400-ton water-cooled chillers, cooling towers, three hot water boilers, pumps, a new plant control system, electrical service upgrades, and temporary heating and cooling for the campus while the work is done.",
+          "The estimated construction cost is $4,200,000 to $4,800,000. NAICS 238220. The solicitation is open to all bidders."
+        ]
+      },
+      {
+        "heading": "2. Prequalification",
+        "lines": [
+          "Only bidders prequalified by the College may bid. A prequalification statement, including a letter from the bidder's surety confirming that the bidder can be bonded for a single project of at least $5,000,000, must be submitted by Friday, March 12, 2027."
+        ]
+      },
+      {
+        "heading": "3. Schedule",
+        "lines": [
+          "Mandatory pre-bid meeting: Tuesday, March 16, 2027, 10:00 a.m., Facilities Building. Questions due: Wednesday, March 24, 2027. Bids due: Thursday, April 8, 2027, 2:00 p.m., Purchasing Office."
+        ]
+      },
+      {
+        "heading": "4. Bids",
+        "lines": [
+          "Bids must include the Bid Form, a 5 percent bid bond, a list of proposed subcontractors for electrical and controls work, and the project manager's resume. The bidder must hold a Utah S350 HVAC Contractor license."
+        ]
+      },
+      {
+        "heading": "5. Bonds",
+        "lines": [
+          "Performance and payment bonds for 100 percent of the contract price are required."
+        ]
+      },
+      {
+        "heading": "6. Contact",
+        "lines": [
+          "Purchasing Office, purchasing@greatbasintech.example."
+        ]
+      }
+    ]
+  },
+  "chiller-addendum-1": {
+    "key": "chiller-addendum-1",
+    "title": "Addendum 1, IFB HC-2027-11, Chiller Replacement, Hollis County Justice Center",
+    "agency": "Hollis County",
+    "number": "IFB HC-2027-11, Addendum 1",
+    "type": "Addendum",
+    "issued": "March 2, 2027",
+    "sections": [
+      {
+        "heading": "1. Pre-bid conference is now mandatory and has moved",
+        "lines": [
+          "Because access to the roof passes through the secure part of the jail, the County will allow only one roof visit. The pre-bid conference described in Section 2 is now mandatory. It is moved from Tuesday, March 9, 2027 at 10:00 a.m. to Monday, March 8, 2027 at 9:00 a.m., in the lobby of the Justice Center. A bid from a firm that did not sign the attendance sheet will not be opened.",
+          "Each firm may bring no more than two people. Names must be sent to the Facilities Director by noon on Friday, March 5, 2027 so that security clearance can be arranged."
+        ]
+      },
+      {
+        "heading": "2. Crane and lift plan",
+        "lines": [
+          "Each bid must now include a written crane and lift plan showing where the crane will be set up on Court Street, the weight of the heaviest lift, and the proposed date and hours of the street closure."
+        ]
+      },
+      {
+        "heading": "3. Time of bid opening",
+        "lines": [
+          "The notice at the top of the Invitation for Bids gave the time bids are due as 3:00 p.m. That was an error. Bids are due at 2:00 p.m. on Thursday, March 25, 2027, as stated in Section 4."
+        ]
+      },
+      {
+        "heading": "4. Questions",
+        "lines": [
+          "The deadline for written questions is extended to Tuesday, March 16, 2027.",
+          "This addendum must be acknowledged on the Bid Proposal Form."
+        ]
+      }
+    ]
+  },
+  "chiller": {
+    "key": "chiller",
+    "title": "Chiller Replacement, Hollis County Justice Center",
+    "agency": "Hollis County",
+    "number": "IFB HC-2027-11",
+    "type": "Invitation for Bids",
+    "issued": "February 23, 2027",
+    "sections": [
+      {
+        "heading": "Notice",
+        "lines": [
+          "Bids due: Thursday, March 25, 2027, 3:00 p.m. Pre-bid conference: Tuesday, March 9, 2027, 10:00 a.m. Engineer's estimate: $620,000 to $700,000. NAICS 238220."
+        ]
+      },
+      {
+        "heading": "1. Description of work",
+        "lines": [
+          "Hollis County will receive sealed bids for the replacement of one 200-ton air-cooled chiller on the roof of the Hollis County Justice Center, 75 Court Street, Hollis, Utah. The work includes removal and disposal of the existing chiller, recovery of refrigerant, structural modifications to the existing roof curb, a new chiller, chilled water piping connections, electrical connections, controls integration with the building automation system, and start-up.",
+          "The Justice Center includes the county jail and courtrooms and stays in operation at all times. Cooling may be interrupted for no more than 48 hours in total."
+        ]
+      },
+      {
+        "heading": "2. Pre-bid conference",
+        "lines": [
+          "A pre-bid conference and roof visit will be held on Tuesday, March 9, 2027 at 10:00 a.m. Meet in the lobby of the Justice Center. Bidders are encouraged to attend. Those attending must bring government-issued photo identification to enter the secure area."
+        ]
+      },
+      {
+        "heading": "3. Questions",
+        "lines": [
+          "Questions must be submitted in writing by Friday, March 12, 2027."
+        ]
+      },
+      {
+        "heading": "4. Submission of bids",
+        "lines": [
+          "Sealed bids must be delivered to the Hollis County Clerk, 75 Court Street, Room 104, Hollis, no later than 2:00 p.m. on Thursday, March 25, 2027. Each bid must include:",
+          "- the Bid Proposal Form;",
+          "- bid security of 5 percent of the total bid, as a bid bond or certified check;",
+          "- the Statement of Bidder's Qualifications, showing at least two chiller replacements of 150 tons or larger completed in the last five years;",
+          "- proof of a Utah S350 HVAC Contractor license;",
+          "- a signed acknowledgment of the Jail Security Rules in Appendix C."
+        ]
+      },
+      {
+        "heading": "5. Award",
+        "lines": [
+          "The contract will be awarded to the lowest responsive and responsible bidder. The county is open to all bidders and applies no preference or set-aside. The successful bidder must furnish performance and payment bonds of 100 percent of the contract amount and proof of insurance within 14 days of award."
+        ]
+      },
+      {
+        "heading": "6. Time for completion",
+        "lines": [
+          "The new chiller must be operating by May 28, 2027."
+        ]
+      },
+      {
+        "heading": "7. Contact",
+        "lines": [
+          "Wendell Achterberg, County Facilities Director, facilities@holliscounty.example."
+        ]
+      }
+    ]
+  },
+  "clinic-controls": {
+    "key": "clinic-controls",
+    "title": "HVAC Controls Replacement, Ridgeview Outpatient Clinic",
+    "agency": "Federal Facilities Service, Mountain Region",
+    "number": "FFS-MR-27-Q-0042",
+    "type": "Combined Synopsis and Solicitation",
+    "issued": "February 25, 2027",
+    "sections": [
+      {
+        "heading": "1. General information",
+        "lines": [
+          "This is a combined synopsis and solicitation for construction services. The Federal Facilities Service, Mountain Region, intends to award one firm-fixed-price contract to replace the pneumatic HVAC controls at the Ridgeview Outpatient Clinic, 2400 Ridgeview Parkway, Ridgeview, Utah, with a direct digital control system, including new controllers, valves, actuators, sensors and operator workstation.",
+          "The magnitude of construction is between $250,000 and $500,000."
+        ]
+      },
+      {
+        "heading": "2. Set-aside",
+        "lines": [
+          "This acquisition is set aside 100 percent for service-disabled veteran-owned small businesses. The NAICS code is 238220 and the small business size standard is $19 million. Offers from firms that are not certified service-disabled veteran-owned small businesses will not be considered."
+        ]
+      },
+      {
+        "heading": "3. Site visit",
+        "lines": [
+          "One organized site visit will be held on Thursday, March 11, 2027 at 9:00 a.m. Offerors are urged to attend. Requests for information are due by Tuesday, March 16, 2027 at 4:00 p.m. Mountain Time."
+        ]
+      },
+      {
+        "heading": "4. Offers",
+        "lines": [
+          "Offers are due by 2:00 p.m. Mountain Time on Tuesday, March 30, 2027 and must be submitted by email to the Contracting Officer. An offer must include the completed price schedule, a bid guarantee of 20 percent of the offered price, three past performance references for controls projects, and the completed representations and certifications.",
+          "Performance and payment bonds are required within ten days of award. The period of performance is 150 days from the notice to proceed."
+        ]
+      },
+      {
+        "heading": "5. Contracting office",
+        "lines": [
+          "Contracting Officer: Delphine Okafor, delphine.okafor@ffs-mountain.example."
+        ]
+      }
+    ]
+  },
+  "heat-exchanger": {
+    "key": "heat-exchanger",
+    "title": "Furnace Replacement, Fire Station 2 (Urgent)",
+    "agency": "City of Marlow Springs",
+    "number": "Quote Request Q-27-019",
+    "type": "Request for Quotations",
+    "issued": "February 26, 2027",
+    "sections": [
+      {
+        "heading": "1. What is needed",
+        "lines": [
+          "The heat exchanger in the furnace serving the living quarters at Fire Station 2, 918 Willow Street, Marlow Springs, has cracked and the furnace has been shut off. The station is being heated by temporary electric heaters. The City needs a quotation to remove the existing 120,000 BTU gas furnace and install a new furnace of the same capacity, with a new flue and thermostat.",
+          "Because of the urgency, the City is using its expedited small purchase procedure. The City expects the cost to be under $30,000."
+        ]
+      },
+      {
+        "heading": "2. Deadline",
+        "lines": [
+          "Quotations must be received by email by 12:00 noon on Friday, March 5, 2027. The City intends to issue a purchase order the same afternoon. Work must be complete within ten days of the purchase order."
+        ]
+      },
+      {
+        "heading": "3. Requirements",
+        "lines": [
+          "The contractor must hold a Utah S350 HVAC Contractor license. The quotation must state a fixed price, the make and model of the furnace, and the date the contractor can start. No bonds are required. A certificate of insurance must be on file with the City before work starts.",
+          "Contractors may visit the station any day between 8:00 a.m. and 5:00 p.m. Ask for the duty captain."
+        ]
+      },
+      {
+        "heading": "4. Contact",
+        "lines": [
+          "Rafael Odum, Facilities Manager, bids@marlowsprings.example, (801) 555-0144."
+        ]
+      }
+    ]
+  },
+  "hvac-maint": {
+    "key": "hvac-maint",
+    "title": "HVAC Preventive Maintenance and On-Call Repair, City Buildings",
+    "agency": "City of Marlow Springs",
+    "number": "RFP 2027-07",
+    "type": "Request for Proposals",
+    "issued": "February 18, 2027",
+    "sections": [
+      {
+        "heading": "1. Overview",
+        "lines": [
+          "The City of Marlow Springs is seeking proposals from mechanical service contractors to provide scheduled preventive maintenance and on-call repair of heating, ventilating and air-conditioning equipment at eleven city buildings, including City Hall, the Public Safety Building, two fire stations and the Senior Center. An equipment list is attached as Exhibit A.",
+          "The City has budgeted approximately $95,000 per year for this service. The applicable NAICS code is 238220. Any qualified firm may submit a proposal."
+        ]
+      },
+      {
+        "heading": "2. Term",
+        "lines": [
+          "The contract term is three years beginning July 1, 2027. The City may renew the contract for up to two additional one-year terms."
+        ]
+      },
+      {
+        "heading": "3. Service requirements",
+        "lines": [
+          "The contractor must perform preventive maintenance on each item of equipment four times per year, following Exhibit B. For on-call repairs the contractor must have a technician on site within four hours of a call during business hours, and within eight hours at other times, every day of the year.",
+          "All technicians assigned to the contract must hold EPA Section 608 certification. The contractor must hold a Utah S350 HVAC Contractor license."
+        ]
+      },
+      {
+        "heading": "4. Proposal contents",
+        "lines": [
+          "Proposals must not be longer than 20 pages, not counting resumes and required forms, and must include:",
+          "1. a cover letter signed by a person authorized to commit the firm;",
+          "2. a description of the firm and of the service team, with a resume for the proposed lead technician;",
+          "3. three references from public agencies or commercial property owners for maintenance contracts held in the last three years, with a contact name and telephone number for each;",
+          "4. the Price Form (Exhibit C), giving an annual price for preventive maintenance and hourly rates for repair work;",
+          "5. a sample preventive maintenance report from a current customer;",
+          "6. a certificate of insurance. The required coverage is set out in the sample contract, Exhibit D."
+        ]
+      },
+      {
+        "heading": "5. How proposals are scored",
+        "lines": [
+          "Proposals will be scored by a committee: qualifications and experience of the team, 35 points; approach to the work and response times, 25 points; price, 30 points; references, 10 points. The City may interview the highest scoring firms."
+        ]
+      },
+      {
+        "heading": "6. Dates and submission",
+        "lines": [
+          "Questions are due by email by noon on Thursday, March 4, 2027. Proposals must be uploaded as a single PDF file to the City's bid portal by 4:00 p.m. on Thursday, March 11, 2027. The portal does not accept late files. Paper proposals will not be accepted. There is no pre-proposal meeting. Site visits may be arranged by appointment.",
+          "No bid bond or performance bond is required for this contract."
+        ]
+      },
+      {
+        "heading": "7. Contact",
+        "lines": [
+          "Rafael Odum, Facilities Manager, bids@marlowsprings.example, (801) 555-0144."
+        ]
+      }
+    ]
+  },
+  "kitchen-hoods": {
+    "key": "kitchen-hoods",
+    "title": "Kitchen Exhaust Hood and Make-Up Air Replacement, Three Schools",
+    "agency": "Cedar Bench School District",
+    "number": "IFB 27-017",
+    "type": "Invitation for Bids",
+    "issued": "March 1, 2027",
+    "sections": [
+      {
+        "heading": "1. Project",
+        "lines": [
+          "Cedar Bench School District invites sealed bids to replace the kitchen exhaust hoods, exhaust fans and gas-fired make-up air units in the kitchens of Larkmoor Elementary, Hillcrest Elementary and Cedar Bench Junior High School. The work includes new stainless steel hoods, connection to the existing fire suppression systems by a licensed fire suppression subcontractor, ductwork, and air balancing.",
+          "The engineer's estimate is $180,000. NAICS code 238220. There is no set-aside."
+        ]
+      },
+      {
+        "heading": "2. Schedule",
+        "lines": [
+          "A walk-through of all three kitchens will start at Larkmoor Elementary at 3:30 p.m. on Tuesday, March 16, 2027. Attendance is not required.",
+          "Written questions are due by 5:00 p.m. on Monday, March 22, 2027.",
+          "Sealed bids are due at the District Purchasing Office, 1200 Bench Road, Cedar Bench, no later than 2:00 p.m. on Tuesday, March 30, 2027.",
+          "Work must be done between June 7 and July 23, 2027."
+        ]
+      },
+      {
+        "heading": "3. Bidder qualifications",
+        "lines": [
+          "The bidder must hold a current Utah S350 HVAC Contractor license. The bidder must name its fire suppression subcontractor on the Bid Form."
+        ]
+      },
+      {
+        "heading": "4. What to submit",
+        "lines": [
+          "The Bid Form signed by an officer of the company; bid security of 5 percent of the bid price; a copy of the bidder's Utah contractor license; and acknowledgment of every addendum."
+        ]
+      },
+      {
+        "heading": "5. Bonds and insurance",
+        "lines": [
+          "The successful bidder must furnish performance and payment bonds for 100 percent of the contract price and a certificate of insurance within ten days of the notice of award. All workers on school property must pass a background check under District Policy 3120."
+        ]
+      },
+      {
+        "heading": "6. Contact",
+        "lines": [
+          "Imogen Tavares, Purchasing Agent, purchasing@cedarbench.example."
+        ]
+      }
+    ]
+  },
+  "ranger-boilers": {
+    "key": "ranger-boilers",
+    "title": "Boiler Inspection and Maintenance Services, Aspen Hollow Administrative Site",
+    "agency": "Federal Facilities Service, Mountain Region",
+    "number": "FFS-MR-27-Q-0051",
+    "type": "Request for Quotations",
+    "issued": "March 1, 2027",
+    "sections": [
+      {
+        "heading": "1. Requirement",
+        "lines": [
+          "The Federal Facilities Service, Mountain Region, requires annual inspection, cleaning, combustion tuning and minor repair of five hot water boilers at the Aspen Hollow Administrative Site, 12 Forest Road 40, Aspen Hollow, Utah. The contract will have a base year and four option years.",
+          "The estimated value, including all option years, is $160,000."
+        ]
+      },
+      {
+        "heading": "2. Set-aside",
+        "lines": [
+          "This requirement is set aside for women-owned small businesses. Quotations will be accepted only from firms certified as women-owned small businesses. NAICS code 238220, size standard $19 million."
+        ]
+      },
+      {
+        "heading": "3. Quotations",
+        "lines": [
+          "Quotations are due by 4:00 p.m. Mountain Time on Friday, March 19, 2027, by email to the Contracting Officer. A quotation must include a price for the base year and each option year, a description of the firm's boiler service experience, and the names and certifications of the technicians who will do the work. No site visit is planned."
+        ]
+      },
+      {
+        "heading": "4. Basis of award",
+        "lines": [
+          "Award will be made to the responsible firm whose quotation is the lowest in price and is technically acceptable."
+        ]
+      },
+      {
+        "heading": "5. Contracting office",
+        "lines": [
+          "Contracting Officer: Delphine Okafor, delphine.okafor@ffs-mountain.example."
+        ]
+      }
+    ]
+  },
+  "red-mesa": {
+    "key": "red-mesa",
+    "title": "Mechanical Systems Upgrade, Red Mesa High School",
+    "agency": "Red Mesa County School District",
+    "number": "RFP 27-002",
+    "type": "Request for Proposals",
+    "issued": "February 24, 2027",
+    "sections": [
+      {
+        "heading": "1. Summary",
+        "lines": [
+          "Red Mesa County School District requests proposals from mechanical contractors for the replacement of the heating and cooling systems in the 1978 classroom building at Red Mesa High School, 600 East Canyon Road, Red Mesa, Utah. The project replaces 38 unit ventilators, the heating water boilers and pumps, and adds a building automation system.",
+          "The construction budget is $900,000 to $1,100,000. NAICS 238220. The District welcomes proposals from all qualified contractors."
+        ]
+      },
+      {
+        "heading": "2. Selection",
+        "lines": [
+          "This is a best-value selection, not a low-bid selection. Proposals will be scored on price (40 percent), the proposed schedule and plan for working in an occupied school (25 percent), experience of the project manager and superintendent (20 percent), and past performance on school projects (15 percent)."
+        ]
+      },
+      {
+        "heading": "3. Mandatory site visit",
+        "lines": [
+          "A mandatory pre-proposal meeting and site visit will be held at the high school on Wednesday, March 17, 2027 at 1:00 p.m. Proposals will be accepted only from firms that attend."
+        ]
+      },
+      {
+        "heading": "4. Proposal requirements",
+        "lines": [
+          "Submit one original and four copies, plus one electronic copy on a USB drive. The proposal must include a management plan, a schedule, resumes for the project manager and superintendent, a list of school projects completed since 2020, a statement of bonding capacity from the firm's surety, and the Cost Proposal Form in a separate sealed envelope.",
+          "A proposal bond of 5 percent of the proposed price is required. The firm must hold a Utah S350 HVAC Contractor license."
+        ]
+      },
+      {
+        "heading": "5. Dates",
+        "lines": [
+          "Questions due: Monday, March 22, 2027. Proposals due: Friday, April 2, 2027, 2:00 p.m., District Office, 45 North Main Street, Red Mesa."
+        ]
+      },
+      {
+        "heading": "6. Housing",
+        "lines": [
+          "Red Mesa is a remote community. Contractors are responsible for lodging for their crews. The District has no housing to offer."
+        ]
+      },
+      {
+        "heading": "7. Contact",
+        "lines": [
+          "Purchasing, purchasing@redmesasd.example."
+        ]
+      }
+    ]
+  },
+  "restrooms": {
+    "key": "restrooms",
+    "title": "Restroom Plumbing Fixture Replacement, Town Hall and Library",
+    "agency": "Town of Quarry Bend",
+    "number": "IFB 27-04",
+    "type": "Invitation for Bids",
+    "issued": "March 2, 2027",
+    "sections": [
+      {
+        "heading": "1. Work",
+        "lines": [
+          "The Town of Quarry Bend invites bids to replace the plumbing fixtures in the public restrooms at Town Hall, 10 Granary Road, and the Quarry Bend Library, 22 Granary Road, Quarry Bend, Utah: 14 toilets, 6 urinals and 12 sinks, with sensor-operated flush valves and faucets, new stop valves, and repair of wall and floor finishes disturbed by the work. All fixtures must meet accessibility requirements.",
+          "The Town's estimate is $65,000. NAICS code 238220."
+        ]
+      },
+      {
+        "heading": "2. Who may bid",
+        "lines": [
+          "The bidder must hold a Utah S210 General Plumbing Contractor license. Under the Town's Small Purchase Policy, purchases under $75,000 are limited to small businesses with fewer than 100 employees."
+        ]
+      },
+      {
+        "heading": "3. Dates",
+        "lines": [
+          "The buildings may be visited during business hours without an appointment. Questions are due by Wednesday, March 17, 2027. Bids are due by 2:00 p.m. on Wednesday, March 24, 2027 at the Town Clerk's office, 10 Granary Road. Bids may be delivered or sent by email.",
+          "The work must be done one restroom at a time so that each building always has a restroom in service, and must be finished by May 28, 2027."
+        ]
+      },
+      {
+        "heading": "4. Bid contents",
+        "lines": [
+          "The Bid Form with a price for each building, the fixture schedule showing the make and model of each fixture offered, a copy of the contractor license, and the small business certification on the Bid Form. No bid security is required. A performance bond is required only if the contract price is more than $50,000."
+        ]
+      },
+      {
+        "heading": "5. Contact",
+        "lines": [
+          "Opal Jessop, Town Clerk, clerk@quarrybend.example."
+        ]
+      }
+    ]
+  },
+  "roof": {
+    "key": "roof",
+    "title": "Roof Replacement, Public Works Building",
+    "agency": "Hollis County",
+    "number": "IFB HC-2027-12",
+    "type": "Invitation for Bids",
+    "issued": "February 25, 2027",
+    "sections": [
+      {
+        "heading": "1. Description of work",
+        "lines": [
+          "Hollis County will receive sealed bids to remove the existing built-up roof on the Public Works Building, 310 Gravel Pit Road, Hollis, Utah, and install a new 60-mil single-ply membrane roof system with tapered insulation, flashings and a 20-year manufacturer's warranty. The roof area is about 22,000 square feet. The work includes disconnecting and resetting four rooftop exhaust fans.",
+          "Engineer's estimate: $330,000. NAICS 238160, Roofing Contractors. No set-aside applies."
+        ]
+      },
+      {
+        "heading": "2. Bidder requirements",
+        "lines": [
+          "Bidders must hold a Utah S280 Roofing Contractor license and must be approved by the membrane manufacturer to install the specified system."
+        ]
+      },
+      {
+        "heading": "3. Dates",
+        "lines": [
+          "Pre-bid meeting: Thursday, March 11, 2027, 10:00 a.m., at the building. Attendance is optional. Bids due: Wednesday, March 24, 2027, 2:00 p.m., Hollis County Clerk, 75 Court Street, Room 104, Hollis."
+        ]
+      },
+      {
+        "heading": "4. Bid contents",
+        "lines": [
+          "The Bid Proposal Form, bid security of 5 percent, the manufacturer's letter of approval, and proof of license."
+        ]
+      },
+      {
+        "heading": "5. Contact",
+        "lines": [
+          "Wendell Achterberg, County Facilities Director, facilities@holliscounty.example."
+        ]
+      }
+    ]
+  },
+  "rtu": {
+    "key": "rtu",
+    "title": "Rooftop Unit Replacement, Sego Ridge Middle School",
+    "agency": "Alder Fork School District",
+    "number": "IFB 2027-B-06",
+    "type": "Invitation for Bids",
+    "issued": "February 26, 2027",
+    "sections": [
+      {
+        "heading": "1. Work",
+        "lines": [
+          "Alder Fork School District will accept sealed bids to replace six packaged gas/electric rooftop units, from 7.5 to 15 tons, serving the classroom wings of Sego Ridge Middle School, 1890 Sego Ridge Drive, Alder Fork, Utah. The work includes curb adapters, gas and electrical reconnection, new thermostats tied to the District's control system, crane service, and disposal of the old units.",
+          "Estimated construction cost: $210,000 to $260,000. NAICS 238220. Open competition, no set-aside."
+        ]
+      },
+      {
+        "heading": "2. Key dates",
+        "lines": [
+          "Optional site visit: Wednesday, March 10, 2027, 3:30 p.m., after school dismissal. Meet at the front office.",
+          "Last day for questions: Monday, March 15, 2027.",
+          "Bids due: Tuesday, March 23, 2027, 1:00 p.m., District Office, 300 Main Street, Alder Fork.",
+          "Work period: June 1 to July 30, 2027."
+        ]
+      },
+      {
+        "heading": "3. Who may bid",
+        "lines": [
+          "Bidders must hold a Utah S350 HVAC Contractor license and must have carried out rooftop unit replacements at two or more schools or similar public buildings in the past four years."
+        ]
+      },
+      {
+        "heading": "4. Bid package",
+        "lines": [
+          "A complete bid consists of: the Bid Form; a bid bond or cashier's check for 5 percent of the bid; the Reference Sheet listing the projects that meet Section 3; a copy of the contractor license; and the signed Addenda Acknowledgment.",
+          "The equipment schedule names an approved manufacturer. Requests to substitute another manufacturer must be made in writing at least seven days before the bid date."
+        ]
+      },
+      {
+        "heading": "5. After award",
+        "lines": [
+          "The contractor must supply performance and payment bonds for 100 percent of the contract and a certificate of insurance before the contract is signed. All workers must complete the District's background check."
+        ]
+      },
+      {
+        "heading": "6. Contact",
+        "lines": [
+          "Business Office, bids@alderforksd.example, (801) 555-0171."
+        ]
+      }
+    ]
+  },
+  "unit-heaters": {
+    "key": "unit-heaters",
+    "title": "Gas Unit Heater Replacement, North Maintenance Garage",
+    "agency": "Bonneville Valley Transit District",
+    "number": "IFB BV-27-031",
+    "type": "Invitation for Bids",
+    "issued": "February 1, 2027",
+    "sections": [
+      {
+        "heading": "1. Scope",
+        "lines": [
+          "The Bonneville Valley Transit District requests bids to remove fourteen gas-fired unit heaters in the bus bays of the North Maintenance Garage, 2250 Depot Street, Fallon Heights, Utah, and to furnish and install fourteen new separated-combustion unit heaters with thermostats, venting and gas connections.",
+          "The estimated cost is $140,000. NAICS code 238220 applies. This solicitation is not set aside."
+        ]
+      },
+      {
+        "heading": "2. Schedule",
+        "lines": [
+          "A site visit will be held Tuesday, February 9, 2027 at 9:00 a.m. Attendance is optional. Questions are due Friday, February 12, 2027. Bids are due Thursday, February 25, 2027 at 2:00 p.m. at the District Procurement Office, 2250 Depot Street, Fallon Heights.",
+          "The garage operates 24 hours a day. Work must be done one bay at a time and completed within 60 calendar days of the notice to proceed."
+        ]
+      },
+      {
+        "heading": "3. Requirements",
+        "lines": [
+          "The bidder must hold a Utah S350 HVAC Contractor license. Each bid must include the Bid Form, a bid bond for 5 percent of the bid price, the Non-Collusion Affidavit, and manufacturer's data sheets for the proposed heaters.",
+          "The successful bidder must provide performance and payment bonds for the full contract price."
+        ]
+      },
+      {
+        "heading": "4. Contact",
+        "lines": [
+          "Procurement Office, procurement@bvtransit.example."
+        ]
+      }
+    ]
+  },
+  "water-heaters": {
+    "key": "water-heaters",
+    "title": "Water Heater Replacement, Quarry Bend Recreation Center",
+    "agency": "Town of Quarry Bend",
+    "number": "RFQ 27-03",
+    "type": "Request for Quotations",
+    "issued": "February 26, 2027",
+    "sections": [
+      {
+        "heading": "1. Request",
+        "lines": [
+          "The Town of Quarry Bend requests written quotations to replace two 100-gallon gas commercial water heaters and the recirculation pump serving the locker rooms and kitchen at the Quarry Bend Recreation Center, 55 Granary Road, Quarry Bend, Utah. The work must be done while the pool is closed for its annual maintenance, April 12 to April 23, 2027.",
+          "The Town expects the cost to be about $48,000."
+        ]
+      },
+      {
+        "heading": "2. Small business limitation",
+        "lines": [
+          "Under the Town's Small Purchase Policy, purchases under $75,000 are limited to small businesses. To be considered, a firm must certify on the Quotation Form that it is a small business, meaning that it has fewer than 100 employees."
+        ]
+      },
+      {
+        "heading": "3. Requirements",
+        "lines": [
+          "The firm must hold a Utah S210 General Plumbing Contractor license or a Utah S350 HVAC Contractor license. NAICS code: 238220.",
+          "Quotations must be submitted on the Town's Quotation Form and must include the make and model of the proposed water heaters and the length of the manufacturer's warranty.",
+          "No bonds are required. The selected firm must provide proof of liability insurance and workers' compensation coverage before starting work."
+        ]
+      },
+      {
+        "heading": "4. Due date",
+        "lines": [
+          "Quotations are due by 5:00 p.m. on Tuesday, March 16, 2027, by email to the Town Clerk. The Town will award to the lowest quotation that meets these requirements.",
+          "To see the mechanical room before quoting, call the Recreation Center manager at (801) 555-0119."
+        ]
+      },
+      {
+        "heading": "5. Contact",
+        "lines": [
+          "Opal Jessop, Town Clerk, clerk@quarrybend.example."
+        ]
+      }
+    ]
+  }
+}

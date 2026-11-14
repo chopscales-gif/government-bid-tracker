@@ -1,0 +1,151 @@
+{
+  "summary": "Cedar Bench School District wants a mechanical contractor to remove two cast iron hot water boilers at Larkmoor Elementary School and install two high-efficiency condensing boilers with pumps, venting, gas piping and controls. The engineer's estimate is $380,000 to $450,000 and the work must be done in the summer recess, June 7 to August 6, 2027. Sealed bids are due at the District Purchasing Office by 2:00 p.m. on Thursday, March 18, 2027.",
+  "facts": {
+    "naics": {
+      "value": "238220",
+      "section": "1. Project",
+      "quote": "This procurement falls under NAICS code 238220, Plumbing, Heating, and Air-Conditioning Contractors."
+    },
+    "set_aside": {
+      "value": "none",
+      "section": "1. Project",
+      "quote": "It is open to all qualified bidders. There is no set-aside."
+    },
+    "estimated_value": {
+      "value": { "low": 380000, "high": 450000 },
+      "section": "1. Project",
+      "quote": "The engineer's estimate for this work is $380,000 to $450,000."
+    },
+    "due": {
+      "value": "2027-03-18T14:00",
+      "section": "2. Schedule",
+      "quote": "no later than 2:00 p.m. on Thursday, March 18, 2027"
+    },
+    "questions_due": {
+      "value": "2027-03-10T17:00",
+      "section": "2. Schedule",
+      "quote": "Written questions must be received by the Purchasing Office by 5:00 p.m. on Wednesday, March 10, 2027."
+    },
+    "prebid": {
+      "value": { "when": "2027-03-04T10:00", "mandatory": false },
+      "section": "2. Schedule",
+      "quote": "Attendance is encouraged but is not required."
+    },
+    "bid_bond": {
+      "value": { "required": false, "detail": "Not required" },
+      "section": "5. Bonds and insurance",
+      "quote": "Bid security is not required for this project."
+    },
+    "performance_bond": {
+      "value": { "required": true, "detail": "Performance and payment bonds, each for 100 percent of the contract price, within ten days of the notice of award" },
+      "section": "5. Bonds and insurance",
+      "quote": "performance and payment bonds, each for 100 percent of the contract price, within ten days of the notice of award"
+    },
+    "licences": {
+      "value": { "codes": ["S350"], "need": "all" },
+      "section": "3. Bidder qualifications",
+      "quote": "The bidder must hold a current Utah S350 HVAC Contractor license at the time of bid."
+    },
+    "submission": {
+      "value": "Sealed envelope marked with the bidder's name and \"IFB 27-014 Boiler Replacement\", due at the District Purchasing Office, 1200 Bench Road, Cedar Bench. Fax and email bids are not accepted.",
+      "section": "2. Schedule",
+      "quote": "Sealed bids are due at the District Purchasing Office, 1200 Bench Road, Cedar Bench"
+    }
+  },
+  "checklist": [
+    {
+      "text": "Make sure you hold a current Utah S350 HVAC Contractor license at the time you bid.",
+      "section": "3. Bidder qualifications",
+      "quote": "The bidder must hold a current Utah S350 HVAC Contractor license at the time of bid."
+    },
+    {
+      "text": "Make sure you have completed at least three boiler replacement projects of similar size in occupied public buildings within the last five years.",
+      "section": "3. Bidder qualifications",
+      "quote": "at least three boiler replacement projects of similar size in occupied public buildings within the last five years"
+    },
+    {
+      "text": "Fill in the Bid Form with the lump sum price written in both words and figures, and have an officer of the company sign it.",
+      "section": "4. What to submit",
+      "quote": "(a) the Bid Form, signed by an officer of the company, with the lump sum price written in both words and figures;"
+    },
+    {
+      "text": "Acknowledge every addendum issued, in the space provided on the Bid Form.",
+      "section": "4. What to submit",
+      "quote": "(d) acknowledgment of every addendum issued, in the space provided on the Bid Form."
+    },
+    {
+      "text": "Fill in the Bidder Experience Form, listing the three or more similar boiler replacement projects.",
+      "section": "3. Bidder qualifications",
+      "quote": "and must list them on the Bidder Experience Form"
+    },
+    {
+      "text": "Include the Bidder Experience Form in the bid.",
+      "section": "4. What to submit",
+      "quote": "(b) the Bidder Experience Form;"
+    },
+    {
+      "text": "Include a copy of your Utah contractor license.",
+      "section": "4. What to submit",
+      "quote": "(c) a copy of the bidder's Utah contractor license;"
+    },
+    {
+      "text": "Put the bid in a sealed envelope marked with your company name and \"IFB 27-014 Boiler Replacement\".",
+      "section": "4. What to submit",
+      "quote": "Each bid must be submitted in a sealed envelope marked with the bidder's name and"
+    },
+    {
+      "text": "Get the sealed bid to the District Purchasing Office, 1200 Bench Road, Cedar Bench, no later than 2:00 p.m. on Thursday, March 18, 2027. Do not send it by fax or email.",
+      "section": "2. Schedule",
+      "quote": "no later than 2:00 p.m. on Thursday, March 18, 2027"
+    }
+  ],
+  "after_award": [
+    {
+      "text": "If you are the apparent low bidder, provide a list of all subcontractors within 24 hours of the bid opening.",
+      "section": "4. What to submit",
+      "quote": "The apparent low bidder must provide a list of all subcontractors within 24 hours of the bid opening."
+    },
+    {
+      "text": "Furnish performance and payment bonds, each for 100 percent of the contract price, within ten days of the notice of award.",
+      "section": "5. Bonds and insurance",
+      "quote": "performance and payment bonds, each for 100 percent of the contract price, within ten days of the notice of award"
+    },
+    {
+      "text": "Provide, with the bonds, a certificate of insurance showing commercial general liability coverage of at least $2,000,000 per occurrence.",
+      "section": "5. Bonds and insurance",
+      "quote": "a certificate of insurance showing commercial general liability coverage of at least $2,000,000 per occurrence"
+    },
+    {
+      "text": "Have every worker who will be on school property pass a background check under District Policy 3120 before they start work.",
+      "section": "6. Other conditions",
+      "quote": "All workers on school property must pass a background check under District Policy 3120 before starting work."
+    },
+    {
+      "text": "Do all the work in the summer recess: start no earlier than June 7, 2027 and reach substantial completion by August 6, 2027.",
+      "section": "2. Schedule",
+      "quote": "Work may begin on June 7, 2027 and must reach substantial completion by August 6, 2027."
+    }
+  ],
+  "notes": [
+    {
+      "text": "The list of all subcontractors is due within 24 hours of the bid opening, not of the award, and bids are opened at the 2:00 p.m. deadline itself. It applies only to the apparent low bidder, but you need the list ready before you bid.",
+      "section": "4. What to submit"
+    },
+    {
+      "text": "Work can only happen between June 7 and August 6, 2027, about two months, and liquidated damages of $500 per calendar day apply after August 6.",
+      "section": "2. Schedule"
+    },
+    {
+      "text": "The District is removing the asbestos-containing insulation on the old boilers under a separate contract before June 7; it is not part of this work. The text does not say what happens to the August 6 completion date or the daily damages if that removal runs late.",
+      "section": "6. Other conditions"
+    },
+    {
+      "text": "Section 3 requires a Utah S350 HVAC Contractor license; item (c) asks only for a copy of the bidder's Utah contractor license without naming the classification. I read these as the same license, but the text does not say so.",
+      "section": "4. What to submit"
+    },
+    {
+      "text": "All questions must go in writing to the Purchasing Agent, Imogen Tavares, at purchasing@cedarbench.example; bidders may not contact the engineer or school staff. Questions received after 5:00 p.m. on March 10 will not be answered, and late bids are returned unopened.",
+      "section": "7. Contact"
+    }
+  ]
+}

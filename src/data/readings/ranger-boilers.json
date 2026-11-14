@@ -1,0 +1,85 @@
+{
+  "summary": "The Federal Facilities Service, Mountain Region, wants annual inspection, cleaning, combustion tuning and minor repair of five hot water boilers at the Aspen Hollow Administrative Site in Aspen Hollow, Utah, for a base year and four option years. The estimated value including all option years is $160,000. It is set aside for certified women-owned small businesses, and quotations are due by email by 4:00 p.m. Mountain Time on Friday, March 19, 2027.",
+  "facts": {
+    "naics": {
+      "value": "238220",
+      "section": "2. Set-aside",
+      "quote": "NAICS code 238220, size standard $19 million."
+    },
+    "set_aside": {
+      "value": "wosb",
+      "section": "2. Set-aside",
+      "quote": "This requirement is set aside for women-owned small businesses."
+    },
+    "estimated_value": {
+      "value": { "low": 160000, "high": 160000 },
+      "section": "1. Requirement",
+      "quote": "The estimated value, including all option years, is $160,000."
+    },
+    "due": {
+      "value": "2027-03-19T16:00",
+      "section": "3. Quotations",
+      "quote": "Quotations are due by 4:00 p.m. Mountain Time on Friday, March 19, 2027, by email to the Contracting Officer."
+    },
+    "questions_due": null,
+    "prebid": null,
+    "bid_bond": null,
+    "performance_bond": null,
+    "licences": null,
+    "submission": {
+      "value": "By email to the Contracting Officer",
+      "section": "3. Quotations",
+      "quote": "by email to the Contracting Officer"
+    }
+  },
+  "checklist": [
+    {
+      "text": "Be certified as a women-owned small business. Quotations from other firms will not be accepted.",
+      "section": "2. Set-aside",
+      "quote": "Quotations will be accepted only from firms certified as women-owned small businesses."
+    },
+    {
+      "text": "Give a price for the base year and for each of the four option years.",
+      "section": "3. Quotations",
+      "quote": "A quotation must include a price for the base year and each option year"
+    },
+    {
+      "text": "Include a description of your firm's boiler service experience.",
+      "section": "3. Quotations",
+      "quote": "a description of the firm's boiler service experience"
+    },
+    {
+      "text": "Include the names and certifications of the technicians who will do the work.",
+      "section": "3. Quotations",
+      "quote": "the names and certifications of the technicians who will do the work"
+    },
+    {
+      "text": "Email the quotation to the Contracting Officer by 4:00 p.m. Mountain Time on Friday, March 19, 2027.",
+      "section": "3. Quotations",
+      "quote": "Quotations are due by 4:00 p.m. Mountain Time on Friday, March 19, 2027, by email to the Contracting Officer."
+    }
+  ],
+  "after_award": [],
+  "notes": [
+    {
+      "text": "Only firms certified as women-owned small businesses may quote; quotations from anyone else will not be accepted. The text does not say who must have issued the certification or whether proof has to be sent with the quotation. A size standard of $19 million is stated.",
+      "section": "2. Set-aside"
+    },
+    {
+      "text": "The $160,000 is the estimated value of the whole contract including all option years (a base year and four option years). It is not a yearly figure, and the text gives no yearly figure.",
+      "section": "1. Requirement"
+    },
+    {
+      "text": "The text says no site visit is planned. You would be pricing five years of work on five boilers without an organized visit; the text does not say whether one can be arranged on request.",
+      "section": "3. Quotations"
+    },
+    {
+      "text": "The work includes 'minor repair', with no definition or dollar limit given, and you must give a price for the base year and for each option year. The text asks for the technicians' certifications but does not say which ones are expected.",
+      "section": "1. Requirement"
+    },
+    {
+      "text": "This is a request for quotations, awarded to the responsible firm with the lowest price that is technically acceptable. The text says nothing about a deadline for questions, bonds, contractor licences, insurance, or what the winner must provide after award. It is silent on these; it does not say none apply.",
+      "section": "4. Basis of award"
+    }
+  ]
+}
