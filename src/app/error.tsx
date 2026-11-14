@@ -2,9 +2,9 @@
 
 export default function ErrorPage({ retry }: { error: unknown; retry: () => void }) {
   return (
-    <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-16">
-      <h1 className="text-3xl font-extrabold tracking-tight">This page did not load</h1>
-      <p className="mt-3 leading-relaxed text-muted">
+    <main className="mx-auto w-full max-w-[86rem] flex-1 px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <h1 className="display">This page did not load</h1>
+      <p className="mt-4 max-w-[40rem] text-lg leading-relaxed">
         Try again. If it keeps happening, use Reset demo in the bar at the top to start from a fresh copy of the sample data. This demo needs cookies
         turned on to keep your copy separate from other visitors.
       </p>

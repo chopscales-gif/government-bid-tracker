@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { effective } from "./effective";
-import { assessFit, fmtEstimate } from "./fit";
+import { assessFit, fmtEstimate, fmtEstimateFact } from "./fit";
 import { DEFAULT_PROFILE, type Profile } from "./profile";
 
 const fit = (key: string, miles: number, profile: Partial<Profile> = {}, day = 0) => assessFit(effective(key, day).facts, miles, { ...DEFAULT_PROFILE, ...profile }, day);
@@ -54,5 +54,10 @@ describe("the fit rules", () => {
     expect(fmtEstimate({ low: 140_000, high: 140_000 })).toBe("$140,000");
     expect(fmtEstimate({ low: null, high: 30_000 })).toBe("under $30,000");
     expect(fmtEstimate({ low: 4_200_000, high: 4_800_000 })).toBe("$4.2 million to $4.8 million");
+  });
+
+  it("say so when the figure is a yearly budget", () => {
+    expect(fmtEstimateFact(effective("hvac-maint", 0).facts.estimated_value!)).toBe("$95,000 per year");
+    expect(fmtEstimateFact(effective("rtu", 0).facts.estimated_value!)).not.toContain("per year");
   });
 });

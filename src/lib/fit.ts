@@ -26,6 +26,12 @@ export function fmtEstimate(estimate: { low: number | null; high: number }): str
   return estimate.low === estimate.high ? fmtDollars(estimate.high) : `${fmtDollars(estimate.low)} to ${fmtDollars(estimate.high)}`;
 }
 
+/** The estimate as the solicitation meant it: a yearly budget is said to be yearly, not passed off as the contract's value. */
+export function fmtEstimateFact(fact: { value: { low: number | null; high: number }; source: { quote: string } }): string {
+  const yearly = /\b(per|a|each) year\b|\bannual(ly)?\b|\byearly\b/i.test(fact.source.quote);
+  return `${fmtEstimate(fact.value)}${yearly ? " per year" : ""}`;
+}
+
 export function assessFit(facts: EffectiveFacts, miles: number, profile: Profile, day: number): Fit {
   const reasons: Reason[] = [];
   const add = (key: string, label: string, level: Level, detail: string) => reasons.push({ key, label, level, detail });
@@ -59,8 +65,8 @@ export function assessFit(facts: EffectiveFacts, miles: number, profile: Profile
 
   // Size: the top of the estimate must be within what the surety will bond.
   const estimate = facts.estimated_value?.value;
-  if (estimate) {
-    const range = fmtEstimate(estimate);
+  if (estimate && facts.estimated_value) {
+    const range = fmtEstimateFact(facts.estimated_value);
     if (estimate.high > profile.bonding) add("size", "Size", "block", `Estimated at ${range}, above your ${fmtDollars(profile.bonding)} bonding limit.`);
     else add("size", "Size", "ok", `Estimated at ${range}, within your bonding limit.`);
   }

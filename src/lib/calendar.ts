@@ -83,3 +83,12 @@ export function stampParts(when: string): { date: string; time: string } {
   const date = parseWhen(when);
   return { date: MONTH_DAY.format(date), time: hasTime(when) ? `${WEEKDAY.format(date)}, ${fmtTime(date)} ${ZONE.short}` : WEEKDAY.format(date) };
 }
+
+/** "10:00 AM" or "noon", and nothing when the solicitation gave only a date. */
+export const fmtTimeOf = (when: string) => (hasTime(when) ? fmtTime(parseWhen(when)) : "");
+
+/** The parts of a desk-calendar leaf: "Thu" and "Mar 4". */
+export function leafParts(when: string): { weekday: string; date: string } {
+  const date = parseWhen(when);
+  return { weekday: WEEKDAY.format(date), date: MONTH_DAY.format(date) };
+}

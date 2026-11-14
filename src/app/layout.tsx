@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Public_Sans } from "next/font/google";
+import { Archivo, Courier_Prime } from "next/font/google";
 import { DemoBar } from "@/components/demo-bar";
 import { SiteHeader } from "@/components/site";
 import { MAX_DAY, ZONE, fmtLongDay } from "@/lib/calendar";
@@ -7,7 +7,9 @@ import { getCtx, sandboxIdOrNull } from "@/server/session";
 import { loadSandbox } from "@/server/workflow";
 import "./globals.css";
 
-const publicSans = Public_Sans({ variable: "--font-public", subsets: ["latin"], weight: ["400", "600", "700", "800"] });
+// One family for the product, with its width axis so headings can run narrow. The typewriter face is for what an agency wrote.
+const archivo = Archivo({ variable: "--font-archivo", subsets: ["latin"], axes: ["wdth"] });
+const courier = Courier_Prime({ variable: "--font-courier", subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: { default: "Government bid tracker (demo)", template: "%s | Government bid tracker (demo)" },
@@ -22,7 +24,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   // No cookie means the proxy is showing the page about cookies, and there is no calendar to show.
   const day = (await sandboxIdOrNull()) === null ? null : (await loadSandbox(await getCtx())).day;
   return (
-    <html lang="en" className={`${publicSans.variable} h-full antialiased`}>
+    <html lang="en" className={`${archivo.variable} ${courier.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <DemoBar zone={ZONE.name} today={day === null ? null : fmtLongDay(day)} canAdvance={day !== null && day < MAX_DAY} />
         <SiteHeader />

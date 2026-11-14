@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { countdown, daysUntil, fmtLongDay, fmtShortDay, fmtWhen, isPast, stampParts } from "./calendar";
+import { countdown, daysUntil, fmtLongDay, fmtShortDay, fmtTimeOf, fmtWhen, isPast, leafParts, stampParts } from "./calendar";
 
 describe("the demo calendar", () => {
   it("starts on Monday, March 1, 2027 and skips weekends", () => {
@@ -41,5 +41,18 @@ describe("the demo calendar", () => {
     expect(stampParts("2027-03-18T14:00")).toEqual({ date: "Mar 18", time: "Thu, 2:00 PM MT" });
     expect(fmtWhen("2027-03-05T12:00")).toBe("Fri, Mar 5 at noon");
     expect(stampParts("2027-03-05T12:00")).toEqual({ date: "Mar 5", time: "Fri, noon MT" });
+  });
+});
+
+describe("a leaf of the desk calendar", () => {
+  it("gives the weekday and the date the way the rest of the app does", () => {
+    expect(leafParts("2027-03-04T10:00")).toEqual({ weekday: "Thu", date: "Mar 4" });
+    expect(leafParts("2027-03-15")).toEqual({ weekday: "Mon", date: "Mar 15" });
+  });
+
+  it("gives a time only when the agency stated one, and says noon", () => {
+    expect(fmtTimeOf("2027-03-11T16:00")).toBe("4:00 PM");
+    expect(fmtTimeOf("2027-03-04T12:00")).toBe("noon");
+    expect(fmtTimeOf("2027-03-12")).toBe("");
   });
 });

@@ -1,6 +1,6 @@
 title: Furnace Replacement, Fire Station 2 (Urgent)
 agency: City of Marlow Springs
-number: Quote Request Q-27-019
+number: Q-27-019
 type: Request for Quotations
 issued: February 26, 2027
 

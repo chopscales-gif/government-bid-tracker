@@ -5,7 +5,7 @@ import { useEffect, useOptimistic, useRef, useState, useTransition } from "react
 import type { SolicitationDoc } from "@/data/documents";
 import { ZONE, fmtShortDay, fmtWhen, isPast } from "@/lib/calendar";
 import type { Addendum, ChecklistItem, EffectiveFacts, Source } from "@/lib/effective";
-import { fmtEstimate } from "@/lib/fit";
+import { fmtEstimateFact } from "@/lib/fit";
 import { dueLabel, keyDates } from "@/lib/keydates";
 import { CERT_OPTIONS } from "@/lib/profile";
 import { acknowledgeAction, passAction, reopenBidAction, resultAction, startBidAction, submitAction, tickAction, watchAction } from "@/server/actions";
@@ -42,9 +42,9 @@ export function Solicitation({ row, day, documents, events }: Props) {
           {children}
         </button>
         {on && (
-          <p className="mt-1 border-l-4 border-mark pl-3 text-sm leading-snug lg:hidden">
+          <p className="typed mt-1 mb-2 border-l-[3px] border-accent pl-3 text-sm leading-snug lg:hidden">
             {source.quote ? <>&ldquo;{source.quote}&rdquo; </> : null}
-            <span className="text-muted">
+            <span className="font-sans text-muted">
               {source.quote ? "From" : "See"} {source.section}, {names.get(source.doc)}.
             </span>
           </p>
@@ -55,7 +55,7 @@ export function Solicitation({ row, day, documents, events }: Props) {
 
   const dates = keyDates(facts, doc.type);
   const essentials: { label: string; value: string; source: Source | null; addendum: number | null }[] = [
-    { label: "Estimate", value: facts.estimated_value ? fmtEstimate(facts.estimated_value.value) : "Not stated", source: facts.estimated_value?.source ?? null, addendum: facts.estimated_value?.addendum ?? null },
+    { label: "Estimate", value: facts.estimated_value ? fmtEstimateFact(facts.estimated_value) : "Not stated", source: facts.estimated_value?.source ?? null, addendum: facts.estimated_value?.addendum ?? null },
     { label: "Who may bid", value: facts.set_aside ? SET_ASIDE_LABEL[facts.set_aside.value] : "Not stated", source: facts.set_aside?.source ?? null, addendum: facts.set_aside?.addendum ?? null },
     { label: "Work type", value: facts.naics ? `NAICS ${facts.naics.value}` : "No NAICS code stated", source: facts.naics?.source ?? null, addendum: facts.naics?.addendum ?? null },
     {
@@ -72,30 +72,30 @@ export function Solicitation({ row, day, documents, events }: Props) {
   const unseen = new Set(row.unseen.map((addendum) => addendum.key));
 
   return (
-    <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6">
-      <p className="text-sm">
-        <Link href={row.status === "new" ? "/" : "/pipeline"} className="font-semibold text-accent underline underline-offset-4">
+    <main className="mx-auto w-full max-w-[86rem] flex-1 px-4 py-6 sm:px-6 lg:px-8">
+      <p>
+        <Link href={row.status === "new" ? "/" : "/pipeline"} className="link inline-flex min-h-11 items-center">
           {row.status === "new" ? "Back to Today" : "Back to the pipeline"}
         </Link>
       </p>
-      <header className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-start">
+      <header className="mt-1 flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-8">
         <div className="min-w-0 flex-1">
-          <p className="flex flex-wrap items-center gap-2">
-            <StatusChip status={row.status} />
-            {(row.status === "new" || row.status === "watching" || row.status === "passed") && <VerdictChip verdict={row.fit.verdict} />}
-            <span className="text-sm text-muted">
-              {doc.type}, {doc.number}
-            </span>
+          <p>
+            {doc.type}, {doc.number}
           </p>
-          <h1 className="mt-2 text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl">{doc.title}</h1>
-          <p className="mt-1 text-muted">
+          <h1 className="display mt-1 max-w-[22em] lg:text-[2.75rem]">{doc.title}</h1>
+          <p className="mt-2 text-lg">
             {doc.agency}. {row.feed.place}, {row.feed.miles} miles from the yard.
           </p>
+          <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
+            <StatusChip status={row.status} />
+            {(row.status === "new" || row.status === "watching" || row.status === "passed") && <VerdictChip verdict={row.fit.verdict} />}
+          </p>
         </div>
-        <Stamp due={due} day={day} label={dueLabel(doc.type)} />
+        <Stamp due={due} day={day} label={dueLabel(doc.type)} struck className="sm:mt-1 sm:mr-2" />
       </header>
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+      <div className="mt-7 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-8">
         <div className="min-w-0 space-y-6">
           {eff.addenda
             .filter((addendum) => unseen.has(addendum.key))
@@ -109,8 +109,9 @@ export function Solicitation({ row, day, documents, events }: Props) {
 
           <Decide row={row} closed={closed} />
 
-          <section className="panel p-4 sm:p-5" aria-labelledby="summary">
-            <h2 id="summary" className="text-lg font-extrabold">
+          <div className="panel">
+          <section className="sec" aria-labelledby="summary">
+            <h2 id="summary" className="subheading">
               What it is
             </h2>
             <p className="mt-2 leading-relaxed">{eff.summary}</p>
@@ -127,8 +128,8 @@ export function Solicitation({ row, day, documents, events }: Props) {
             </p>
           </section>
 
-          <section className="panel p-4 sm:p-5" aria-labelledby="dates">
-            <h2 id="dates" className="text-lg font-extrabold">
+          <section className="sec" aria-labelledby="dates">
+            <h2 id="dates" className="subheading">
               Dates to keep
             </h2>
             {dates.length ? (
@@ -144,7 +145,7 @@ export function Solicitation({ row, day, documents, events }: Props) {
                             {date.label}
                             {date.key === "prebid" && <br className="hidden sm:inline" />}
                             {date.key === "prebid" && (
-                              <span className={`ml-2 rounded px-1.5 sm:ml-0 py-0.5 text-xs font-bold ${date.mandatory ? "bg-due-tint text-due" : "bg-paper text-muted"}`}>{date.mandatory ? "Mandatory" : "Optional"}</span>
+                              <span className={`tag ml-2 text-xs sm:ml-0 ${date.mandatory ? "border-due text-due" : "border-muted text-muted"}`}>{date.mandatory ? "Mandatory" : "Optional"}</span>
                             )}
                           </span>
                           <span>
@@ -177,13 +178,13 @@ export function Solicitation({ row, day, documents, events }: Props) {
 
           <Checklist row={row} sourced={sourced} />
 
-          <section className="panel p-4 sm:p-5" aria-labelledby="fit">
-            <h2 id="fit" className="text-lg font-extrabold">
+          <section className="sec" aria-labelledby="fit">
+            <h2 id="fit" className="subheading">
               Does it fit
             </h2>
             <p className="mt-1 text-sm text-muted">
               Written rules, not AI. Each compares the solicitation with your{" "}
-              <Link href="/profile" className="font-semibold text-accent underline underline-offset-4">
+              <Link href="/profile" className="link">
                 company profile
               </Link>
               .
@@ -193,8 +194,8 @@ export function Solicitation({ row, day, documents, events }: Props) {
             </div>
           </section>
 
-          <section className="panel p-4 sm:p-5" aria-labelledby="essentials">
-            <h2 id="essentials" className="text-lg font-extrabold">
+          <section className="sec" aria-labelledby="essentials">
+            <h2 id="essentials" className="subheading">
               The essentials
             </h2>
             <ul className="mt-2">
@@ -214,8 +215,8 @@ export function Solicitation({ row, day, documents, events }: Props) {
           </section>
 
           {eff.notes.length > 0 && (
-            <section className="panel p-4 sm:p-5" aria-labelledby="notes">
-              <h2 id="notes" className="text-lg font-extrabold">
+            <section className="sec" aria-labelledby="notes">
+              <h2 id="notes" className="subheading">
                 Worth reading twice
               </h2>
               <p className="mt-1 text-sm text-muted">What the AI flagged while reading: contradictions, unusual conditions, and places it had to choose how to read something.</p>
@@ -226,7 +227,7 @@ export function Solicitation({ row, day, documents, events }: Props) {
                       {sourced(
                         { doc: note.doc, section: note.section, quote: "" },
                         <>
-                          <span className="mr-2 rounded bg-due-tint px-1.5 py-0.5 text-xs font-bold whitespace-nowrap text-due">Settled by Addendum {addendum.number}</span>
+                          <span className="tag mr-2 border-due text-xs text-due">Settled by Addendum {addendum.number}</span>
                           {note.text}
                         </>,
                       )}
@@ -239,7 +240,7 @@ export function Solicitation({ row, day, documents, events }: Props) {
               </ul>
               {eff.notes.length > 3 && (
                 <details className="mt-1">
-                  <summary className="cursor-pointer py-1.5 font-semibold text-accent">{eff.notes.length - 3} more</summary>
+                  <summary className="link flex min-h-11 cursor-pointer items-center">{eff.notes.length - 3} more</summary>
                   <ul>
                     {eff.notes.slice(3).map((note, index) => (
                       <li key={index}>{sourced({ doc: note.doc, section: note.section, quote: "" }, note.text)}</li>
@@ -251,8 +252,8 @@ export function Solicitation({ row, day, documents, events }: Props) {
           )}
 
           {eff.afterAward.length > 0 && (
-            <section className={`panel p-4 sm:p-5 ${row.status === "won" ? "border-2 border-good" : ""}`} aria-labelledby="after">
-              <h2 id="after" className="text-lg font-extrabold">
+            <section className={`sec ${row.status === "won" ? "bg-good-tint shadow-[inset_4px_0_0_var(--color-good)]" : ""}`} aria-labelledby="after">
+              <h2 id="after" className="subheading">
                 {row.status === "won" ? "You won it. What the agency needs next" : "If you win"}
               </h2>
               <ul className="mt-2">
@@ -262,6 +263,7 @@ export function Solicitation({ row, day, documents, events }: Props) {
               </ul>
             </section>
           )}
+          </div>
 
           {eff.addenda
             .filter((addendum) => !unseen.has(addendum.key))
@@ -269,8 +271,8 @@ export function Solicitation({ row, day, documents, events }: Props) {
               <AddendumPanel key={addendum.key} addendum={addendum} day={day} sourced={sourced} />
             ))}
 
-          <section className="panel p-4 sm:p-5" aria-labelledby="history">
-            <h2 id="history" className="text-lg font-extrabold">
+          <section className="panel sec" aria-labelledby="history">
+            <h2 id="history" className="subheading">
               History
             </h2>
             <ol className="mt-2 space-y-1.5">
@@ -295,8 +297,8 @@ type Sourced = (source: Source, children: React.ReactNode, className?: string) =
 /** What an addendum changed, each line with what it said before and what holds now. */
 function AddendumPanel({ addendum, day, sourced, unread = false, children }: { addendum: Addendum; day: number; sourced: Sourced; unread?: boolean; children?: React.ReactNode }) {
   return (
-    <section className={`rounded-md bg-surface p-4 sm:p-5 ${unread ? "border-2 border-due" : "border border-line"}`} aria-label={`Addendum ${addendum.number}`}>
-      <h2 className={`text-lg font-extrabold ${unread ? "text-due" : ""}`}>
+    <section className={`panel sec ${unread ? "border-2 border-due" : ""}`} aria-label={`Addendum ${addendum.number}`}>
+      <h2 className={`subheading ${unread ? "text-due" : ""}`}>
         Addendum {addendum.number}, found {addendum.day === day ? "this morning" : fmtShortDay(addendum.day)}
       </h2>
       <p className="mt-2 leading-relaxed">{addendum.summary}</p>
@@ -308,7 +310,7 @@ function AddendumPanel({ addendum, day, sourced, unread = false, children }: { a
               <span className="grid gap-x-4 sm:grid-cols-[10rem_1fr]">
                 <span className="font-bold">{change.what}</span>
                 <span>
-                  <span className="block text-muted line-through decoration-due/70">
+                  <span className="block text-muted line-through decoration-due">
                     <span className="sr-only">Before: </span>
                     {change.before}
                   </span>
@@ -369,13 +371,13 @@ function Checklist({ row, sourced }: { row: Row; sourced: Sourced }) {
   }
 
   return (
-    <section className="panel p-4 sm:p-5" aria-labelledby="checklist">
+    <section className="sec" aria-labelledby="checklist">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-        <h2 id="checklist" className="text-lg font-extrabold">
+        <h2 id="checklist" className="subheading">
           What the bid needs
         </h2>
         {tracked && (
-          <p className="font-bold tabular-nums">
+          <p className="narrow text-lg font-bold tabular-nums">
             {done} of {items.length} done
           </p>
         )}
@@ -385,25 +387,20 @@ function Checklist({ row, sourced }: { row: Row; sourced: Sourced }) {
         {items.map((item) => {
           const isDone = checked.includes(item.id);
           return (
-            <li key={item.id} className="flex items-start gap-3">
+            <li key={item.id} className="flex items-start">
               {tracked ? (
-                <input
-                  type="checkbox"
-                  checked={isDone}
-                  disabled={!bidding}
-                  onChange={(event) => tick(item.id, event.target.checked)}
-                  aria-label={`Done: ${item.text}`}
-                  className="mt-2 size-5 flex-none accent-accent"
-                />
+                <label className={`-ml-3 flex size-11 flex-none items-center justify-center ${bidding ? "cursor-pointer" : ""}`}>
+                  <input type="checkbox" checked={isDone} disabled={!bidding} onChange={(event) => tick(item.id, event.target.checked)} aria-label={`Done: ${item.text}`} className="size-5 accent-accent" />
+                </label>
               ) : (
-                <span aria-hidden className="mt-3.5 size-1.5 flex-none rounded-full bg-muted" />
+                <span aria-hidden className="mt-3 mr-3 size-5 flex-none rounded-[2px] border-[1.5px] border-line" />
               )}
               <div className="min-w-0 flex-1">
                 {sourced(
                   item.source,
                   <>
                     <span className={isDone ? "text-muted" : ""}>{item.text}</span>
-                    {item.addendum !== null && <span className="ml-2 rounded bg-due-tint px-1.5 py-0.5 text-xs font-bold whitespace-nowrap text-due">Added by Addendum {item.addendum}</span>}
+                    {item.addendum !== null && <span className="tag ml-2 border-due text-xs text-due">Added by Addendum {item.addendum}</span>}
                   </>,
                 )}
                 {item.changed && <p className="pb-1.5 text-sm font-semibold text-due">{changedNote(item, row.eff.facts)}</p>}
@@ -443,8 +440,8 @@ function Decide({ row, closed }: { row: Row; closed: boolean }) {
                 : "You passed on this one";
 
   return (
-    <section className="panel p-4 sm:p-5" aria-labelledby="decide">
-      <h2 id="decide" className="text-lg font-extrabold">
+    <section className="sec rounded-[2px] border-2 border-ink bg-surface" aria-labelledby="decide">
+      <h2 id="decide" className="subheading">
         {heading}
       </h2>
       {status === "passed" && row.reason && <p className="mt-1">Because: {row.reason}</p>}
@@ -568,11 +565,11 @@ function DocumentPane({ documents, selected }: { documents: SolicitationDoc[]; s
   return (
     <aside ref={pane} aria-label="The solicitation" className="panel min-w-0 lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:self-start lg:overflow-y-auto">
       {documents.map((document, index) => (
-        <article key={document.key} className={`p-4 sm:p-6 ${index > 0 ? "border-t-4 border-double border-line" : ""}`}>
-          <p className="text-sm text-muted">
+        <article key={document.key} className={`typed px-4 py-6 sm:px-8 sm:py-8 ${index > 0 ? "border-t-2 border-dashed border-edge" : ""}`}>
+          <p className="font-sans text-sm text-muted">
             {index === 0 ? "The solicitation as issued" : `Addendum ${index}`}. {document.agency}, {document.number}. Issued {document.issued}.
           </p>
-          <h2 className="mt-1 text-xl font-extrabold leading-snug">{document.title}</h2>
+          <h2 className="mt-3 text-lg leading-snug font-bold">{document.title}</h2>
           {document.sections.map((section) => {
             const here = selected !== null && selected.doc === document.key && selected.section === section.heading;
             // The first line that holds the quoted words. With no quote, or none found, the whole section is the answer.
@@ -581,20 +578,20 @@ function DocumentPane({ documents, selected }: { documents: SolicitationDoc[]; s
               <section
                 key={section.heading}
                 ref={here && at < 0 ? target : undefined}
-                className={`mt-4 rounded px-3 py-2 -mx-3 ${here ? "bg-due-tint/60 outline outline-2 outline-mark" : ""}`}
+                className={`-mx-3 mt-4 px-3 py-2 ${here ? "bg-accent-tint shadow-[inset_3px_0_0_var(--color-accent)]" : ""}`}
               >
                 <h3 className="font-bold">{section.heading}</h3>
                 {section.lines.map((line, lineIndex) => {
                   if (lineIndex !== at) {
                     return (
-                      <p key={lineIndex} className="mt-2 leading-relaxed">
+                      <p key={lineIndex} className="mt-2">
                         {line}
                       </p>
                     );
                   }
                   const start = line.indexOf(selected!.quote);
                   return (
-                    <p key={lineIndex} className="mt-2 leading-relaxed">
+                    <p key={lineIndex} className="mt-2">
                       {line.slice(0, start)}
                       <mark ref={target} className="mark">
                         {selected!.quote}

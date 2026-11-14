@@ -99,7 +99,7 @@
   "central-plant": {
     "key": "central-plant",
     "title": "Central Heating and Cooling Plant Replacement",
-    "agency": "Great Basin Technical College",
+    "agency": "Wendle Valley Technical College",
     "number": "IFB GB-27-005",
     "type": "Invitation for Bids",
     "issued": "February 22, 2027",
@@ -107,7 +107,7 @@
       {
         "heading": "1. Project",
         "lines": [
-          "Great Basin Technical College invites bids from mechanical contractors, acting as prime contractor, for the replacement of the campus central plant at 1500 College Way, Tanner Flat, Utah. The project includes two 400-ton water-cooled chillers, cooling towers, three hot water boilers, pumps, a new plant control system, electrical service upgrades, and temporary heating and cooling for the campus while the work is done.",
+          "Wendle Valley Technical College invites bids from mechanical contractors, acting as prime contractor, for the replacement of the campus central plant at 1500 College Way, Tanner Flat, Utah. The project includes two 400-ton water-cooled chillers, cooling towers, three hot water boilers, pumps, a new plant control system, electrical service upgrades, and temporary heating and cooling for the campus while the work is done.",
           "The estimated construction cost is $4,200,000 to $4,800,000. NAICS 238220. The solicitation is open to all bidders."
         ]
       },
@@ -138,7 +138,7 @@
       {
         "heading": "6. Contact",
         "lines": [
-          "Purchasing Office, purchasing@greatbasintech.example."
+          "Purchasing Office, purchasing@wendlevalleytech.example."
         ]
       }
     ]
@@ -289,7 +289,7 @@
     "key": "heat-exchanger",
     "title": "Furnace Replacement, Fire Station 2 (Urgent)",
     "agency": "City of Marlow Springs",
-    "number": "Quote Request Q-27-019",
+    "number": "Q-27-019",
     "type": "Request for Quotations",
     "issued": "February 26, 2027",
     "sections": [
@@ -475,8 +475,8 @@
   },
   "red-mesa": {
     "key": "red-mesa",
-    "title": "Mechanical Systems Upgrade, Red Mesa High School",
-    "agency": "Red Mesa County School District",
+    "title": "Mechanical Systems Upgrade, Tolliver Mesa High School",
+    "agency": "Tolliver Mesa County School District",
     "number": "RFP 27-002",
     "type": "Request for Proposals",
     "issued": "February 24, 2027",
@@ -484,7 +484,7 @@
       {
         "heading": "1. Summary",
         "lines": [
-          "Red Mesa County School District requests proposals from mechanical contractors for the replacement of the heating and cooling systems in the 1978 classroom building at Red Mesa High School, 600 East Canyon Road, Red Mesa, Utah. The project replaces 38 unit ventilators, the heating water boilers and pumps, and adds a building automation system.",
+          "Tolliver Mesa County School District requests proposals from mechanical contractors for the replacement of the heating and cooling systems in the 1978 classroom building at Tolliver Mesa High School, 600 East Canyon Road, Tolliver Mesa, Utah. The project replaces 38 unit ventilators, the heating water boilers and pumps, and adds a building automation system.",
           "The construction budget is $900,000 to $1,100,000. NAICS 238220. The District welcomes proposals from all qualified contractors."
         ]
       },
@@ -510,19 +510,19 @@
       {
         "heading": "5. Dates",
         "lines": [
-          "Questions due: Monday, March 22, 2027. Proposals due: Friday, April 2, 2027, 2:00 p.m., District Office, 45 North Main Street, Red Mesa."
+          "Questions due: Monday, March 22, 2027. Proposals due: Friday, April 2, 2027, 2:00 p.m., District Office, 45 North Main Street, Tolliver Mesa."
         ]
       },
       {
         "heading": "6. Housing",
         "lines": [
-          "Red Mesa is a remote community. Contractors are responsible for lodging for their crews. The District has no housing to offer."
+          "Tolliver Mesa is a remote community. Contractors are responsible for lodging for their crews. The District has no housing to offer."
         ]
       },
       {
         "heading": "7. Contact",
         "lines": [
-          "Purchasing, purchasing@redmesasd.example."
+          "Purchasing, purchasing@tollivermesasd.example."
         ]
       }
     ]

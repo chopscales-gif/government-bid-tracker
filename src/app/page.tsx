@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { MatchCard, hrefOf } from "@/components/cards";
+import { DeskCalendar, EntryHead, MatchCard, hrefOf } from "@/components/cards";
 import { ReasonList, Stamp, StatusChip } from "@/components/ui";
-import { daysUntil, fmtLongDay, fmtShortDay, isPast } from "@/lib/calendar";
+import { fmtLongDay, fmtShortDay } from "@/lib/calendar";
 import { dueLabel } from "@/lib/keydates";
 import { board, type Row } from "@/server/queries";
 import { getCtx } from "@/server/session";
@@ -15,10 +15,6 @@ export default async function Today() {
   const fresh = rows.filter((row) => row.status === "new");
   const matches = fresh.filter((row) => row.fit.verdict !== "no").sort((a, b) => Number(b.foundToday) - Number(a.foundToday));
   const filtered = fresh.filter((row) => row.fit.verdict === "no");
-  const dueSoon = rows
-    .filter((row) => (row.status === "bidding" || row.status === "watching") && row.eff.facts.due && !isPast(row.eff.facts.due.value, day) && daysUntil(row.eff.facts.due.value, day) < 7)
-    .sort((a, b) => a.eff.facts.due!.value.localeCompare(b.eff.facts.due!.value));
-
   const foundToday = rows.filter((row) => row.foundToday).length;
   const addendaToday = rows.reduce((count, row) => count + row.eff.addenda.filter((addendum) => addendum.day === day).length, 0);
   const found = [
@@ -27,96 +23,88 @@ export default async function Today() {
   ].filter(Boolean);
 
   return (
-    <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8 sm:px-6">
-      <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{fmtLongDay(day)}</h1>
-      <p className="mt-2 max-w-3xl text-lg leading-relaxed text-muted">
+    <main className="mx-auto w-full max-w-[86rem] flex-1 px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+      <h1 className="display">{fmtLongDay(day)}</h1>
+      <p className="mt-3 max-w-[44rem] text-lg leading-relaxed">
         {found.length ? `This morning's check of the agency feeds found ${found.join(" and ")}.` : "This morning's check of the agency feeds found nothing new."}{" "}
         {foundToday ? `${foundToday === 1 ? "It was" : "Each one was"} read by AI and compared with your company profile.` : ""}
       </p>
 
-      <Guide day={day} rows={rows} />
+      {/* One column on a phone, in reading order. On a laptop the guide and the calendar stand beside the register. */}
+      <div className="mt-8 flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-start lg:gap-8 xl:grid-cols-[minmax(0,1fr)_23rem] xl:gap-10">
+        <div className="contents lg:block lg:space-y-10">
+          {changed.length > 0 && (
+            <section aria-labelledby="changed" className="order-2">
+              <h2 id="changed" className="heading">
+                Changed since you last looked
+              </h2>
+              <ul className="mt-3 space-y-4">
+                {changed.map((row) => (
+                  <ChangedCard key={row.id} row={row} day={day} />
+                ))}
+              </ul>
+            </section>
+          )}
 
-      {changed.length > 0 && (
-        <section aria-labelledby="changed" className="mt-10">
-          <h2 id="changed" className="text-2xl font-extrabold tracking-tight">
-            Changed since you last looked
-          </h2>
-          <ul className="mt-4 space-y-4">
-            {changed.map((row) => (
-              <ChangedCard key={row.id} row={row} day={day} />
-            ))}
-          </ul>
-        </section>
-      )}
+          <section aria-labelledby="matches" className="order-4">
+            <h2 id="matches" className="heading">
+              Waiting for a decision
+            </h2>
+            <p className="mt-1 text-muted">Solicitations the rules say you could bid. Open one to read it, then watch it, bid or pass.</p>
+            {matches.length > 0 ? (
+              <div className="panel mt-3">
+                <EntryHead last="How it fits" />
+                <ul>
+                  {matches.map((row) => (
+                    <MatchCard key={row.id} row={row} day={day} />
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <p className="panel mt-3 p-5">Nothing is waiting. Everything that fits has been decided, and it is all in the pipeline.</p>
+            )}
+          </section>
 
-      {dueSoon.length > 0 && (
-        <section aria-labelledby="due-soon" className="mt-10">
-          <h2 id="due-soon" className="text-2xl font-extrabold tracking-tight">
-            Due within a week
-          </h2>
-          <ul className="mt-4 space-y-3">
-            {dueSoon.map((row) => (
-              <li key={row.id} className="panel flex flex-wrap items-center gap-4 p-4">
-                <div className="min-w-0 flex-1 basis-64">
-                  <StatusChip status={row.status} />
-                  <p className="mt-1 text-lg font-bold leading-snug">
-                    <Link href={hrefOf(row)} className="underline decoration-line decoration-2 underline-offset-4 hover:decoration-accent">
-                      {row.doc.title}
-                    </Link>
-                  </p>
-                </div>
-                <Stamp due={row.eff.facts.due!.value} day={day} label={dueLabel(row.doc.type)} />
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+          {filtered.length > 0 && (
+            <section aria-labelledby="filtered" className="order-5">
+              <h2 id="filtered" className="heading">
+                Filtered out
+              </h2>
+              <p className="mt-1 max-w-[44rem] text-muted">
+                Found and read, but a rule says they are not for you. The reason is shown so you can check the rule was right. Changing your{" "}
+                <Link href="/profile" className="link">
+                  company profile
+                </Link>{" "}
+                changes what lands here.
+              </p>
+              <ul className="mt-3 border-y border-edge">
+                {filtered.map((row) => (
+                  <li key={row.id} className="grid gap-x-8 border-edge pb-3.5 not-first:border-t md:grid-cols-2 md:items-center md:pb-0">
+                    <p className="leading-snug">
+                      <Link href={hrefOf(row)} className="title-link narrow block pt-3.5 pb-1.5 text-lg font-bold">
+                        {row.doc.title}
+                      </Link>
+                      <span className="block text-[0.9375rem] text-muted md:pb-3.5">{row.doc.agency}</span>
+                    </p>
+                    <div className="text-[0.9375rem]">
+                      <ReasonList reasons={row.fit.reasons} only={["block"]} />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </div>
 
-      <section aria-labelledby="matches" className="mt-10">
-        <h2 id="matches" className="text-2xl font-extrabold tracking-tight">
-          Waiting for a decision
-        </h2>
-        <p className="mt-1 text-muted">Solicitations the rules say you could bid. Open one to read it, then watch it, bid or pass.</p>
-        {matches.length > 0 ? (
-          <ul className="mt-4 space-y-4">
-            {matches.map((row) => (
-              <MatchCard key={row.id} row={row} day={day} />
-            ))}
-          </ul>
-        ) : (
-          <p className="panel mt-4 p-5">Nothing is waiting. Everything that fits has been decided, and it is all in the pipeline.</p>
-        )}
-      </section>
-
-      {filtered.length > 0 && (
-        <section aria-labelledby="filtered" className="mt-10">
-          <h2 id="filtered" className="text-2xl font-extrabold tracking-tight">
-            Filtered out
-          </h2>
-          <p className="mt-1 text-muted">
-            Found and read, but a rule says they are not for you. The reason is shown so you can check the rule was right. Changing your{" "}
-            <Link href="/profile" className="font-semibold text-accent underline underline-offset-4">
-              company profile
-            </Link>{" "}
-            changes what lands here.
-          </p>
-          <ul className="mt-4 divide-y divide-line rounded-md border border-line bg-surface">
-            {filtered.map((row) => (
-              <li key={row.id} className="p-4">
-                <p className="font-bold leading-snug">
-                  <Link href={hrefOf(row)} className="underline decoration-line decoration-2 underline-offset-4 hover:decoration-accent">
-                    {row.doc.title}
-                  </Link>{" "}
-                  <span className="font-normal text-muted">{row.doc.agency}</span>
-                </p>
-                <div className="mt-2">
-                  <ReasonList reasons={row.fit.reasons} only={["block"]} />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+        <div className="contents lg:block lg:space-y-8">
+          <div className="order-1">
+            <Guide day={day} rows={rows} />
+          </div>
+          <div className="order-3">
+            <DeskCalendar rows={rows} day={day} />
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
@@ -124,27 +112,27 @@ export default async function Today() {
 /** A bid or a watched solicitation that an addendum has changed, with what it said before and what it says now. */
 function ChangedCard({ row, day }: { row: Row; day: number }) {
   return (
-    <li className="rounded-md border-2 border-due bg-surface">
-      <div className="flex flex-col gap-4 p-4 sm:flex-row sm:p-5">
+    <li className="panel border-2 border-due">
+      <div className="flex gap-4 p-4 sm:gap-6 sm:p-5">
         <div className="min-w-0 flex-1">
           <StatusChip status={row.status} />
-          <h3 className="mt-2 text-xl font-extrabold leading-snug tracking-tight">{row.doc.title}</h3>
+          <h3 className="subheading mt-2 sm:text-2xl">{row.doc.title}</h3>
           <p className="mt-1 text-muted">{row.doc.agency}</p>
         </div>
         <Stamp due={row.eff.facts.due?.value} day={day} label={dueLabel(row.doc.type)} />
       </div>
       {row.unseen.map((addendum) => (
         <div key={addendum.key} className="border-t border-line p-4 sm:p-5">
-          <p className="font-bold text-due">
+          <p className="narrow text-lg font-extrabold text-due">
             Addendum {addendum.number}, found {addendum.day === day ? "this morning" : fmtShortDay(addendum.day)}
           </p>
-          <p className="mt-1 max-w-3xl leading-relaxed">{addendum.summary}</p>
-          <dl className="mt-4 space-y-3">
+          <p className="mt-1 max-w-[44rem] leading-relaxed">{addendum.summary}</p>
+          <dl className="mt-4 border-t border-line">
             {addendum.changes.slice(0, 3).map((change) => (
-              <div key={change.what} className="grid gap-x-4 gap-y-1 sm:grid-cols-[11rem_1fr]">
+              <div key={change.what} className="grid gap-x-6 gap-y-1 border-b border-line py-2.5 sm:grid-cols-[11rem_minmax(0,1fr)]">
                 <dt className="font-bold">{change.what}</dt>
                 <dd>
-                  <p className="text-muted line-through decoration-due/70">
+                  <p className="text-muted line-through decoration-due">
                     <span className="sr-only">Before: </span>
                     {change.before}
                   </p>
@@ -164,7 +152,7 @@ function ChangedCard({ row, day }: { row: Row; day: number }) {
         </div>
       ))}
       <div className="border-t border-line p-4 sm:p-5">
-        <Link href={hrefOf(row)} className="btn btn-primary">
+        <Link href={hrefOf(row)} className="btn btn-primary w-full sm:w-auto">
           Open it and see where it says so
         </Link>
       </div>
@@ -172,53 +160,76 @@ function ChangedCard({ row, day }: { row: Row; day: number }) {
   );
 }
 
-/** The three things worth doing first. It follows the demo calendar, so each step names what is on the screen now. */
+/**
+ * The three things worth doing first. It follows the demo calendar, so each step names what is on the screen now.
+ * It is dressed like the demo bar because it belongs to the demo, not to the contractor's product.
+ */
 function Guide({ day, rows }: { day: number; rows: Row[] }) {
   const boiler = rows.find((row) => row.key === "boiler");
   const sample = rows.find((row) => row.key === "rtu");
-  const link = "font-semibold text-accent underline underline-offset-4";
+  const link = "link";
+  const step = "grid grid-cols-[1.75rem_minmax(0,1fr)] px-4 py-3 leading-snug";
+  const number = "narrow text-xl leading-none font-extrabold";
   return (
-    <section aria-labelledby="guide" className="mt-6 rounded-md border border-accent/30 bg-accent-tint p-4 sm:p-5">
-      <h2 id="guide" className="text-lg font-extrabold">
-        Three things to try
+    <section aria-labelledby="guide" className="rounded-[2px] border-2 border-ink bg-surface">
+      <h2 id="guide" className="narrow bg-ink px-4 py-2 text-lg font-bold text-white">
+        New to this demo? Three things to try
       </h2>
-      <ol className="mt-3 grid gap-4 leading-snug md:grid-cols-3">
-        <li>
-          <strong className="font-bold">1. See where it says so.</strong>{" "}
-          {sample ? (
-            <>
-              Open the{" "}
-              <Link href={hrefOf(sample)} className={link}>
-                rooftop unit job
-              </Link>{" "}
-              and click anything on its checklist. The words it was read from light up in the solicitation.
-            </>
-          ) : (
-            "Open any solicitation and click anything on its checklist. The words it was read from light up in the solicitation."
-          )}
+      <ol className="divide-y divide-line">
+        <li className={step}>
+          <span aria-hidden className={number}>
+            1
+          </span>
+          <span>
+            <strong className="font-bold">See where it says so.</strong>{" "}
+            {sample ? (
+              <>
+                Open the{" "}
+                <Link href={hrefOf(sample)} className={link}>
+                  rooftop unit job
+                </Link>{" "}
+                and click anything on its checklist. The words it was read from light up in the solicitation.
+              </>
+            ) : (
+              "Open any solicitation and click anything on its checklist. The words it was read from light up in the solicitation."
+            )}
+          </span>
         </li>
-        <li>
-          <strong className="font-bold">2. Catch an addendum.</strong>{" "}
-          {day === 0 || !boiler ? (
-            <>
-              Press <em>Skip to next morning</em> in the bar at the top. Overnight, a school district changes a bid you have already started.
-            </>
-          ) : (
-            <>
-              An addendum moved the deadline on the{" "}
-              <Link href={hrefOf(boiler)} className={link}>
-                boiler bid
-              </Link>{" "}
-              and added a bond. Open it, then try to hand the bid in.
-            </>
-          )}
+        <li className={step}>
+          <span aria-hidden className={number}>
+            2
+          </span>
+          <span>
+            <strong className="font-bold">Catch an addendum.</strong>{" "}
+            {day === 0 || !boiler ? (
+              <>
+                Press <em>Skip to next morning</em> in the bar at the top. Overnight, a school district changes a bid you have already started.
+              </>
+            ) : (
+              <>
+                An addendum moved the deadline on the{" "}
+                <Link href={hrefOf(boiler)} className={link}>
+                  boiler bid
+                </Link>{" "}
+                and added a bond.{" "}
+                {boiler.status === "bidding"
+                  ? "Open it, then try to hand the bid in."
+                  : "The bid could not be marked as handed in until the addendum had been read and the bond ticked off."}
+              </>
+            )}
+          </span>
         </li>
-        <li>
-          <strong className="font-bold">3. Change what fits.</strong> In{" "}
-          <Link href="/profile" className={link}>
-            Company profile
-          </Link>
-          , widen how far you travel or add a certification. The list beside the form shows which jobs come out differently before you save.
+        <li className={step}>
+          <span aria-hidden className={number}>
+            3
+          </span>
+          <span>
+            <strong className="font-bold">Change what fits.</strong> In{" "}
+            <Link href="/profile" className={link}>
+              Company profile
+            </Link>
+            , widen how far you travel or add a certification. The list beside the form shows which jobs come out differently before you save.
+          </span>
         </li>
       </ol>
     </section>

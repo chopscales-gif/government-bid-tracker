@@ -13,12 +13,12 @@ import { NextMorningButton } from "./next-morning";
 export function DemoBar({ today, zone, canAdvance }: { today: string | null; zone: string; canAdvance: boolean }) {
   return (
     <div className="demo-chrome bg-ink text-sm text-white">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-5 gap-y-2 px-4 py-2 sm:px-6">
+      <div className="mx-auto flex max-w-[86rem] flex-wrap items-center gap-x-5 gap-y-2 px-4 py-2 sm:px-6 lg:px-8">
         <p className="min-w-0 flex-1 basis-72 leading-snug">
           <strong className="font-bold">Demonstration build.</strong>{" "}
           <span className="text-white/75">A fictional contractor, invented agencies and solicitations. The AI readings were recorded ahead of time.</span>
         </p>
-        <Link href="/about" className="font-semibold underline decoration-white/40 underline-offset-4 hover:decoration-white">
+        <Link href="/about" className="inline-flex min-h-11 items-center font-semibold underline decoration-white/40 underline-offset-4 hover:decoration-white sm:min-h-0">
           How this demo works
         </Link>
         {today && (
@@ -29,12 +29,12 @@ export function DemoBar({ today, zone, canAdvance }: { today: string | null; zon
       </div>
       {today && (
         <div className="border-t border-white/15 bg-white/5">
-          <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2 sm:px-6">
+          <div className="mx-auto flex max-w-[86rem] flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2 sm:px-6 lg:px-8">
             <p className="min-w-0 flex-1 basis-64">
               <span className="text-white/75">In the demo it is 7:00 AM {zone} on</span> <strong className="font-bold">{today}</strong>
             </p>
             {canAdvance ? (
-              <NextMorningButton className="cursor-pointer rounded bg-white px-3 py-1.5 font-bold text-ink hover:bg-white/85 disabled:opacity-60" />
+              <NextMorningButton className="min-h-11 cursor-pointer rounded-[3px] bg-white px-4 font-bold text-ink hover:bg-paper disabled:opacity-60 sm:min-h-9" />
             ) : (
               <p className="text-white/75">The demo calendar ends here. Reset to start again.</p>
             )}
@@ -48,7 +48,7 @@ export function DemoBar({ today, zone, canAdvance }: { today: string | null; zon
 function ResetButton() {
   const { pending } = useFormStatus();
   return (
-    <button type="submit" disabled={pending} className="cursor-pointer rounded border border-white/30 px-3 py-1.5 font-semibold hover:border-white disabled:opacity-60">
+    <button type="submit" disabled={pending} className="min-h-11 cursor-pointer rounded-[3px] border border-white/40 px-3 font-semibold hover:border-white disabled:opacity-60 sm:min-h-9">
       {pending ? "Resetting" : "Reset demo"}
     </button>
   );

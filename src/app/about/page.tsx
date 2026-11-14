@@ -5,12 +5,13 @@ import { COMPANY } from "@/lib/profile";
 export const metadata: Metadata = { title: "How this demo works" };
 
 export default function About() {
-  const h2 = "mt-10 text-2xl font-extrabold tracking-tight";
+  const h2 = "heading mt-9";
   const p = "mt-3 leading-relaxed";
   return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8 sm:px-6">
-      <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">How this demo works</h1>
-      <p className="mt-3 text-lg leading-relaxed text-muted">
+    <main className="mx-auto w-full max-w-[86rem] flex-1 px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+      <article className="panel max-w-[50rem] px-5 py-7 sm:px-10 sm:py-10">
+      <h1 className="display">How this demo works</h1>
+      <p className="mt-4 text-lg leading-relaxed">
         This is a demonstration build by ChopMedia. It is not client work, and nothing in it is real: {COMPANY.name} is a fictional contractor, and every agency, solicitation, addendum, name,
         address and phone number was invented for the demo.
       </p>
@@ -42,7 +43,7 @@ export default function About() {
       <h2 className={h2}>Real: everything else</h2>
       <p className={p}>
         The fit rules are ordinary written rules, not AI. They compare what was read from a solicitation with the{" "}
-        <Link href="/profile" className="font-semibold text-accent underline underline-offset-4">
+        <Link href="/profile" className="link">
           company profile
         </Link>{" "}
         and give their reasons. Laying an addendum over the original, showing what changed, adding its requirements to the checklist, refusing to mark a bid as handed in while an addendum is
@@ -65,15 +66,16 @@ export default function About() {
 
       <p className="mt-10 border-t border-line pt-6 leading-relaxed">
         Built by ChopMedia. Contact Hayden Huelskamp at{" "}
-        <a href="mailto:chopscales@gmail.com" className="font-semibold text-accent underline underline-offset-4">
+        <a href="mailto:chopscales@gmail.com" className="link">
           chopscales@gmail.com
         </a>
         , or on{" "}
-        <a href="https://www.linkedin.com/in/hayden-huelskamp-547a86302/" className="font-semibold text-accent underline underline-offset-4">
+        <a href="https://www.linkedin.com/in/hayden-huelskamp-547a86302/" className="link">
           LinkedIn
         </a>
         .
       </p>
+      </article>
     </main>
   );
 }

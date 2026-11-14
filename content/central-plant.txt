@@ -1,11 +1,11 @@
 title: Central Heating and Cooling Plant Replacement
-agency: Great Basin Technical College
+agency: Wendle Valley Technical College
 number: IFB GB-27-005
 type: Invitation for Bids
 issued: February 22, 2027
 
 ## 1. Project
-Great Basin Technical College invites bids from mechanical contractors, acting as prime contractor, for the replacement of the campus central plant at 1500 College Way, Tanner Flat, Utah. The project includes two 400-ton water-cooled chillers, cooling towers, three hot water boilers, pumps, a new plant control system, electrical service upgrades, and temporary heating and cooling for the campus while the work is done.
+Wendle Valley Technical College invites bids from mechanical contractors, acting as prime contractor, for the replacement of the campus central plant at 1500 College Way, Tanner Flat, Utah. The project includes two 400-ton water-cooled chillers, cooling towers, three hot water boilers, pumps, a new plant control system, electrical service upgrades, and temporary heating and cooling for the campus while the work is done.
 
 The estimated construction cost is $4,200,000 to $4,800,000. NAICS 238220. The solicitation is open to all bidders.
 
@@ -22,4 +22,4 @@ Bids must include the Bid Form, a 5 percent bid bond, a list of proposed subcont
 Performance and payment bonds for 100 percent of the contract price are required.
 
 ## 6. Contact
-Purchasing Office, purchasing@greatbasintech.example.
+Purchasing Office, purchasing@wendlevalleytech.example.

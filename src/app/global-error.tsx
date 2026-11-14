@@ -4,7 +4,7 @@
 export default function GlobalError({ retry }: { error: unknown; retry: () => void }) {
   return (
     <html lang="en">
-      <body style={{ fontFamily: "system-ui, sans-serif", margin: 0, padding: "4rem 1rem", color: "#0f1f38", background: "#eef1f5" }}>
+      <body style={{ fontFamily: "system-ui, sans-serif", margin: 0, padding: "4rem 1rem", color: "#1a1a1a", background: "#e9d9ac" }}>
         <main style={{ maxWidth: "40rem", margin: "0 auto" }}>
           <title>This page did not load</title>
           <h1 style={{ fontSize: "1.75rem" }}>This page did not load</h1>
