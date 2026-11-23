@@ -5,13 +5,13 @@ import { COMPANY } from "@/lib/profile";
 export const metadata: Metadata = { title: "How this demo works" };
 
 export default function About() {
-  const h2 = "heading mt-9";
+  const h2 = "heading mt-11";
   const p = "mt-3 leading-relaxed";
   return (
-    <main className="mx-auto w-full max-w-[86rem] flex-1 px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
-      <article className="panel max-w-[50rem] px-5 py-7 sm:px-10 sm:py-10">
+    <main className="mx-auto w-full max-w-[86rem] flex-1 px-4 py-8 sm:px-6 lg:px-8 lg:py-14">
+      <article className="panel mx-auto max-w-[52rem] px-6 py-8 sm:px-12 sm:py-12">
       <h1 className="display">How this demo works</h1>
-      <p className="mt-4 text-lg leading-relaxed">
+      <p className="mt-5 text-lg leading-relaxed text-muted">
         This is a demonstration build by ChopMedia. It is not client work, and nothing in it is real: {COMPANY.name} is a fictional contractor, and every agency, solicitation, addendum, name,
         address and phone number was invented for the demo.
       </p>
@@ -63,6 +63,9 @@ export default function About() {
         Each visitor gets a private copy of the sample data, so what you decide here is seen by nobody else. One cookie remembers which copy is yours. It holds a random id and nothing about
         you, and the copy is deleted after two days.
       </p>
+
+      <h2 className={h2}>The photograph</h2>
+      <p className={p}>The photograph behind the top of Today is a stock image from Unsplash. It does not show a real company, job or set of plans connected with anything in the demo.</p>
 
       <p className="mt-10 border-t border-line pt-6 leading-relaxed">
         Built by ChopMedia. Contact Hayden Huelskamp at{" "}

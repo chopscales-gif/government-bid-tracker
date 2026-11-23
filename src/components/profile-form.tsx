@@ -40,14 +40,14 @@ export function ProfileForm({ saved, items, day }: { saved: Profile; items: Item
   const group = (legend: string, hint: string, list: Listed, options: readonly { code: string; label: string }[], columns = false) => (
     <fieldset className="sec min-w-0">
       <legend className="subheading float-left w-full">{legend}</legend>
-      <p className="clear-both pt-1 text-sm text-muted">{hint}</p>
-      <div className={`mt-2 ${columns ? "gap-x-6 sm:columns-2" : ""}`}>
+      <p className="clear-both pt-1 text-muted">{hint}</p>
+      <div className={`mt-4 grid gap-2 ${columns ? "sm:grid-cols-2" : ""}`}>
         {options.map((option) => (
-          <label key={option.code} className="flex min-h-11 cursor-pointer break-inside-avoid items-center gap-3 leading-snug">
+          <label key={option.code} className="choice">
             <input type="checkbox" className="size-5 flex-none accent-accent" checked={draft[list].includes(option.code)} onChange={(event) => toggle(list, option.code, event.target.checked)} />
             <span>
               {option.label}
-              {list === "naics" && <span className="text-muted"> ({option.code})</span>}
+              {list === "naics" && <span className="font-normal text-muted"> ({option.code})</span>}
             </span>
           </label>
         ))}
@@ -59,13 +59,13 @@ export function ProfileForm({ saved, items, day }: { saved: Profile; items: Item
   const moved = outcomes.filter((outcome) => outcome.before.verdict !== outcome.after.verdict).length;
 
   return (
-    <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] lg:items-start lg:gap-8 xl:gap-10">
+    <div className="grid gap-12 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] lg:items-start lg:gap-10 xl:gap-12">
       <div>
         <div className="panel">
           {group("Work you take", "The kinds of work, by NAICS code, you want to see.", "naics", NAICS_OPTIONS)}
           {group("Certifications", "A job set aside for one kind of business is only a match if you hold that certification.", "certs", CERT_OPTIONS, true)}
           {group("Licenses held", "Utah contractor licenses.", "licences", LICENCE_OPTIONS, true)}
-          <div className="sec grid gap-4 sm:grid-cols-2">
+          <div className="sec grid gap-5 sm:grid-cols-2">
             <div>
               <label htmlFor="radius" className="subheading block">
                 How far you travel
@@ -92,7 +92,7 @@ export function ProfileForm({ saved, items, day }: { saved: Profile; items: Item
             </div>
           </div>
         </div>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
+        <div className="mt-5 flex flex-wrap items-center gap-3">
           <button type="button" className="btn btn-primary w-full sm:w-auto" disabled={!dirty || pending} onClick={save}>
             {pending ? "Saving" : "Save profile"}
           </button>
@@ -119,25 +119,25 @@ export function ProfileForm({ saved, items, day }: { saved: Profile; items: Item
         </div>
       </div>
 
-      <section aria-labelledby="effect" className="min-w-0 lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto lg:pr-1">
+      <section aria-labelledby="effect" className="min-w-0 lg:sticky lg:top-4 lg:-m-3 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto lg:p-3">
         <h2 id="effect" className="heading">
           How the undecided solicitations come out
         </h2>
-        <p className={`mt-1 ${dirty && moved ? "font-bold text-accent-deep" : "text-muted"}`} aria-live="polite">
+        <p className={`mt-1.5 ${dirty && moved ? "font-bold text-accent-deep" : "text-muted"}`} aria-live="polite">
           {dirty ? (moved ? `With these changes, ${moved} ${moved === 1 ? "solicitation comes" : "solicitations come"} out differently. Save to keep them.` : "These changes do not move any solicitation.") : "With the profile as saved."}
         </p>
         {outcomes.length > 0 && (
-          <ul className="panel mt-3">
+          <ul className="mt-4 grid gap-3">
             {outcomes.map(({ item, before, after }) => {
               const changed = before.verdict !== after.verdict;
               return (
-                <li key={item.id} className={`border-line px-4 py-3.5 not-first:border-t sm:px-5 ${changed ? "bg-mark shadow-[inset_4px_0_0_var(--color-accent)]" : ""}`}>
+                <li key={item.id} className={`rounded-2xl border px-5 py-4 transition-colors ${changed ? "border-accent/50 bg-accent-tint shadow-lift" : "border-line bg-surface shadow-rest"}`}>
                   <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
                     <VerdictChip verdict={after.verdict} />
-                    {changed && <span className="text-sm font-semibold">was {VERDICT_LABEL[before.verdict].toLowerCase()}</span>}
+                    {changed && <span className="text-sm font-semibold text-accent-deep">was {VERDICT_LABEL[before.verdict].toLowerCase()}</span>}
                   </p>
-                  <p className="narrow text-lg leading-snug font-bold">
-                    <Link href={`/solicitations/${item.id}`} className="title-link block pt-3 pb-2">
+                  <p className="text-lg leading-snug font-semibold tracking-[-0.01em]">
+                    <Link href={`/solicitations/${item.id}`} className="title-link block pt-3 pb-1">
                       {item.title}
                     </Link>
                   </p>
@@ -152,7 +152,7 @@ export function ProfileForm({ saved, items, day }: { saved: Profile; items: Item
             })}
           </ul>
         )}
-        {outcomes.length === 0 && <p className="panel mt-3 p-4">Every solicitation found so far has been decided.</p>}
+        {outcomes.length === 0 && <p className="panel mt-4 p-5 text-muted">Every solicitation found so far has been decided.</p>}
       </section>
     </div>
   );

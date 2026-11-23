@@ -1,33 +1,39 @@
 @import "tailwindcss";
 
 /*
- * A bid desk. The page is the manila folder, white is paper, and there are
- * three inks: black is what is printed, blue is what you mark with your own
- * pen (links, ticks, the words you asked to see), and red is the clock and
- * anything an agency changed. What an agency wrote is typed; the rest is not.
+ * A bid desk on a warm white page. Black is what is printed and iris is your
+ * own pen: links, ticks, the stage a bid has reached, the words you asked to
+ * see. Each meaning then keeps one pastel: orange is the clock and anything an
+ * agency changed, green is fine, amber is check, red stops you. What an agency
+ * wrote is set in the monospace face; the rest is not.
  */
 @theme inline {
-  --color-ink: #1a1a1a;
-  --color-paper: #e9d9ac;
-  --color-kraft: #cdb67e;
-  --color-edge: #b29a5f;
-  --color-surface: #fffefa;
-  --color-line: #d9d1bd;
-  --color-muted: #57524a;
-  --color-accent: #1d3fae;
-  --color-accent-deep: #152f86;
-  --color-accent-tint: #e6ecfb;
-  --color-due: #b4211c;
-  --color-due-tint: #fbe6e2;
-  --color-mark: #cfdcff;
-  --color-good: #1e6a3c;
-  --color-good-tint: #dcefe0;
-  --color-amber: #7a4b00;
-  --color-amber-tint: #f6e7bf;
-  --color-flag: #b4211c;
-  --color-flag-tint: #fbe6e2;
-  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-  --font-typed: var(--font-courier), "Courier New", Courier, monospace;
+  --color-ink: #1d1b26;
+  --color-paper: #faf8f3;
+  --color-stone: #f2efe7;
+  --color-edge: #d9d3c5;
+  --color-surface: #ffffff;
+  --color-line: #e9e4d9;
+  --color-muted: #65616f;
+  --color-faint: #8b8795;
+  --color-accent: #4a3fcf;
+  --color-accent-deep: #362cab;
+  --color-accent-tint: #eceaff;
+  --color-due: #b8400d;
+  --color-due-tint: #ffeadd;
+  --color-mark: #dcd8ff;
+  --color-good: #1b7449;
+  --color-good-tint: #dff4e7;
+  --color-amber: #8a5206;
+  --color-amber-tint: #fdefc9;
+  --color-flag: #b92f2a;
+  --color-flag-tint: #fde7e4;
+  --color-sky: #1d5c8c;
+  --color-sky-tint: #e2f0fb;
+  --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+  --font-typed: var(--font-dm-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  --shadow-rest: 0 1px 2px rgb(40 34 20 / 0.05), 0 2px 8px -2px rgb(40 34 20 / 0.06);
+  --shadow-lift: 0 2px 4px rgb(40 34 20 / 0.05), 0 14px 32px -12px rgb(40 34 20 / 0.16);
 }
 
 body {
@@ -41,33 +47,30 @@ body {
   outline-offset: 2px;
 }
 
-.demo-chrome :focus-visible {
-  outline-color: #ffffff;
-}
-
 @layer components {
-  /* Headings are the narrow cut of the same family, the way a form sets its box titles. */
+  /* A headline in two tones: what it is in black, what it means today in grey. */
   .display {
-    font-stretch: 72%;
-    font-weight: 800;
-    font-size: 2.25rem;
-    line-height: 1.02;
-    letter-spacing: -0.005em;
+    font-weight: 600;
+    font-size: 2.125rem;
+    line-height: 1.06;
+    letter-spacing: -0.032em;
+    text-wrap: balance;
+  }
+  .display .accent {
+    display: block;
+    color: var(--color-faint);
   }
   .heading {
-    font-stretch: 75%;
-    font-weight: 800;
-    font-size: 1.625rem;
-    line-height: 1.1;
+    font-weight: 650;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.022em;
   }
   .subheading {
-    font-stretch: 78%;
-    font-weight: 700;
-    font-size: 1.3125rem;
-    line-height: 1.15;
-  }
-  .narrow {
-    font-stretch: 80%;
+    font-weight: 650;
+    font-size: 1.1875rem;
+    line-height: 1.25;
+    letter-spacing: -0.014em;
   }
   @media (min-width: 64rem) {
     .display {
@@ -75,27 +78,34 @@ body {
     }
   }
 
+  /* A small standing label over a group or a column. */
+  .eyebrow {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+
   .link {
     color: var(--color-accent);
     font-weight: 600;
     text-decoration: underline;
-    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+    text-underline-offset: 0.22em;
     text-decoration-thickness: 1.5px;
   }
   .link:hover {
     color: var(--color-accent-deep);
-    text-decoration-thickness: 2.5px;
+    text-decoration-color: currentColor;
   }
-  /* A title that opens its solicitation: printed black, underlined in pen. */
+  /* A title that opens its solicitation. */
   .title-link {
-    text-decoration: underline;
-    text-decoration-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.18em;
+    text-decoration: none;
   }
   .title-link:hover {
     color: var(--color-accent-deep);
-    text-decoration-color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.2em;
   }
 
   .btn {
@@ -104,23 +114,24 @@ body {
     justify-content: center;
     gap: 0.5rem;
     min-height: 2.75rem;
-    padding: 0.5rem 1.125rem;
-    border-radius: 3px;
-    border: 2px solid transparent;
+    padding: 0.5rem 1.375rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
     cursor: pointer;
-    transition: background-color 120ms, border-color 120ms, color 120ms;
+    transition: background-color 140ms, border-color 140ms, color 140ms, box-shadow 140ms;
   }
   .btn:disabled {
     cursor: not-allowed;
-    opacity: 0.55;
+    opacity: 0.5;
   }
   .btn-primary {
-    background: var(--color-ink);
-    border-color: var(--color-ink);
+    background: linear-gradient(180deg, #574ce0, var(--color-accent));
+    border-color: var(--color-accent);
     color: #ffffff;
+    box-shadow: 0 1px 2px rgb(54 44 171 / 0.3), 0 6px 14px -6px rgb(54 44 171 / 0.5);
   }
   .btn-primary:hover:not(:disabled) {
     background: var(--color-accent-deep);
@@ -128,17 +139,18 @@ body {
   }
   .btn-quiet {
     background: var(--color-surface);
-    border-color: var(--color-ink);
+    border-color: var(--color-edge);
     color: var(--color-ink);
+    box-shadow: var(--shadow-rest);
   }
   .btn-quiet:hover:not(:disabled) {
     background: var(--color-accent-tint);
-    border-color: var(--color-accent-deep);
+    border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
     color: var(--color-accent-deep);
   }
   .btn-danger {
     background: var(--color-surface);
-    border-color: var(--color-flag);
+    border-color: color-mix(in srgb, var(--color-flag) 45%, transparent);
     color: var(--color-flag);
   }
   .btn-danger:hover:not(:disabled) {
@@ -147,45 +159,54 @@ body {
 
   .field {
     width: 100%;
-    min-height: 2.75rem;
-    padding: 0.375rem 0.625rem;
-    border: 1.5px solid var(--color-ink);
-    border-radius: 2px;
+    min-height: 2.875rem;
+    padding: 0.5rem 0.875rem;
+    border: 1px solid var(--color-edge);
+    border-radius: 0.75rem;
     background: #ffffff;
     font-size: 1rem;
+    box-shadow: inset 0 1px 2px rgb(40 34 20 / 0.04);
+  }
+  .field:hover {
+    border-color: var(--color-faint);
   }
 
-  /* A sheet of paper lying on the folder. */
+  /* A sheet lifted off the page. */
   .panel {
     background: var(--color-surface);
-    border: 1px solid var(--color-edge);
-    border-radius: 2px;
-    box-shadow: 2px 2px 0 color-mix(in srgb, var(--color-edge) 45%, transparent);
+    border: 1px solid var(--color-line);
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-rest);
   }
 
-  /* One box of a form: sections of a sheet, ruled off from each other. */
+  /* One part of a sheet, ruled off from the next. */
   .sec {
-    padding: 1.125rem 1rem;
+    padding: 1.375rem 1.25rem;
   }
   .sec + .sec {
     border-top: 1px solid var(--color-line);
   }
   @media (min-width: 40rem) {
     .sec {
-      padding: 1.375rem 1.5rem;
+      padding: 1.75rem 2rem;
     }
   }
 
-  /* A line in a register: the date it is due, what it is, and how it stands. */
+  /* A result row: when it is due, what it is, and how it stands. Each is its own card. */
   .entry {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "body" "stamp" "aside";
-    gap: 0.75rem 1rem;
-    padding: 1rem;
+    gap: 1rem 1.25rem;
+    padding: 1.25rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-rest);
+    transition: box-shadow 160ms;
   }
-  .entry + .entry {
-    border-top: 1px solid var(--color-line);
+  .entry:hover {
+    box-shadow: var(--shadow-lift);
   }
   .entry-body {
     grid-area: body;
@@ -203,171 +224,180 @@ body {
   }
   @media (min-width: 48rem) {
     .entry {
-      grid-template-columns: 7.5rem minmax(0, 1fr);
+      grid-template-columns: 8.25rem minmax(0, 1fr);
       grid-template-areas: "stamp body" "stamp aside";
-      column-gap: 1.5rem;
-      padding: 1.25rem 1.5rem;
+      column-gap: 1.75rem;
+      padding: 1.5rem 1.75rem;
     }
   }
   @media (min-width: 80rem) {
     .entry,
     .entry-head {
-      grid-template-columns: 7.5rem minmax(0, 1fr) 17.5rem;
+      grid-template-columns: 8.25rem minmax(0, 1fr) 19rem;
       grid-template-areas: "stamp body aside";
     }
     .entry-head {
       display: grid;
-      column-gap: 1.5rem;
-      padding: 0.5rem 1.5rem;
-      border-bottom: 2px solid var(--color-ink);
+      column-gap: 1.75rem;
+      padding: 0 1.75rem 0.625rem;
       font-size: 0.875rem;
-      font-weight: 700;
+      font-weight: 600;
     }
   }
 
+  /* A fact about a solicitation, small enough to sit in a row of them. */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 0.5rem;
+    background: var(--color-stone);
+    padding: 0.2rem 0.6rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #3d3a47;
+  }
+  .chip strong {
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
   /*
-   * The deadline stamp: the date a bid is due, set like the date stamp a
-   * clerk's office puts on a bid envelope. It is the one loud thing on a page.
+   * The deadline tile: the date a bid is due and how long is left. It is the
+   * one loud thing on a row, and it turns orange inside the last week.
    */
   .stamp {
     --stamp-ink: var(--color-ink);
+    --stamp-bg: var(--color-stone);
+    --stamp-edge: var(--color-line);
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     flex: none;
     align-self: flex-start;
-    width: 7.5rem;
-    border: 2px solid var(--stamp-ink);
-    border-radius: 5px;
-    padding: 2px;
-    background: var(--color-surface);
-    color: var(--stamp-ink);
+    width: 8.25rem;
+    border: 1px solid var(--stamp-edge);
+    border-radius: 1rem;
+    padding: 0.75rem 0.5rem 0.625rem;
+    background: var(--stamp-bg);
     text-align: center;
-    line-height: 1.15;
+    line-height: 1.2;
     font-variant-numeric: tabular-nums;
   }
   .stamp-label {
-    width: 100%;
-    padding: 0.2rem 0.25rem 0.25rem;
-    border-bottom: 1px solid var(--stamp-ink);
-    font-size: 0.875rem;
-    font-weight: 700;
-    font-stretch: 80%;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-muted);
   }
   .stamp-date {
-    padding: 0.4rem 0.25rem 0;
-    font-family: var(--font-typed);
+    padding-top: 0.2rem;
     font-size: 1.625rem;
     font-weight: 700;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    word-spacing: -0.3em;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--stamp-ink);
   }
   .stamp-time {
-    padding: 0.2rem 0.25rem 0.35rem;
+    padding-top: 0.15rem;
     font-size: 0.8125rem;
-    font-stretch: 85%;
     font-weight: 500;
+    color: var(--color-muted);
   }
   .stamp-left {
-    width: 100%;
-    padding: 0.25rem;
-    border-radius: 0 0 2px 2px;
-    background: var(--stamp-ink);
-    color: #ffffff;
-    font-size: 0.875rem;
+    margin-top: 0.55rem;
+    border-radius: 999px;
+    background: var(--color-surface);
+    box-shadow: 0 0 0 1px var(--stamp-edge);
+    padding: 0.2rem 0.7rem;
+    font-size: 0.8125rem;
     font-weight: 700;
-    font-stretch: 85%;
+    color: var(--stamp-ink);
+    white-space: nowrap;
   }
   .stamp[data-tone="soon"] {
     --stamp-ink: var(--color-due);
+    --stamp-bg: var(--color-due-tint);
+    --stamp-edge: #f7cdb4;
+  }
+  .stamp[data-tone="soon"] .stamp-left {
+    background: var(--color-due);
+    box-shadow: none;
+    color: #ffffff;
   }
   .stamp[data-tone="closed"] {
     --stamp-ink: var(--color-muted);
   }
-  /* On a phone a register entry lays its stamp flat, date over time, so the title keeps the full width. */
+  /* On a phone a row lays its deadline flat, so the title keeps the full width. */
   @media (max-width: 47.99rem) {
     .entry-stamp.stamp {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr) auto;
-      grid-template-areas: "label date left" "label time left";
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+      column-gap: 0.625rem;
       width: 100%;
-      max-width: 24rem;
-    }
-    .entry-stamp.stamp > span {
-      width: auto;
-      border-bottom: 0;
-      white-space: nowrap;
-    }
-    .entry-stamp .stamp-label,
-    .entry-stamp .stamp-left {
-      display: flex;
-      align-items: center;
-      padding: 0.4rem 0.625rem;
-    }
-    .entry-stamp .stamp-label {
-      grid-area: label;
-      border-right: 1px solid var(--stamp-ink);
+      padding: 0.625rem 0.875rem;
+      text-align: left;
     }
     .entry-stamp .stamp-date {
-      grid-area: date;
-      padding: 0.4rem 0.5rem 0;
+      padding-top: 0;
       font-size: 1.25rem;
     }
     .entry-stamp .stamp-time {
-      grid-area: time;
-      padding: 0.2rem 0.5rem 0.4rem;
+      padding-top: 0;
     }
     .entry-stamp .stamp-left {
-      grid-area: left;
-      border-radius: 0 2px 2px 0;
+      margin-top: 0;
+      margin-left: auto;
+      align-self: center;
     }
   }
 
-  /* On the solicitation itself the stamp is struck by hand, a little off square. */
+  /* On the solicitation itself the deadline stands larger. */
   .stamp-struck {
-    width: 9rem;
-    transform: rotate(-2deg);
-    background: transparent;
+    width: 10.5rem;
+    padding: 1rem 0.75rem 0.875rem;
+    box-shadow: var(--shadow-rest);
   }
   .stamp-struck .stamp-date {
-    font-size: 2.125rem;
+    font-size: 2.25rem;
   }
   .stamp-struck .stamp-label,
-  .stamp-struck .stamp-left {
-    font-size: 1rem;
-  }
   .stamp-struck .stamp-time {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
+  }
+  .stamp-struck .stamp-left {
+    font-size: 0.9375rem;
+    padding: 0.25rem 0.875rem;
   }
 
-  /* Small standing words: where a solicitation is in the pipeline. */
+  /* Small standing words: a verdict, a stage, a change. */
   .tag {
-    display: inline-block;
-    border: 1.5px solid var(--color-ink);
-    border-radius: 2px;
-    padding: 0.05rem 0.4rem 0.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 0.5rem;
+    padding: 0.175rem 0.6rem;
     font-size: 0.875rem;
-    font-weight: 700;
-    font-stretch: 85%;
-    line-height: 1.3;
+    font-weight: 650;
+    line-height: 1.35;
     white-space: nowrap;
   }
 
   /* What an agency wrote, as it wrote it. */
   .typed {
     font-family: var(--font-typed);
-    font-size: 0.9375rem;
-    line-height: 1.6;
+    font-size: 0.875rem;
+    line-height: 1.7;
   }
 
-  /* Words in a solicitation that an item on the screen was read from: run over in blue highlighter. */
+  /* Words in a solicitation that an item on the screen was read from. */
   .mark {
     background: var(--color-mark);
     color: var(--color-ink);
-    padding: 0.1em 0.15em;
-    border-radius: 0.1em;
-    box-shadow: 0 0 0 2px var(--color-mark), 0 4px 0 -1px var(--color-accent);
+    padding: 0.15em 0.2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 0 2px var(--color-mark), 0 0 0 3.5px var(--color-accent);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
   }
@@ -377,30 +407,57 @@ body {
     display: block;
     text-align: left;
     cursor: pointer;
-    border-radius: 2px;
-    padding: 0.5rem 0.625rem;
-    margin: 0 -0.625rem;
-    width: calc(100% + 1.25rem);
+    border-radius: 0.625rem;
+    padding: 0.5rem 0.75rem;
+    margin: 0 -0.75rem;
+    width: calc(100% + 1.5rem);
     min-height: 2.75rem;
-    box-shadow: inset 3px 0 0 transparent;
+    transition: background-color 120ms;
   }
   .sourced:hover {
-    background: var(--color-accent-tint);
+    background: var(--color-stone);
   }
   .sourced[aria-pressed="true"] {
-    background: var(--color-mark);
-    box-shadow: inset 3px 0 0 var(--color-accent);
+    background: var(--color-accent-tint);
+    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--color-accent) 55%, transparent);
+  }
+
+  /* A choice in the rules form: the whole chip is the checkbox. */
+  .choice {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    min-height: 2.75rem;
+    padding: 0.5rem 0.875rem;
+    border: 1px solid var(--color-line);
+    border-radius: 0.75rem;
+    background: var(--color-surface);
+    line-height: 1.3;
+    cursor: pointer;
+    transition: background-color 120ms, border-color 120ms;
+  }
+  .choice:hover {
+    border-color: var(--color-edge);
+    background: var(--color-paper);
+  }
+  .choice:has(:checked) {
+    border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+    background: var(--color-accent-tint);
+    font-weight: 600;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .mark {
-    animation: mark-in 260ms ease-out;
+    animation: mark-in 320ms ease-out;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn {
+  .btn,
+  .entry,
+  .sourced,
+  .choice {
     transition: none;
   }
 }
@@ -408,6 +465,6 @@ body {
 @keyframes mark-in {
   from {
     background: transparent;
-    box-shadow: 0 0 0 2px transparent, 0 4px 0 -1px transparent;
+    box-shadow: 0 0 0 2px transparent, 0 0 0 3.5px transparent;
   }
 }

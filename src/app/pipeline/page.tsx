@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DeskCalendar, EntryHead, PipelineCard } from "@/components/cards";
+import { PageHeader } from "@/components/ui";
 import type { Status } from "@/db/schema";
 import { board } from "@/server/queries";
 import { getCtx } from "@/server/session";
@@ -18,12 +19,12 @@ const GROUPS: { title: string; statuses: Status[]; empty?: string }[] = [
 export default async function Pipeline() {
   const { day, rows } = await board(await getCtx());
   const due = (key: string) => rows.find((row) => row.key === key)?.eff.facts.due?.value ?? "9999";
+  const following = rows.filter((row) => row.status === "bidding" || row.status === "watching" || row.status === "submitted").length;
   const undecided = rows.filter((row) => row.status === "new" && row.fit.verdict !== "no").length;
 
   return (
-    <main className="mx-auto w-full max-w-[86rem] flex-1 px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
-      <h1 className="display">Pipeline</h1>
-      <p className="mt-3 max-w-[44rem] text-lg leading-relaxed">
+    <main className="mx-auto w-full max-w-[86rem] flex-1 px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+      <PageHeader title="Pipeline" accent={following === 0 ? "Nothing is being followed yet." : following === 1 ? "One solicitation is being followed." : `${following} solicitations are being followed.`}>
         Everything you have decided to follow, soonest deadline first.{" "}
         {undecided > 0 && (
           <>
@@ -34,9 +35,9 @@ export default async function Pipeline() {
             waiting for a decision.
           </>
         )}
-      </p>
-      <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-start lg:gap-8 xl:grid-cols-[minmax(0,1fr)_23rem] xl:gap-10">
-        <div className="space-y-10">
+      </PageHeader>
+      <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_23rem] xl:gap-12">
+        <div className="space-y-12">
           {GROUPS.map((group, index) => {
             const members = rows.filter((row) => group.statuses.includes(row.status)).sort((a, b) => due(a.key).localeCompare(due(b.key)));
             if (!members.length && !group.empty) return null;
@@ -45,19 +46,19 @@ export default async function Pipeline() {
             return (
               <section key={group.title}>
                 <h2 className="heading">
-                  {group.title} <span className="font-normal text-muted">{members.length || ""}</span>
+                  {group.title} <span className="ml-1 font-normal text-faint tabular-nums">{members.length || ""}</span>
                 </h2>
                 {members.length ? (
-                  <div className="panel mt-3">
+                  <div className="mt-4">
                     {first && <EntryHead last="Where it stands" />}
-                    <ul>
+                    <ul className="grid gap-3.5">
                       {members.map((row) => (
                         <PipelineCard key={row.id} row={row} day={day} />
                       ))}
                     </ul>
                   </div>
                 ) : (
-                  <p className="mt-2 text-muted">{group.empty}</p>
+                  <p className="mt-3 rounded-[1.25rem] border border-dashed border-edge px-5 py-4 text-muted">{group.empty}</p>
                 )}
               </section>
             );
