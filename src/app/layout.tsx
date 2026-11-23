@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { DM_Mono, Onest } from "next/font/google";
 import { DemoBar } from "@/components/demo-bar";
 import { SiteHeader } from "@/components/site";
-import { MAX_DAY, ZONE, fmtLongDay } from "@/lib/calendar";
+import { MAX_DAY, fmtShortDay } from "@/lib/calendar";
 import { getCtx, sandboxIdOrNull } from "@/server/session";
 import { loadSandbox } from "@/server/workflow";
 import "./globals.css";
@@ -26,13 +26,11 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${onest.variable} ${mono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
-        <DemoBar zone={ZONE.name} today={day === null ? null : fmtLongDay(day)} canAdvance={day !== null && day < MAX_DAY} />
+        <DemoBar today={day === null ? null : fmtShortDay(day)} canAdvance={day !== null && day < MAX_DAY} />
         <SiteHeader />
         {children}
         <footer className="border-t border-line">
-          <p className="mx-auto max-w-[86rem] px-4 py-6 text-sm leading-relaxed text-muted sm:px-6 lg:px-8">
-            A demonstration build by ChopMedia. The company, agencies and solicitations are invented. The photograph on Today is a stock image from Unsplash.
-          </p>
+          <p className="mx-auto max-w-[62rem] px-5 py-6 text-sm leading-relaxed text-muted">A demonstration build by ChopMedia. The company, agencies and solicitations are invented.</p>
         </footer>
       </body>
     </html>

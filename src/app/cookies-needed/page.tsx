@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Cookies are needed" };
 /** Shown by the proxy when the sandbox cookie was offered and did not come back. */
 export default function CookiesNeeded() {
   return (
-    <main className="mx-auto w-full max-w-[86rem] flex-1 px-4 py-12 sm:px-6 lg:px-8 lg:py-24">
+    <main className="mx-auto w-full max-w-[62rem] flex-1 px-5 py-12 lg:py-20">
       <h1 className="display">This demo needs cookies switched on</h1>
       <p className="mt-5 max-w-[40rem] text-lg leading-relaxed text-muted">
         Every visitor gets a private copy of the sample data, so that what you decide here is yours alone. One cookie remembers which copy is yours.

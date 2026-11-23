@@ -6,7 +6,8 @@ import type { EffectiveFacts } from "@/lib/effective";
 import { VERDICT_LABEL, assessFit } from "@/lib/fit";
 import { BONDING_OPTIONS, CERT_OPTIONS, LICENCE_OPTIONS, NAICS_OPTIONS, RADIUS_OPTIONS, fmtDollars, type Profile } from "@/lib/profile";
 import { saveProfileAction } from "@/server/actions";
-import { ReasonList, VerdictChip } from "./ui";
+import { fitNote } from "./cards";
+import { VerdictMark } from "./ui";
 
 type Item = { id: string; title: string; agency: string; facts: EffectiveFacts; miles: number };
 type Listed = "naics" | "certs" | "licences";
@@ -37,11 +38,10 @@ export function ProfileForm({ saved, items, day }: { saved: Profile; items: Item
     });
   }
 
-  const group = (legend: string, hint: string, list: Listed, options: readonly { code: string; label: string }[], columns = false) => (
+  const group = (legend: string, list: Listed, options: readonly { code: string; label: string }[]) => (
     <fieldset className="sec min-w-0">
       <legend className="subheading float-left w-full">{legend}</legend>
-      <p className="clear-both pt-1 text-muted">{hint}</p>
-      <div className={`mt-4 grid gap-2 ${columns ? "sm:grid-cols-2" : ""}`}>
+      <div className="clear-both grid gap-2 pt-3">
         {options.map((option) => (
           <label key={option.code} className="choice">
             <input type="checkbox" className="size-5 flex-none accent-accent" checked={draft[list].includes(option.code)} onChange={(event) => toggle(list, option.code, event.target.checked)} />
@@ -59,12 +59,12 @@ export function ProfileForm({ saved, items, day }: { saved: Profile; items: Item
   const moved = outcomes.filter((outcome) => outcome.before.verdict !== outcome.after.verdict).length;
 
   return (
-    <div className="grid gap-12 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] lg:items-start lg:gap-10 xl:gap-12">
+    <div className="grid gap-12 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] lg:items-start lg:gap-9">
       <div>
         <div className="panel">
-          {group("Work you take", "The kinds of work, by NAICS code, you want to see.", "naics", NAICS_OPTIONS)}
-          {group("Certifications", "A job set aside for one kind of business is only a match if you hold that certification.", "certs", CERT_OPTIONS, true)}
-          {group("Licenses held", "Utah contractor licenses.", "licences", LICENCE_OPTIONS, true)}
+          {group("Work you take", "naics", NAICS_OPTIONS)}
+          {group("Certifications", "certs", CERT_OPTIONS)}
+          {group("Utah licenses held", "licences", LICENCE_OPTIONS)}
           <div className="sec grid gap-5 sm:grid-cols-2">
             <div>
               <label htmlFor="radius" className="subheading block">
@@ -105,7 +105,7 @@ export function ProfileForm({ saved, items, day }: { saved: Profile; items: Item
             {done && !dirty ? (
               <>
                 Saved.{" "}
-                <Link href="/" className="link">
+                <Link href="/" className="quiet">
                   See Today with the new profile
                 </Link>
               </>
@@ -119,40 +119,31 @@ export function ProfileForm({ saved, items, day }: { saved: Profile; items: Item
         </div>
       </div>
 
-      <section aria-labelledby="effect" className="min-w-0 lg:sticky lg:top-4 lg:-m-3 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto lg:p-3">
+      <section aria-labelledby="effect" className="min-w-0 lg:sticky lg:top-4">
         <h2 id="effect" className="heading">
-          How the undecided solicitations come out
+          What is undecided
         </h2>
-        <p className={`mt-1.5 ${dirty && moved ? "font-bold text-accent-deep" : "text-muted"}`} aria-live="polite">
-          {dirty ? (moved ? `With these changes, ${moved} ${moved === 1 ? "solicitation comes" : "solicitations come"} out differently. Save to keep them.` : "These changes do not move any solicitation.") : "With the profile as saved."}
+        <p className={`mt-1.5 mb-4 ${dirty && moved ? "font-semibold text-accent-deep" : "text-muted"}`} aria-live="polite">
+          {dirty ? (moved ? `With these changes, ${moved} ${moved === 1 ? "solicitation comes" : "solicitations come"} out differently. Save to keep them.` : "These changes do not move any solicitation.") : "As the saved rules judge it."}
         </p>
         {outcomes.length > 0 && (
-          <ul className="mt-4 grid gap-3">
+          <ul className="rows">
             {outcomes.map(({ item, before, after }) => {
               const changed = before.verdict !== after.verdict;
               return (
-                <li key={item.id} className={`rounded-2xl border px-5 py-4 transition-colors ${changed ? "border-accent/50 bg-accent-tint shadow-lift" : "border-line bg-surface shadow-rest"}`}>
-                  <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <VerdictChip verdict={after.verdict} />
-                    {changed && <span className="text-sm font-semibold text-accent-deep">was {VERDICT_LABEL[before.verdict].toLowerCase()}</span>}
-                  </p>
-                  <p className="text-lg leading-snug font-semibold tracking-[-0.01em]">
-                    <Link href={`/solicitations/${item.id}`} className="title-link block pt-3 pb-1">
-                      {item.title}
-                    </Link>
-                  </p>
-                  <p className="text-sm text-muted">{item.agency}</p>
-                  {after.verdict !== "good" && (
-                    <div className="mt-2 text-[0.9375rem]">
-                      <ReasonList reasons={after.reasons} only={["block", "caution"]} />
-                    </div>
-                  )}
+                <li key={item.id} className={`border-line px-5 py-4 transition-colors not-first:border-t ${changed ? "bg-accent-tint" : ""}`}>
+                  <Link href={`/solicitations/${item.id}`} className="title-link block leading-snug font-semibold">
+                    {item.title}
+                  </Link>
+                  <div className="mt-1.5">
+                    <VerdictMark verdict={after.verdict} note={[changed ? `Was ${VERDICT_LABEL[before.verdict].toLowerCase()}` : null, fitNote({ fit: after, feed: item, eff: item })].filter(Boolean).join(". ") || undefined} />
+                  </div>
                 </li>
               );
             })}
           </ul>
         )}
-        {outcomes.length === 0 && <p className="panel mt-4 p-5 text-muted">Every solicitation found so far has been decided.</p>}
+        {outcomes.length === 0 && <p className="panel p-5 text-muted">Every solicitation found so far has been decided.</p>}
       </section>
     </div>
   );

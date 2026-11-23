@@ -3,42 +3,58 @@
 import Link from "next/link";
 import { useEffect, useOptimistic, useRef, useState, useTransition } from "react";
 import type { SolicitationDoc } from "@/data/documents";
-import { ZONE, fmtShortDay, fmtWhen, isPast } from "@/lib/calendar";
+import { ZONE, countdown, daysUntil, fmtShortDay, fmtWhen, isPast, stampParts } from "@/lib/calendar";
 import type { Addendum, ChecklistItem, EffectiveFacts, Source } from "@/lib/effective";
-import { fmtEstimateFact } from "@/lib/fit";
+import { VERDICT_LABEL, fmtEstimateFact } from "@/lib/fit";
 import { dueLabel, keyDates } from "@/lib/keydates";
 import { CERT_OPTIONS } from "@/lib/profile";
 import { acknowledgeAction, passAction, reopenBidAction, resultAction, startBidAction, submitAction, tickAction, watchAction } from "@/server/actions";
 import type { Row } from "@/server/queries";
 import { ActionButton } from "./action-button";
-import { ReasonList, Stamp, StatusChip, Stepper, VerdictChip } from "./ui";
+import { fitNote } from "./cards";
+import { ReasonList, Stepper, verdictText } from "./ui";
 
 type Props = { row: Row; day: number; documents: SolicitationDoc[]; events: { id: number; day: number; text: string }[] };
+type Tab = "needs" | "fit" | "dates" | "notes" | "changes" | "text";
 
 const sameSource = (a: Source | null, b: Source) => a !== null && a.doc === b.doc && a.section === b.section && a.quote === b.quote;
 
 const SET_ASIDE_LABEL: Record<string, string> = { none: "Open to all bidders", other: "Restricted. Read the section.", ...Object.fromEntries(CERT_OPTIONS.map((cert) => [cert.code, `Set aside: ${cert.label.toLowerCase()}`])) };
 
+/** The first sentence of the AI's summary, and whatever follows it. */
+function split(summary: string): [string, string] {
+  const first = summary.match(/^[\s\S]*?[a-z0-9)]\.(?=\s+[A-Z])/)?.[0] ?? summary;
+  return [first, summary.slice(first.length).trim()];
+}
+
 /**
- * One solicitation: what the AI read from it on the left, the solicitation
- * itself on the right. Choosing anything on the left shows the words it was
- * read from.
+ * One solicitation: what it is, the decision, the four facts that decide it,
+ * and then one part at a time. Choosing anything the AI read shows the words
+ * it was read from, beside it.
  */
 export function Solicitation({ row, day, documents, events }: Props) {
   const [selected, setSelected] = useState<Source | null>(null);
+  const [more, setMore] = useState(false);
+  // An addendum nobody has read is the reason to be here, so it is what opens.
+  const [tab, setTab] = useState<Tab>(row.unseen.length > 0 ? "changes" : "needs");
   const { eff, doc } = row;
   const facts = eff.facts;
   const due = facts.due?.value;
   const closed = due ? isPast(due, day) : false;
+  const soon = due !== undefined && !closed && daysUntil(due, day) < 7;
   const names = new Map(documents.map((document, index) => [document.key, index === 0 ? "the solicitation" : `Addendum ${index}`]));
   const toggle = (source: Source) => setSelected((current) => (sameSource(current, source) ? null : source));
+  const show = (next: Tab) => {
+    setTab(next);
+    setSelected(null);
+  };
 
-  /** Anything that can show where the solicitation says it. Under the wide layout the words appear beneath it instead. */
-  const sourced = (source: Source, children: React.ReactNode, className = "") => {
+  /** Anything that can show where the solicitation says it. On a narrow screen the words appear beneath it instead. */
+  const sourced: Sourced = (source, children, tour) => {
     const on = sameSource(selected, source);
     return (
       <>
-        <button type="button" className={`sourced ${className}`} aria-pressed={on} onClick={() => toggle(source)}>
+        <button type="button" className="sourced" aria-pressed={on} data-tour={tour} onClick={() => toggle(source)}>
           {children}
         </button>
         {on && (
@@ -70,237 +86,248 @@ export function Solicitation({ row, day, documents, events }: Props) {
   ];
 
   const unseen = new Set(row.unseen.map((addendum) => addendum.key));
+  const [sentence, rest] = split(eff.summary);
+  const passes = row.fit.reasons.length;
+  const settled = eff.addenda.reduce((count, addendum) => count + addendum.settles.length, 0);
+  const tabs: { id: Tab; label: string; tour?: string }[] = [
+    ...(eff.addenda.length > 0 ? [{ id: "changes" as const, label: eff.addenda.length === 1 ? `Addendum ${eff.addenda[0].number}` : "Addenda" }] : []),
+    { id: "needs", label: "What the bid needs" },
+    { id: "fit", label: "Does it fit", tour: "tab-fit" },
+    { id: "dates", label: "Dates" },
+    ...(eff.notes.length + settled > 0 ? [{ id: "notes" as const, label: "Worth reading twice" }] : []),
+    { id: "text", label: "Full text" },
+  ];
+  // The words are beside the list on a wide screen. On the full text there is nothing to be beside.
+  const beside = selected !== null && tab !== "text";
 
   return (
-    <main className="mx-auto w-full max-w-[86rem] flex-1 px-4 py-6 sm:px-6 lg:px-8">
-      <p>
-        <Link href={row.status === "new" ? "/" : "/pipeline"} className="link inline-flex min-h-11 items-center">
-          {row.status === "new" ? "Back to Today" : "Back to the pipeline"}
-        </Link>
-      </p>
-      <header className="mt-2 flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
-        <div className="min-w-0 flex-1">
-          <p className="flex flex-wrap items-center gap-2">
-            <span className="chip">
-              {doc.type}, {doc.number}
-            </span>
-            <StatusChip status={row.status} />
-            {(row.status === "new" || row.status === "watching" || row.status === "passed") && <VerdictChip verdict={row.fit.verdict} />}
+    <main className="mx-auto w-full max-w-[62rem] flex-1 px-5 pb-20">
+      <header className="pt-4 sm:pt-6">
+        <p>
+          <Link href={row.status === "new" ? "/" : "/pipeline"} className="inline-flex min-h-11 items-center font-medium text-muted hover:text-ink">
+            {row.status === "new" ? "← Today" : "← Pipeline"}
+          </Link>
+        </p>
+        <h1 className="display mt-1 max-w-[20em]">{doc.title}</h1>
+        <p className="mt-4 max-w-[46rem] text-lg leading-relaxed text-muted">
+          {sentence}{" "}
+          {more && rest}{" "}
+          {rest && (
+            <button type="button" className="quiet text-base" aria-expanded={more} onClick={() => setMore(!more)}>
+              {more ? "Show less" : "Read the summary"}
+            </button>
+          )}
+        </p>
+        {more && (
+          <p className="mt-2 max-w-[46rem] text-[0.9375rem] text-muted">
+            {doc.type}, {doc.number}. Read by AI, recorded for this demo.
+            {eff.addenda.length > 0 && (
+              <span className="font-semibold text-due">
+                {" "}
+                That summary is of the solicitation as first issued. {eff.addenda.length === 1 ? `Addendum ${eff.addenda[0].number} has` : `${eff.addenda.length} addenda have`} changed it since; everything below is up to date.
+              </span>
+            )}
           </p>
-          <h1 className="display mt-4 max-w-[22em] lg:text-[2.75rem]">{doc.title}</h1>
-          <p className="mt-3 text-lg text-muted">
-            {doc.agency}. {row.feed.place}, {row.feed.miles} miles from the yard.
-          </p>
-          <div className="mt-6 empty:hidden">
-            <Stepper status={row.status} labels />
-          </div>
-        </div>
-        <Stamp due={due} day={day} label={dueLabel(doc.type)} struck className="sm:mt-1" />
+        )}
       </header>
 
-      <div className="mt-9 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-8">
-        <div className="min-w-0 space-y-6">
-          {eff.addenda
-            .filter((addendum) => unseen.has(addendum.key))
-            .map((addendum) => (
-              <AddendumPanel key={addendum.key} addendum={addendum} day={day} sourced={sourced} unread>
-                <ActionButton action={() => acknowledgeAction(row.id)} pendingLabel="Saving" className="mt-4">
-                  Got it
-                </ActionButton>
+      <Decide row={row} closed={closed} />
+
+      <dl className="facts mt-7" data-tour="facts">
+        <div>
+          <dt>{dueLabel(doc.type)}</dt>
+          {due ? (
+            <>
+              <dd className={soon ? "text-due" : ""}>
+                {stampParts(due).date}, {countdown(due, day).toLowerCase()}
+              </dd>
+              <dd className={`!text-[0.9375rem] !font-normal ${soon ? "text-due" : "text-muted"}`}>
+                {stampParts(due).time}
+                {facts.due?.addendum != null && <span className="block font-semibold text-due">Changed by Addendum {facts.due.addendum}</span>}
+              </dd>
+            </>
+          ) : (
+            <dd className="text-muted">Not found</dd>
+          )}
+        </div>
+        <div>
+          <dt>Estimate</dt>
+          <dd>{facts.estimated_value ? fmtEstimateFact(facts.estimated_value) : "Not stated"}</dd>
+        </div>
+        <div>
+          <dt>Distance</dt>
+          <dd>{row.feed.miles} miles</dd>
+          <dd className="!text-[0.9375rem] !font-normal text-muted">{row.feed.place}</dd>
+        </div>
+        <div>
+          <dt>Fit</dt>
+          <dd className={verdictText(row.fit.verdict)}>{row.fit.verdict === "good" ? `Passes all ${passes} rules` : VERDICT_LABEL[row.fit.verdict]}</dd>
+          {row.fit.verdict !== "good" && <dd className="!text-[0.9375rem] !font-normal text-muted">{fitNote(row)}</dd>}
+        </div>
+      </dl>
+
+      <div role="tablist" aria-label="Parts of this solicitation" className="tabs mt-9">
+        {tabs.map((each) => (
+          <button key={each.id} type="button" role="tab" id={`tab-${each.id}`} aria-selected={tab === each.id} aria-controls="part" data-tour={each.tour} onClick={() => show(each.id)}>
+            {each.id === "changes" && unseen.size > 0 && <span aria-hidden className="mr-2 inline-block size-2 -translate-y-px rounded-full bg-due" />}
+            {each.label}
+          </button>
+        ))}
+      </div>
+
+      <div className={`mt-4 grid items-start gap-5 ${beside ? "lg:grid-cols-2" : ""}`} data-tour="split">
+        <div role="tabpanel" id="part" aria-labelledby={`tab-${tab}`} className={tab === "text" ? "min-w-0" : "panel min-w-0 px-5 py-4 sm:px-7 sm:py-5"}>
+          {tab === "changes" &&
+            eff.addenda.map((addendum) => (
+              <AddendumPanel key={addendum.key} addendum={addendum} day={day} sourced={sourced} unread={unseen.has(addendum.key)}>
+                {unseen.has(addendum.key) && (
+                  <ActionButton action={() => acknowledgeAction(row.id)} pendingLabel="Saving" className="mt-4">
+                    Got it
+                  </ActionButton>
+                )}
               </AddendumPanel>
             ))}
 
-          <Decide row={row} closed={closed} />
+          {tab === "needs" && (
+            <>
+              <Checklist row={row} sourced={sourced} />
+              {eff.afterAward.length > 0 && (
+                <details open={row.status === "won"} className={`mt-2 border-t border-line pt-2 ${row.status === "won" ? "-mx-3 rounded-xl border-0 bg-good-tint px-3 pb-2" : ""}`}>
+                  <summary className="flex min-h-11 cursor-pointer items-center font-semibold">{row.status === "won" ? "You won it. What the agency needs next" : "If you win"}</summary>
+                  <ul>
+                    {eff.afterAward.map((item, index) => (
+                      <li key={index}>{sourced(item.source, item.text)}</li>
+                    ))}
+                  </ul>
+                </details>
+              )}
+            </>
+          )}
 
-          <div className="panel">
-          <section className="sec" aria-labelledby="summary">
-            <h2 id="summary" className="subheading">
-              What it is
-            </h2>
-            <p className="mt-2 leading-relaxed">{eff.summary}</p>
-            {eff.addenda.length > 0 && (
-              <p className="mt-3 rounded-xl bg-due-tint px-3.5 py-2.5 text-sm font-semibold text-due">
-                That summary is of the solicitation as first issued. {eff.addenda.length === 1 ? `Addendum ${eff.addenda[0].number} has` : `${eff.addenda.length} addenda have`} changed it since. The dates, checklist and essentials below are up to
-                date.
-              </p>
-            )}
-            <p className="mt-3 text-sm text-muted">
-              Read by AI, recorded for this demo. Click any item below to see the words it came from{" "}
-              <span className="hidden lg:inline">in the solicitation on the right.</span>
-              <span className="lg:hidden">in the solicitation.</span>
-            </p>
-          </section>
-
-          <section className="sec" aria-labelledby="dates">
-            <h2 id="dates" className="subheading">
-              Dates to keep
-            </h2>
-            {dates.length ? (
-              <ul className="mt-2">
-                {dates.map((date) => {
-                  const past = isPast(date.when, day);
-                  return (
-                    <li key={date.key}>
-                      {sourced(
-                        date.source,
-                        <span className="grid gap-x-4 sm:grid-cols-[10rem_1fr]">
-                          <span className="font-semibold text-muted">
-                            {date.label}
-                            {date.key === "prebid" && <br className="hidden sm:inline" />}
-                            {date.key === "prebid" && (
-                              <span className={`tag ml-2 text-xs sm:mt-1 sm:ml-0 ${date.mandatory ? "bg-due-tint text-due" : "bg-stone text-muted"}`}>{date.mandatory ? "Mandatory" : "Optional"}</span>
-                            )}
-                          </span>
-                          <span>
-                            <span className={past ? "text-muted" : "font-bold"}>
-                              {fmtWhen(date.when)}
-                              {past ? " (passed)" : ""}
-                            </span>
-                            {date.addendum !== null && (
-                              <span className="block text-sm font-medium text-due">
-                                Changed by Addendum {date.addendum}
-                                {date.was && date.was !== date.when ? (
-                                  <>
-                                    . Was <span className="line-through">{fmtWhen(date.was)}</span>
-                                  </>
-                                ) : null}
-                              </span>
-                            )}
-                          </span>
-                        </span>,
-                      )}
-                    </li>
+          {tab === "fit" && (
+            <div>
+              <div data-tour="fit">
+                <p className="pt-1 pb-2 text-[0.9375rem] text-muted">
+                  Written rules, not AI, against your{" "}
+                  <Link href="/profile" className="quiet">
+                    company profile
+                  </Link>
+                  .
+                </p>
+                <ReasonList reasons={row.fit.reasons} />
+              </div>
+              <h2 className="subheading mt-6 border-t border-line pt-5">The essentials</h2>
+              <ul className="mt-1">
+                {essentials.map((entry) => {
+                  const body = (
+                    <span className="grid gap-x-4 sm:grid-cols-[10rem_1fr]">
+                      <span className="text-muted">{entry.label}</span>
+                      <span>
+                        <span className={entry.source ? "font-semibold" : "text-muted"}>{entry.value}</span>
+                        {entry.addendum !== null && <span className="block text-sm font-medium text-due">Changed by Addendum {entry.addendum}</span>}
+                      </span>
+                    </span>
                   );
+                  return <li key={entry.label}>{entry.source ? sourced(entry.source, body) : <div className="py-2">{body}</div>}</li>;
                 })}
               </ul>
-            ) : (
-              <p className="mt-2 text-muted">The reading found no dates in this solicitation.</p>
-            )}
-            {dates.length > 0 && <p className="mt-2 text-sm text-muted">Times are local to the agency: {ZONE.name}.</p>}
-          </section>
-
-          <Checklist row={row} sourced={sourced} />
-
-          <section className="sec" aria-labelledby="fit">
-            <h2 id="fit" className="subheading">
-              Does it fit
-            </h2>
-            <p className="mt-1 text-sm text-muted">
-              Written rules, not AI. Each compares the solicitation with your{" "}
-              <Link href="/profile" className="link">
-                company profile
-              </Link>
-              .
-            </p>
-            <div className="mt-3">
-              <ReasonList reasons={row.fit.reasons} />
             </div>
-          </section>
+          )}
 
-          <section className="sec" aria-labelledby="essentials">
-            <h2 id="essentials" className="subheading">
-              The essentials
-            </h2>
-            <ul className="mt-2">
-              {essentials.map((entry) => {
-                const body = (
-                  <span className="grid gap-x-4 sm:grid-cols-[10rem_1fr]">
-                    <span className="font-semibold text-muted">{entry.label}</span>
-                    <span>
-                      <span className={entry.source ? "font-bold" : "text-muted"}>{entry.value}</span>
-                      {entry.addendum !== null && <span className="block text-sm font-medium text-due">Changed by Addendum {entry.addendum}</span>}
-                    </span>
-                  </span>
-                );
-                return <li key={entry.label}>{entry.source ? sourced(entry.source, body) : <div className="px-0 py-1.5">{body}</div>}</li>;
-              })}
-            </ul>
-          </section>
+          {tab === "dates" &&
+            (dates.length ? (
+              <>
+                <ul>
+                  {dates.map((date) => {
+                    const past = isPast(date.when, day);
+                    return (
+                      <li key={date.key}>
+                        {sourced(
+                          date.source,
+                          <span className="grid gap-x-4 sm:grid-cols-[12rem_1fr]">
+                            <span className="text-muted">
+                              {date.label}
+                              {date.key === "prebid" && <span className={date.mandatory ? "font-semibold text-due" : ""}>{date.mandatory ? ", mandatory" : ", optional"}</span>}
+                            </span>
+                            <span>
+                              <span className={past ? "text-muted" : "font-semibold"}>
+                                {fmtWhen(date.when)}
+                                {past ? " (passed)" : ""}
+                              </span>
+                              {date.addendum !== null && (
+                                <span className="block text-sm font-medium text-due">
+                                  Changed by Addendum {date.addendum}
+                                  {date.was && date.was !== date.when ? (
+                                    <>
+                                      . Was <span className="line-through">{fmtWhen(date.was)}</span>
+                                    </>
+                                  ) : null}
+                                </span>
+                              )}
+                            </span>
+                          </span>,
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+                <p className="pt-2 pb-1 text-[0.9375rem] text-muted">Times are local to the agency: {ZONE.name}.</p>
+              </>
+            ) : (
+              <p className="py-2 text-muted">The reading found no dates in this solicitation.</p>
+            ))}
 
-          {eff.notes.length > 0 && (
-            <section className="sec" aria-labelledby="notes">
-              <h2 id="notes" className="subheading">
-                Worth reading twice
-              </h2>
-              <p className="mt-1 text-sm text-muted">What the AI flagged while reading: contradictions, unusual conditions, and places it had to choose how to read something.</p>
-              <ul className="mt-2">
+          {tab === "notes" && (
+            <>
+              <p className="pt-1 pb-2 text-[0.9375rem] text-muted">What the AI flagged while reading: contradictions, unusual conditions, and places it had to choose how to read something.</p>
+              <ul>
                 {eff.addenda.flatMap((addendum) =>
                   addendum.settles.map((note, index) => (
                     <li key={`${addendum.key}:${index}`}>
                       {sourced(
                         { doc: note.doc, section: note.section, quote: "" },
                         <>
-                          <span className="tag mr-2 bg-due-tint text-xs text-due">Settled by Addendum {addendum.number}</span>
+                          <span className="font-semibold text-due">Settled by Addendum {addendum.number}. </span>
                           {note.text}
                         </>,
                       )}
                     </li>
                   )),
                 )}
-                {eff.notes.slice(0, 3).map((note, index) => (
+                {eff.notes.map((note, index) => (
                   <li key={index}>{sourced({ doc: note.doc, section: note.section, quote: "" }, note.text)}</li>
                 ))}
               </ul>
-              {eff.notes.length > 3 && (
-                <details className="mt-1">
-                  <summary className="link flex min-h-11 cursor-pointer items-center">{eff.notes.length - 3} more</summary>
-                  <ul>
-                    {eff.notes.slice(3).map((note, index) => (
-                      <li key={index}>{sourced({ doc: note.doc, section: note.section, quote: "" }, note.text)}</li>
-                    ))}
-                  </ul>
-                </details>
-              )}
-            </section>
+            </>
           )}
 
-          {eff.afterAward.length > 0 && (
-            <section className={`sec ${row.status === "won" ? "rounded-b-[1.25rem] bg-good-tint" : ""}`} aria-labelledby="after">
-              <h2 id="after" className="subheading">
-                {row.status === "won" ? "You won it. What the agency needs next" : "If you win"}
-              </h2>
-              <ul className="mt-2">
-                {eff.afterAward.map((item, index) => (
-                  <li key={index}>{sourced(item.source, item.text)}</li>
-                ))}
-              </ul>
-            </section>
-          )}
-          </div>
-
-          {eff.addenda
-            .filter((addendum) => !unseen.has(addendum.key))
-            .map((addendum) => (
-              <AddendumPanel key={addendum.key} addendum={addendum} day={day} sourced={sourced} />
-            ))}
-
-          <section className="panel sec" aria-labelledby="history">
-            <h2 id="history" className="subheading">
-              History
-            </h2>
-            <ol className="mt-2 space-y-1.5">
-              {events.map((event) => (
-                <li key={event.id} className="grid gap-x-4 sm:grid-cols-[7rem_1fr]">
-                  <span className="font-semibold text-muted">{fmtShortDay(event.day)}</span>
-                  <span>{event.text}</span>
-                </li>
-              ))}
-            </ol>
-          </section>
+          {tab === "text" && <DocumentPane documents={documents} selected={null} />}
         </div>
 
-        <DocumentPane documents={documents} selected={selected} />
+        {beside && <DocumentPane documents={documents} selected={selected} onClose={() => setSelected(null)} />}
       </div>
+
+      <details className="mt-9">
+        <summary className="quiet inline-flex min-h-11 items-center">History</summary>
+        <ol className="panel mt-2 px-5 py-3 sm:px-7">
+          {events.map((event) => (
+            <li key={event.id} className="item grid gap-x-4 sm:grid-cols-[7rem_1fr]">
+              <span className="text-muted">{fmtShortDay(event.day)}</span>
+              <span>{event.text}</span>
+            </li>
+          ))}
+        </ol>
+      </details>
     </main>
   );
 }
 
-type Sourced = (source: Source, children: React.ReactNode, className?: string) => React.ReactNode;
+type Sourced = (source: Source, children: React.ReactNode, tour?: string) => React.ReactNode;
 
 /** What an addendum changed, each line with what it said before and what holds now. */
 function AddendumPanel({ addendum, day, sourced, unread = false, children }: { addendum: Addendum; day: number; sourced: Sourced; unread?: boolean; children?: React.ReactNode }) {
   return (
-    <section className={`panel sec ${unread ? "border-[#f5cdb6] bg-gradient-to-b from-due-tint to-surface to-40% shadow-lift" : ""}`} aria-label={`Addendum ${addendum.number}`}>
+    <section className="border-line py-2 not-first:mt-3 not-first:border-t not-first:pt-5" aria-label={`Addendum ${addendum.number}`}>
       <h2 className={`subheading ${unread ? "text-due" : ""}`}>
         Addendum {addendum.number}, found {addendum.day === day ? "this morning" : fmtShortDay(addendum.day)}
       </h2>
@@ -311,13 +338,13 @@ function AddendumPanel({ addendum, day, sourced, unread = false, children }: { a
             {sourced(
               change.source,
               <span className="grid gap-x-4 sm:grid-cols-[10rem_1fr]">
-                <span className="font-semibold text-muted">{change.what}</span>
+                <span className="text-muted">{change.what}</span>
                 <span>
                   <span className="block text-muted line-through decoration-due/60">
                     <span className="sr-only">Before: </span>
                     {change.before}
                   </span>
-                  <span className="block font-bold">
+                  <span className="block font-semibold">
                     <span className="sr-only">Now: </span>
                     {change.after}
                   </span>
@@ -329,7 +356,7 @@ function AddendumPanel({ addendum, day, sourced, unread = false, children }: { a
       </ul>
       {addendum.settles.length > 0 && (
         <>
-          <h3 className="mt-3 font-bold">It also settles</h3>
+          <h3 className="mt-3 font-semibold">It also settles</h3>
           <ul>
             {addendum.settles.map((note, index) => (
               <li key={index}>{sourced({ doc: note.doc, section: note.section, quote: "" }, note.text)}</li>
@@ -349,7 +376,7 @@ function changedNote(item: ChecklistItem, facts: EffectiveFacts): string {
   if (fact === "due" && facts.due) return `${lead} Now due ${fmtWhen(facts.due.value)}.`;
   if (fact === "questions_due" && facts.questions_due) return `${lead} Questions are now due ${fmtWhen(facts.questions_due.value)}.`;
   if (fact === "prebid" && facts.prebid) return `${lead} The meeting is now ${fmtWhen(facts.prebid.value.when)}${facts.prebid.value.mandatory ? " and is mandatory" : ""}.`;
-  return `${lead} See the essentials below for what holds now.`;
+  return `${lead} See the essentials under Does it fit for what holds now.`;
 }
 
 /** Everything the bid needs. While a bid is under way each item can be ticked off. */
@@ -374,20 +401,17 @@ function Checklist({ row, sourced }: { row: Row; sourced: Sourced }) {
   }
 
   return (
-    <section className="sec" aria-labelledby="checklist">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-        <h2 id="checklist" className="subheading">
-          What the bid needs
-        </h2>
+    <section aria-label="What the bid needs" data-tour="needs">
+      <p className="flex flex-wrap items-baseline justify-between gap-x-4 pt-1 pb-2 text-[0.9375rem] text-muted">
+        <span>Read by AI, recorded for this demo. Click a line to see where the solicitation says so.</span>
         {tracked && (
-          <p className="tag bg-accent-tint text-accent-deep tabular-nums">
+          <span className="font-semibold text-accent-deep tabular-nums">
             {done} of {items.length} done
-          </p>
+          </span>
         )}
-      </div>
-      {!tracked && <p className="mt-1 text-sm text-muted">Decide to bid and this becomes a checklist you tick off.</p>}
-      <ul className="mt-2 space-y-0.5">
-        {items.map((item) => {
+      </p>
+      <ul>
+        {items.map((item, index) => {
           const isDone = checked.includes(item.id);
           return (
             <li key={item.id} className="flex items-start">
@@ -403,8 +427,9 @@ function Checklist({ row, sourced }: { row: Row; sourced: Sourced }) {
                   item.source,
                   <>
                     <span className={isDone ? "text-muted" : ""}>{item.text}</span>
-                    {item.addendum !== null && <span className="tag ml-2 bg-due-tint text-xs text-due">Added by Addendum {item.addendum}</span>}
+                    {item.addendum !== null && <span className="font-semibold text-due"> Added by Addendum {item.addendum}.</span>}
                   </>,
+                  index === 0 ? "line" : undefined,
                 )}
                 {item.changed && <p className="pb-1.5 text-sm font-semibold text-due">{changedNote(item, row.eff.facts)}</p>}
               </div>
@@ -429,7 +454,7 @@ function Decide({ row, closed }: { row: Row; closed: boolean }) {
 
   const heading =
     status === "new"
-      ? "Decide"
+      ? "Not decided yet"
       : status === "watching"
         ? "You are watching this one"
         : status === "bidding"
@@ -443,13 +468,16 @@ function Decide({ row, closed }: { row: Row; closed: boolean }) {
                 : "You passed on this one";
 
   return (
-    <section className="sec rounded-[1.25rem] border border-[#d9d4fb] bg-gradient-to-b from-accent-tint to-surface to-55% shadow-lift" aria-labelledby="decide">
-      <h2 id="decide" className="heading">
-        {heading}
-      </h2>
+    <section className="mt-7" aria-labelledby="decide" data-tour="decide">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <Stepper status={status} />
+        <h2 id="decide" className="subheading">
+          {heading}
+        </h2>
+      </div>
       {status === "passed" && row.reason && <p className="mt-1">Because: {row.reason}</p>}
       {status === "new" && row.fit.verdict === "no" && <p className="mt-1 text-sm text-muted">The rules say this is not a fit. You can still bid: you may know something the rules do not.</p>}
-      {status === "bidding" && <p className="mt-1 text-sm text-muted">Tick things off below as they are done. The bid cannot be marked as handed in while anything is missing or an addendum is unread.</p>}
+      {status === "bidding" && <p className="mt-1 text-sm text-muted">Tick things off as they are done. The bid cannot be marked as handed in while anything is missing or an addendum is unread.</p>}
       {status === "submitted" && !closed && <p className="mt-1 text-sm text-muted">If an addendum arrives before the deadline you can take the bid back and change it.</p>}
       {closed && (status === "new" || status === "watching" || status === "bidding" || status === "passed") && <p className="mt-1 font-semibold">The deadline has passed.</p>}
 
@@ -488,7 +516,7 @@ function Decide({ row, closed }: { row: Row; closed: boolean }) {
             </>
           )}
           {canPass && (
-            <button type="button" className="btn btn-quiet w-full sm:w-auto" onClick={() => setPassing(true)}>
+            <button type="button" className="btn btn-quiet" onClick={() => setPassing(true)}>
               Pass
             </button>
           )}
@@ -542,7 +570,7 @@ function PassForm({ id, onClose }: { id: string; onClose: () => void }) {
  * was read from is outlined, and the exact words are marked when the reading
  * quoted them.
  */
-function DocumentPane({ documents, selected }: { documents: SolicitationDoc[]; selected: Source | null }) {
+function DocumentPane({ documents, selected, onClose }: { documents: SolicitationDoc[]; selected: Source | null; onClose?: () => void }) {
   const pane = useRef<HTMLElement | null>(null);
   const target = useRef<HTMLElement | null>(null);
 
@@ -566,10 +594,18 @@ function DocumentPane({ documents, selected }: { documents: SolicitationDoc[]; s
   }, [selected]);
 
   return (
-    <aside ref={pane} aria-label="The solicitation" className="panel min-w-0 lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:self-start lg:overflow-y-auto">
+    <aside ref={pane} aria-label="The solicitation" className={`panel min-w-0 ${onClose ? "max-lg:hidden lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto" : ""}`}>
+      {onClose && (
+        <p className="sticky top-0 z-10 flex items-center justify-between gap-4 rounded-t-[1.25rem] border-b border-line bg-surface px-5 py-2 sm:px-7">
+          <span className="font-semibold">Where it says so</span>
+          <button type="button" className="quiet min-h-11" onClick={onClose}>
+            Close
+          </button>
+        </p>
+      )}
       {documents.map((document, index) => (
-        <article key={document.key} className={`typed px-5 py-7 sm:px-9 sm:py-9 ${index > 0 ? "border-t-2 border-dashed border-edge" : ""}`}>
-          <p className="chip font-sans">
+        <article key={document.key} className={`typed px-5 py-6 sm:px-7 sm:py-7 ${index > 0 ? "border-t-2 border-dashed border-edge" : ""}`}>
+          <p className="font-sans text-[0.9375rem] text-muted">
             {index === 0 ? "The solicitation as issued" : `Addendum ${index}`}. {document.agency}, {document.number}. Issued {document.issued}.
           </p>
           <h2 className="mt-4 text-lg leading-snug font-medium">{document.title}</h2>
