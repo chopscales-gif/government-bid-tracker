@@ -12,7 +12,10 @@ type Props = {
   className?: string;
 };
 
-/** A button that runs one server action, follows it where it leads, and shows the reason if the workflow refuses. */
+/**
+ * A button that runs one server action, follows it where it leads, and shows the reason if the workflow refuses.
+ * In a row of buttons, pass `contents` as the class: the reason then takes a line of its own under the whole row.
+ */
 export function ActionButton({ action, children, pendingLabel, variant = "primary", className = "" }: Props) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -33,7 +36,7 @@ export function ActionButton({ action, children, pendingLabel, variant = "primar
         {pending ? pendingLabel : children}
       </button>
       {error && (
-        <p role="alert" className="mt-2 text-sm text-flag">
+        <p role="alert" className="order-last mt-2 basis-full text-sm text-flag">
           {error}
         </p>
       )}

@@ -486,30 +486,30 @@ function Decide({ row, closed }: { row: Row; closed: boolean }) {
       ) : (
         <div className="mt-4 flex flex-wrap gap-3">
           {!closed && (status === "new" || status === "watching" || status === "passed") && (
-            <ActionButton action={() => startBidAction(id)} pendingLabel="Saving">
+            <ActionButton action={() => startBidAction(id)} pendingLabel="Saving" className="contents">
               {status === "passed" ? "Bid after all" : "Bid on this"}
             </ActionButton>
           )}
           {!closed && (status === "new" || status === "passed") && (
-            <ActionButton action={() => watchAction(id)} pendingLabel="Saving" variant="quiet">
+            <ActionButton action={() => watchAction(id)} pendingLabel="Saving" className="contents" variant="quiet">
               {status === "passed" ? "Watch it again" : "Watch it"}
             </ActionButton>
           )}
           {!closed && status === "bidding" && (
-            <ActionButton action={() => submitAction(id)} pendingLabel="Checking">
+            <ActionButton action={() => submitAction(id)} pendingLabel="Checking" className="contents">
               Mark the bid as handed in
             </ActionButton>
           )}
           {status === "submitted" && (
             <>
-              <ActionButton action={() => resultAction({ id, result: "won" })} pendingLabel="Saving">
+              <ActionButton action={() => resultAction({ id, result: "won" })} pendingLabel="Saving" className="contents">
                 We won it
               </ActionButton>
-              <ActionButton action={() => resultAction({ id, result: "lost" })} pendingLabel="Saving" variant="quiet">
+              <ActionButton action={() => resultAction({ id, result: "lost" })} pendingLabel="Saving" className="contents" variant="quiet">
                 It went to someone else
               </ActionButton>
               {!closed && (
-                <ActionButton action={() => reopenBidAction(id)} pendingLabel="Saving" variant="quiet">
+                <ActionButton action={() => reopenBidAction(id)} pendingLabel="Saving" className="contents" variant="quiet">
                   Take the bid back to change it
                 </ActionButton>
               )}
