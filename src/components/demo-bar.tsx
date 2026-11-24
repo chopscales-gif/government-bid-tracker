@@ -15,7 +15,7 @@ export function DemoBar({ today, canAdvance }: { today: string | null; canAdvanc
   return (
     <div className="demo-chrome border-b border-line text-sm text-muted">
       <div className="mx-auto flex max-w-[84rem] flex-wrap items-center gap-x-5 gap-y-1 px-5 py-2.5">
-        <a href="https://haydenhuelskamp.vercel.app/#government-bids" className="quiet whitespace-nowrap">
+        <a href="https://haydenhuelskamp.com/#government-bids" className="quiet whitespace-nowrap">
           ← All demos
         </a>
         <p className="min-w-0 leading-snug">
